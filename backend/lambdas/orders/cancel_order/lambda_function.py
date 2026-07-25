@@ -68,15 +68,6 @@ def lambda_handler(event, context):
 
         order_items = order.get("Items", [])
         store_id = order.get("StoreId", "")
-        for item in order_items:
-            try:
-                products_table.update_item(
-                    Key={"StoreId": store_id, "ProductId": item["ProductId"]},
-                    UpdateExpression="ADD Stock :qty",
-                    ExpressionAttributeValues={":qty": int(item["Quantity"])}
-                )
-            except Exception as restore_err:
-                print(f"ERROR restaurando stock de {item['ProductId']}: {str(restore_err)}")
 
         now = datetime.utcnow().isoformat()
 
