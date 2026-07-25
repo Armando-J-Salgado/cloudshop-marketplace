@@ -1,0 +1,187 @@
+name: CloudShop CI/CD
+
+on:
+  pull_request:
+    branches: [development, main]
+    paths:
+      - '**.tf'
+      - '**.tfvars'
+      - '.terraform.lock.hcl'
+      - '.github/workflows/terraform.yml'
+  push:
+    branches: [main]
+    paths:
+      - '**.tf'
+      - '**.tfvars'
+      - '.terraform.lock.hcl'
+  workflow_dispatch:
+    inputs:
+      run_apply:
+        description: 'Ejecutar apply (requiere aprobación en el environment aws-prod)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: terraform-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  TF_VERSION: '1.9.8'
+  TF_IN_AUTOMATION: 'true'
+  TF_INPUT: 'false'
+
+jobs:
+  validate:
+    name: fmt + validate
+    runs-on: ubuntu-latest
+    # Sin credenciales AWS: es validación puramente sintáctica.
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+          terraform_wrapper: false
+
+      - name: terraform fmt
+        run: terraform fmt -check -recursive -diff
+
+      - name: init + validate (root)
+        run: |
+          terraform init -backend=false -input=false
+          terraform validate -no-color
+
+      # El root module de infraestructure/cicd se valida pero NUNCA se
+      # aplica desde el pipeline: es apply manual único (ver su README.md).
+      - name: init + validate (infraestructure/cicd)
+        working-directory: infraestructure/cicd
+        run: |
+          terraform init -backend=false -input=false
+          terraform validate -no-color
+
+  plan:
+    name: plan
+    needs: validate
+    # Los PR desde forks no reciben secrets; se saltan en vez de fallar en rojo.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar credenciales AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Verificar identidad
+        run: aws sts get-caller-identity
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+          terraform_wrapper: false
+
+      - name: terraform init
+        run: terraform init -input=false -lockfile=readonly
+
+      - name: terraform plan
+        id: plan
+        continue-on-error: true # para que el comentario se publique también si falla
+        run: |
+          set -o pipefail
+          terraform plan -no-color -input=false -out=tfplan 2>&1 | tee plan.txt
+
+      - name: Comentar el plan en el PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const MARKER = '<!-- cloudshop-terraform-plan -->';
+            const MAX = 60000;
+            let plan = fs.readFileSync('plan.txt', 'utf8');
+            if (plan.length > MAX) {
+              plan = '...(truncado, ver el log completo del job)...\n' + plan.slice(-MAX);
+            }
+            const outcome = '${{ steps.plan.outcome }}';
+            const icon = outcome === 'success' ? '[OK]' : '[FALLO]';
+            const body = [
+              MARKER,
+              `### ${icon} Terraform Plan — \`${outcome}\``,
+              '',
+              '<details><summary>Ver salida completa</summary>',
+              '',
+              '```terraform',
+              plan,
+              '```',
+              '</details>',
+            ].join('\n');
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const prev = comments.find(c => c.body && c.body.includes(MARKER));
+            if (prev) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                comment_id: prev.id, body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: context.issue.number, body,
+              });
+            }
+
+      - name: Marcar el job en rojo si el plan falló
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
+
+  apply:
+    name: apply (con aprobación)
+    needs: plan
+    # Triple candado en el workflow; el cuarto (revisores) lo impone el
+    # GitHub Environment aws-prod.
+    if: |
+      vars.ENABLE_TF_APPLY == 'true' &&
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'push' || inputs.run_apply)
+    runs-on: ubuntu-latest
+    environment:
+      name: aws-prod
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar credenciales AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+          terraform_wrapper: false
+
+      - name: terraform init
+        run: terraform init -input=false -lockfile=readonly
+
+      # TODO(estado-remoto): cuando exista el backend S3 (Laboratorio 10,
+      # Parte 2), sustituir por descargar el artefacto `tfplan` del job
+      # `plan` y ejecutar `terraform apply -input=false tfplan`, para aplicar
+      # EXACTAMENTE lo revisado. Hoy no es posible: sin estado compartido,
+      # un plan guardado es inválido en otro job (Terraform lo rechaza
+      # porque fue generado contra otro estado).
+      - name: terraform apply
+        run: terraform apply -auto-approve -input=false

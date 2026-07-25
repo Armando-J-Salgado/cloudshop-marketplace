@@ -145,13 +145,23 @@ ENV/
 .terraform/
 *.tfstate
 *.tfstate.backup
-.terraform.lock.hcl
-*.tfvars
-*.tfvars.json
+*.tfplan
+tfplan
+crash.log
+crash.*.log
 override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
+
+# terraform.tfvars SÍ se versiona: solo lleva valores no sensibles (región,
+# nombre de proyecto, entorno). Lo sensible va por TF_VAR_* o GitHub Secrets.
+*.auto.tfvars
+*.auto.tfvars.json
+*secret*.tfvars
+*local*.tfvars
+
+# .terraform.lock.hcl SE VERSIONA a propósito (reproducibilidad en CI).
 
 # Archivos de empaquetado Lambda
 *.zip
