@@ -27,7 +27,7 @@ Se implementaron las 4 funciones Lambda en Python para el módulo de carrito de 
 
 ```
 Tabla: Carts
-PK: ClientId (String) → sub del JWT de Cognito
+PK: CustomerId (String) → sub del JWT de Cognito
 
 Atributos:
   - Items     (List)   → [{ ProductId: String, Quantity: Number }]
@@ -44,8 +44,8 @@ Atributos:
 ```
 Request Body: { "ProductId": "abc123", "Quantity": 2 }
 
-1. Extraer ClientId del JWT (claims.sub)
-2. Obtener carrito actual (GetItem con ClientId)
+1. Extraer CustomerId del JWT (claims.sub)
+2. Obtener carrito actual (GetItem con CustomerId)
 3. Si carrito existe:
    - Producto ya en lista → sumar cantidad
    - Producto no en lista → agregar item
@@ -59,7 +59,7 @@ Request Body: { "ProductId": "abc123", "Quantity": 2 }
 ```
 Request Body: { "ProductId": "abc123", "Quantity": 5 }
 
-1. Extraer ClientId del JWT
+1. Extraer CustomerId del JWT
 2. Obtener carrito actual (GetItem)
 3. Buscar producto en Items
 4. Si no existe → 404
@@ -73,7 +73,7 @@ Request Body: { "ProductId": "abc123", "Quantity": 5 }
 ```
 Request Body: { "ProductId": "abc123" }
 
-1. Extraer ClientId del JWT
+1. Extraer CustomerId del JWT
 2. Obtener carrito actual (GetItem)
 3. Filtrar Items removiendo el ProductId indicado
 4. Si no se removió nada → 404
@@ -86,7 +86,7 @@ Request Body: { "ProductId": "abc123" }
 ```
 No body requerido
 
-1. Extraer ClientId del JWT
+1. Extraer CustomerId del JWT
 2. Verificar que carrito existe (GetItem)
 3. Si no existe → 404
 4. Establecer Items = [] y actualizar UpdatedAt (UpdateItem)
@@ -114,7 +114,7 @@ clear_cart: OK
 
 El carrito es consumido por la Lambda `create_order` del módulo de pedidos:
 
-1. `create_order` lee el carrito del usuario (`GetItem` con `ClientId`).
+1. `create_order` lee el carrito del usuario (`GetItem` con `CustomerId`).
 2. Valida stock y precios contra la tabla de productos.
 3. Crea el pedido con los items del carrito.
 4. Vacía el carrito (establece `Items = []`).
@@ -127,7 +127,7 @@ Este flujo garantiza que:
 ## Pendientes para Terraform
 
 Cuando se configure la infraestructura, se necesitará:
-1. Tabla DynamoDB `Carts` con PK=`ClientId` (String)
+1. Tabla DynamoDB `Carts` con PK=`CustomerId` (String)
 2. API Gateway con Cognito Authorizer y las 4 rutas de `/carts`
 3. IAM Role para las Lambdas con permisos de DynamoDB (GetItem, PutItem, UpdateItem) y CloudWatch Logs
 4. Variables de entorno configuradas en cada Lambda

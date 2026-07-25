@@ -33,7 +33,7 @@ def lambda_handler(event, context):
         detail_type = event.get("detail-type", "")
         detail = event.get("detail", {})
 
-        user_id = detail.get("CustomerId") or detail.get("UserId") or detail.get("ClientId", "SYSTEM")
+        user_id = detail.get("CustomerId") or detail.get("UserId") or detail.get("OperatorId", "SYSTEM")
         timestamp = datetime.utcnow().isoformat() + "#" + str(uuid.uuid4())[:8]
 
         audit_table.put_item(Item={

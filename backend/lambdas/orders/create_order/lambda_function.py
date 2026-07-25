@@ -39,7 +39,7 @@ def lambda_handler(event, context):
         if not store_id:
             return _response(400, {"message": "StoreId es requerido"})
 
-        cart_response = carts_table.get_item(Key={"UserId": customer_id})
+        cart_response = carts_table.get_item(Key={"CustomerId": customer_id})
         cart = cart_response.get("Item")
 
         if not cart or not cart.get("Items"):
@@ -96,7 +96,7 @@ def lambda_handler(event, context):
         orders_table.put_item(Item=order)
 
         carts_table.update_item(
-            Key={"UserId": customer_id},
+            Key={"CustomerId": customer_id},
             UpdateExpression="SET #items = :empty",
             ExpressionAttributeNames={"#items": "Items"},
             ExpressionAttributeValues={":empty": []}

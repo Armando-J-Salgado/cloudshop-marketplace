@@ -17,7 +17,7 @@ Tras revisar la documentación y el código existente del módulo de pedidos, se
 ### Esquema de la Tabla Carts (DynamoDB)
 
 ```
-PK:  ClientId  (String)  → sub del JWT de Cognito (ID único del usuario)
+PK:  CustomerId  (String)  → sub del JWT de Cognito (ID único del usuario)
 
 Atributos:
   - Items       (List)    → [{ProductId (String), Quantity (Number)}]
@@ -54,12 +54,12 @@ Atributos:
 
 ```python
 claims = event["requestContext"]["authorizer"]["claims"]
-client_id = claims["sub"]  # ID único del usuario (UUID de Cognito)
+customer_id = claims["sub"]  # ID único del usuario (UUID de Cognito)
 ```
 
 **Control de acceso:**
 
-El carrito es inherentemente personal — cada usuario solo puede operar sobre su propio carrito (identificado por su `sub` del JWT como `ClientId`). No hay roles de admin/operator para operaciones de carrito.
+El carrito es inherentemente personal — cada usuario solo puede operar sobre su propio carrito (identificado por su `sub` del JWT como `CustomerId`). No hay roles de admin/operator para operaciones de carrito.
 
 ---
 
@@ -84,15 +84,15 @@ backend/lambdas/carts/
 ### Lambda 1 — `add_product` (POST /carts/items)
 
 **Lógica de negocio:**
-1. Extraer `ClientId` del JWT Cognito (`event.requestContext.authorizer.claims.sub`).
+1. Extraer `CustomerId` del JWT Cognito (`event.requestContext.authorizer.claims.sub`).
 2. Parsear body: `{ "ProductId": "...", "Quantity": N }` (Quantity default = 1).
 3. Validar que `ProductId` no esté vacío y `Quantity` sea entero > 0.
-4. Consultar la tabla `Carts` con `GetItem` usando `ClientId`.
+4. Consultar la tabla `Carts` con `GetItem` usando `CustomerId`.
 5. Si el carrito existe:
    - Si el producto ya está en el carrito → sumar la cantidad.
    - Si el producto no está → agregarlo a la lista.
    - Actualizar `UpdatedAt`.
-6. Si el carrito no existe → crear nuevo registro con `ClientId`, `Items`, `CreatedAt` y `UpdatedAt`.
+6. Si el carrito no existe → crear nuevo registro con `CustomerId`, `Items`, `CreatedAt` y `UpdatedAt`.
 7. Retornar 200 con el carrito actualizado.
 
 **Validaciones:**
@@ -104,7 +104,7 @@ backend/lambdas/carts/
 ### Lambda 2 — `modify_quantity` (PATCH /carts/items)
 
 **Lógica de negocio:**
-1. Extraer `ClientId` del JWT.
+1. Extraer `CustomerId` del JWT.
 2. Parsear body: `{ "ProductId": "...", "Quantity": N }`.
 3. Validar que `ProductId` no esté vacío y `Quantity` sea entero > 0.
 4. Consultar la tabla `Carts` con `GetItem`.
@@ -125,7 +125,7 @@ backend/lambdas/carts/
 ### Lambda 3 — `remove_product` (DELETE /carts/items)
 
 **Lógica de negocio:**
-1. Extraer `ClientId` del JWT.
+1. Extraer `CustomerId` del JWT.
 2. Parsear body: `{ "ProductId": "..." }`.
 3. Validar que `ProductId` no esté vacío.
 4. Consultar la tabla `Carts` con `GetItem`.
@@ -144,7 +144,7 @@ backend/lambdas/carts/
 ### Lambda 4 — `clear_cart` (DELETE /carts)
 
 **Lógica de negocio:**
-1. Extraer `ClientId` del JWT.
+1. Extraer `CustomerId` del JWT.
 2. Consultar la tabla `Carts` con `GetItem`.
 3. Verificar que el carrito existe.
 4. Actualizar `Items` a lista vacía `[]` y `UpdatedAt` con `UpdateItem`.
@@ -197,7 +197,7 @@ Basado en el código existente del módulo de pedidos:
 - Verificar que la estructura de carpetas coincida con lo propuesto.
 - Revisar que los CORS headers estén presentes en todas las respuestas.
 - Confirmar que la variable de entorno `CARTS_TABLE_NAME` sea consistente entre las 4 Lambdas.
-- Confirmar que la PK utilizada sea `ClientId` (no `UserId`).
+- Confirmar que la PK utilizada sea `CustomerId` (no `UserId` ni `ClientId`).
 
 ### Test Scenarios
 

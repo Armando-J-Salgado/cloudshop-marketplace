@@ -21,9 +21,9 @@ class DecimalEncoder(json.JSONEncoder):
 def lambda_handler(event, context):
     try:
         claims = event["requestContext"]["authorizer"]["claims"]
-        client_id = claims["sub"]
+        customer_id = claims["sub"]
 
-        response = carts_table.get_item(Key={"ClientId": client_id})
+        response = carts_table.get_item(Key={"CustomerId": customer_id})
         cart = response.get("Item")
 
         if not cart:
@@ -32,7 +32,7 @@ def lambda_handler(event, context):
         now = datetime.utcnow().isoformat()
 
         carts_table.update_item(
-            Key={"ClientId": client_id},
+            Key={"CustomerId": customer_id},
             UpdateExpression="SET #items = :empty, UpdatedAt = :now",
             ExpressionAttributeNames={"#items": "Items"},
             ExpressionAttributeValues={":empty": [], ":now": now}
@@ -40,7 +40,7 @@ def lambda_handler(event, context):
 
         return _response(200, {
             "message": "Carrito vaciado exitosamente",
-            "cart": {"ClientId": client_id, "Items": []}
+            "cart": {"CustomerId": customer_id, "Items": []}
         })
 
     except Exception as e:

@@ -21,7 +21,7 @@ class DecimalEncoder(json.JSONEncoder):
 def lambda_handler(event, context):
     try:
         claims = event["requestContext"]["authorizer"]["claims"]
-        client_id = claims["sub"]
+        customer_id = claims["sub"]
 
         body = json.loads(event.get("body", "{}"))
         product_id = body.get("ProductId", "").strip()
@@ -33,7 +33,7 @@ def lambda_handler(event, context):
         if quantity is None or not isinstance(quantity, int) or quantity < 1:
             return _response(400, {"message": "Quantity debe ser un entero mayor a 0"})
 
-        response = carts_table.get_item(Key={"ClientId": client_id})
+        response = carts_table.get_item(Key={"CustomerId": customer_id})
         cart = response.get("Item")
 
         if not cart or not cart.get("Items"):
@@ -54,7 +54,7 @@ def lambda_handler(event, context):
         now = datetime.utcnow().isoformat()
 
         carts_table.update_item(
-            Key={"ClientId": client_id},
+            Key={"CustomerId": customer_id},
             UpdateExpression="SET #items = :items, UpdatedAt = :now",
             ExpressionAttributeNames={"#items": "Items"},
             ExpressionAttributeValues={":items": items, ":now": now}
@@ -62,7 +62,7 @@ def lambda_handler(event, context):
 
         return _response(200, {
             "message": "Cantidad actualizada",
-            "cart": {"ClientId": client_id, "Items": items}
+            "cart": {"CustomerId": customer_id, "Items": items}
         })
 
     except json.JSONDecodeError:
