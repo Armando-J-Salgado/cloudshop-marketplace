@@ -1,7 +1,7 @@
 # Proyecto de Nube: Cloudshop Marketplace
 ## Contexto
 
-<!-- TODO: Descripción del proyecto y su estado actual (actualizado con cada cambio o commit) -->
+CloudShop Marketplace es una plataforma de e-commerce serverless en AWS (Cognito, API Gateway, Lambda, DynamoDB, EventBridge, SES, S3, CloudFront, WAF, CloudWatch), desplegada íntegramente con Terraform. Roadmap: (1) GitHub Actions + IAM de CI/CD ✅ → (2) infraestructura Terraform completa ✅ → (3) front-end React ⏳. Ver [docs/terraform-infra/spec.md](../terraform-infra/spec.md) para el estado de (2) y [PENDIENTE.md](../../PENDIENTE.md) para lo que falta por resolver (código de backend, versión de Terraform, remitente SES real, `apply` inicial autorizado).
 
 ### Recursos auxiliares y referencias para contexto
 

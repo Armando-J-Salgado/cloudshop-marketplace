@@ -61,6 +61,19 @@ data "aws_iam_policy_document" "compute" {
       "arn:aws:cloudwatch::${local.account}:dashboard/${var.project_name}-*",
     ]
   }
+
+  # Terraform gestiona los aws_ssm_parameter que las Lambdas de users/ y
+  # notifications/ leen en runtime (fuera del boundary: esto es gestion del
+  # recurso Parameter Store, no lectura en ejecucion).
+  statement {
+    sid    = "SsmParametrosDelProyecto"
+    effect = "Allow"
+    actions = [
+      "ssm:PutParameter", "ssm:GetParameter", "ssm:GetParameters", "ssm:DeleteParameter",
+      "ssm:AddTagsToResource", "ssm:ListTagsForResource", "ssm:DescribeParameters",
+    ]
+    resources = ["arn:aws:ssm:${var.aws_region}:${local.account}:parameter/app/*"]
+  }
 }
 
 resource "aws_iam_policy" "compute" {
@@ -130,6 +143,7 @@ data "aws_iam_policy_document" "data_edge" {
       "ses:VerifyDomainIdentity", "ses:VerifyEmailIdentity", "ses:DeleteIdentity",
       "ses:GetIdentityVerificationAttributes", "ses:SetIdentityMailFromDomain",
       "ses:TagResource", "ses:UntagResource",
+      "ses:CreateTemplate", "ses:UpdateTemplate", "ses:DeleteTemplate", "ses:GetTemplate",
     ]
     resources = ["*"]
   }
@@ -168,10 +182,35 @@ data "aws_iam_policy_document" "workload_boundary" {
       "dynamodb:GetItem", "dynamodb:PutItem", "dynamodb:UpdateItem", "dynamodb:DeleteItem",
       "dynamodb:Query", "dynamodb:Scan",
       "events:PutEvents",
-      "ses:SendEmail", "ses:SendRawEmail",
-      "logs:CreateLogStream", "logs:PutLogEvents",
+      "ses:SendEmail", "ses:SendRawEmail", "ses:SendTemplatedEmail",
+      "logs:CreateLogStream", "logs:CreateLogGroup", "logs:PutLogEvents",
     ]
     resources = ["*"]
+  }
+
+  # Lambdas de users/ y notifications/ leen config en runtime desde
+  # Parameter Store (user-pool-id, plantilla SES, remitente SES).
+  statement {
+    sid    = "LecturaParametrosDeConfiguracion"
+    effect = "Allow"
+    actions = [
+      "ssm:GetParameter", "ssm:GetParameters",
+    ]
+    resources = ["arn:aws:ssm:*:*:parameter/app/*"]
+  }
+
+  # Lambdas de users/ administran usuarios de Cognito (registro, consulta,
+  # actualizacion, desactivacion) via Admin* API.
+  statement {
+    sid    = "AdministracionDeUsuariosCognito"
+    effect = "Allow"
+    actions = [
+      "cognito-idp:AdminCreateUser", "cognito-idp:AdminGetUser",
+      "cognito-idp:AdminUpdateUserAttributes", "cognito-idp:AdminSetUserPassword",
+      "cognito-idp:AdminDisableUser", "cognito-idp:AdminDeleteUser",
+      "cognito-idp:AdminAddUserToGroup", "cognito-idp:ListUsers",
+    ]
+    resources = ["arn:aws:cognito-idp:*:*:userpool/*"]
   }
 }
 
