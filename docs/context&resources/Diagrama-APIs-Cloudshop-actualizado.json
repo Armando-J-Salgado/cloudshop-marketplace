@@ -1,0 +1,739 @@
+{
+  "version": "31.0.2",
+  "pages": [
+    {
+      "id": "NtsyUJ9v3hxQbXS3IepL",
+      "name": "Página-2",
+      "cells": [
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-7",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-1",
+          "target": "ePTt8hNo-sxGmscUa3q9-6"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-1",
+          "type": "node",
+          "parent": "1"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-9",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-6",
+          "target": "ePTt8hNo-sxGmscUa3q9-8"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-6",
+          "type": "node",
+          "parent": "1",
+          "label": "CloudFront"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-12",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-8",
+          "target": "ePTt8hNo-sxGmscUa3q9-11"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-8",
+          "type": "node",
+          "parent": "1",
+          "label": "Frontend / S3"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-10",
+          "type": "node",
+          "parent": "1",
+          "label": "Usuario"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-14",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-11",
+          "target": "ePTt8hNo-sxGmscUa3q9-13"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-11",
+          "type": "node",
+          "parent": "1",
+          "label": "WAF"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-17",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-15",
+          "label": "POST /registrations"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-27",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-24",
+          "label": "GET /users"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-28",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-26",
+          "label": "PATCH /users/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-31",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-30",
+          "label": "DELETE /users/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-44",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-43",
+          "label": "POST /carts/:id/products/:productId"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-49",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-45",
+          "label": "PATCH /carts/:id/products/:productId"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-52",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-50",
+          "label": "DELETE /carts/:id/products/:productId"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-56",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-51",
+          "label": "DELETE carts/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-58",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-57",
+          "label": "GET carts/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-68",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-62",
+          "label": "POST /products"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-69",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-63",
+          "label": "PATCH /products/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-70",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-64",
+          "label": "GET /products/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-109",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-94",
+          "label": "PATCH /stores/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-110",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-96",
+          "label": "GET /stores/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-111",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-98",
+          "label": "GET /stores"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-112",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-100",
+          "label": "DELETE /stores/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-13",
+          "type": "node",
+          "parent": "1",
+          "label": "API GATEWAY"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-16",
+          "type": "node",
+          "parent": "1",
+          "label": "AUTH MODULE"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-21",
+          "type": "edge",
+          "parent": "ePTt8hNo-sxGmscUa3q9-16",
+          "source": "ePTt8hNo-sxGmscUa3q9-15",
+          "target": "ePTt8hNo-sxGmscUa3q9-20"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-15",
+          "type": "node",
+          "parent": "ePTt8hNo-sxGmscUa3q9-16",
+          "label": "Lambda Register"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-20",
+          "type": "node",
+          "parent": "ePTt8hNo-sxGmscUa3q9-16",
+          "label": "Amazon Cognito"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-22",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-8",
+          "target": "ePTt8hNo-sxGmscUa3q9-20",
+          "label": "POST&nbsp; /login"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-25",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-24",
+          "target": "ePTt8hNo-sxGmscUa3q9-20"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-24",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Obtener Usuarios"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-29",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-26",
+          "target": "ePTt8hNo-sxGmscUa3q9-20"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-26",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Actualizar Usuarios"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-32",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-30",
+          "target": "ePTt8hNo-sxGmscUa3q9-20"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-30",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Desactivar Usuarios"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-37",
+          "type": "node",
+          "parent": "1",
+          "label": "USERS MODULE"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-47",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-43",
+          "target": "ePTt8hNo-sxGmscUa3q9-48"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-43",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Agregar al Carrito"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-53",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-45",
+          "target": "ePTt8hNo-sxGmscUa3q9-48"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-45",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Modificar Cantidades"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-48",
+          "type": "node",
+          "parent": "1",
+          "label": "DynamoDB Carritos"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-54",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-50",
+          "target": "ePTt8hNo-sxGmscUa3q9-48"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-50",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Eliminar Producto del Carrito"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-51",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Vaciar Carrito"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-55",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-51",
+          "target": "ePTt8hNo-sxGmscUa3q9-48"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-59",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-57",
+          "target": "ePTt8hNo-sxGmscUa3q9-48"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-57",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver Detalles del carrito"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-60",
+          "type": "node",
+          "parent": "1",
+          "label": "CARTS MODULE"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-74",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-62",
+          "target": "ePTt8hNo-sxGmscUa3q9-67"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-62",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Crear Producto"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-75",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-63",
+          "target": "ePTt8hNo-sxGmscUa3q9-67"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-63",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Actualizar Producto"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-76",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-64",
+          "target": "ePTt8hNo-sxGmscUa3q9-67"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-64",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver Detalle de Producto"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-71",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-65",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "GET /products"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-77",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-65",
+          "target": "ePTt8hNo-sxGmscUa3q9-67"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-65",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver Productos"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-72",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-66",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "DELETE /products/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-78",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-66",
+          "target": "ePTt8hNo-sxGmscUa3q9-67"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-66",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Desactivar Producto"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-67",
+          "type": "node",
+          "parent": "1",
+          "label": "DynamoDB Productos"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-73",
+          "type": "node",
+          "parent": "1",
+          "label": "PRODUCTS MODULE"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-79",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-80",
+          "target": "ePTt8hNo-sxGmscUa3q9-89"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-103",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-80",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "POST /orders"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-80",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Crear Pedido"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-81",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-82",
+          "target": "ePTt8hNo-sxGmscUa3q9-89"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-104",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-82",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "PATCH /orders/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-82",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Actualizar Pedido"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-83",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-84",
+          "target": "ePTt8hNo-sxGmscUa3q9-89"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-105",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-84",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "GET /orders/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-84",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver Detalle de Pedido"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-85",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-86",
+          "target": "ePTt8hNo-sxGmscUa3q9-89"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-106",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-86",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "GET /orders"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-86",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver Pedidos"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-87",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-88",
+          "target": "ePTt8hNo-sxGmscUa3q9-89"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-107",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-88",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "DELETE /orders/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-88",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Cancelar Pedido"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-89",
+          "type": "node",
+          "parent": "1",
+          "label": "DynamoDB Pedidos"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-90",
+          "type": "node",
+          "parent": "1",
+          "label": "ORDERS MODULE"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-91",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-92",
+          "target": "ePTt8hNo-sxGmscUa3q9-101"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-108",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-92",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "POST /stores"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-92",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Crear Tienda"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-93",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-94",
+          "target": "ePTt8hNo-sxGmscUa3q9-101"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-94",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Actualizar Tienda"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-95",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-96",
+          "target": "ePTt8hNo-sxGmscUa3q9-101"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-96",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver Detalle de Tienda"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-97",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-98",
+          "target": "ePTt8hNo-sxGmscUa3q9-101"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-98",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver&nbsp; Tiendas"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-99",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-100",
+          "target": "ePTt8hNo-sxGmscUa3q9-101"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-100",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Eliminar Tienda"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-101",
+          "type": "node",
+          "parent": "1",
+          "label": "DynamoDB Tiendas"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-102",
+          "type": "node",
+          "parent": "1",
+          "label": "STORES MODULE"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-116",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-113",
+          "target": "ePTt8hNo-sxGmscUa3q9-115"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-118",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-113",
+          "target": "ePTt8hNo-sxGmscUa3q9-117"
+        },
+        {
+          "id": "vBHEgC1R0mUGHL7w-_yg-1",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-113"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-113",
+          "type": "node",
+          "parent": "1",
+          "label": "EventBridge"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-120",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-115",
+          "target": "ePTt8hNo-sxGmscUa3q9-119"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-115",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Enviar Notificación"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-117",
+          "type": "node",
+          "parent": "1",
+          "label": "CloudWatch"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-119",
+          "type": "node",
+          "parent": "1",
+          "label": "SES"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-122",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-121"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-123",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-121"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-124",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-121"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-125",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-121"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-126",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-121"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-121",
+          "type": "node",
+          "parent": "1",
+          "label": "Auditoría"
+        }
+      ]
+    }
+  ]
+}
