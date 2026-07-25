@@ -77,12 +77,7 @@ def lambda_handler(event, context):
             })
             total += price * quantity
 
-        for item in order_items:
-            products_table.update_item(
-                Key={"StoreId": store_id, "ProductId": item["ProductId"]},
-                UpdateExpression="ADD Stock :qty",
-                ExpressionAttributeValues={":qty": -item["Quantity"]}
-            )
+
 
         order_id = str(uuid.uuid4())
         now = datetime.utcnow().isoformat()
