@@ -21,10 +21,7 @@ resource "null_resource" "frontend_build" {
 
   provisioner "local-exec" {
     working_dir = "${path.root}/${var.frontend_dir}"
-    command     = <<-EOT
-      npm install
-      npm run build
-    EOT
+    command     = "npm install && npm run build"
   }
 }
 
@@ -56,7 +53,7 @@ resource "null_resource" "cloudfront_invalidation" {
 
   provisioner "local-exec" {
     command = <<-EOT
-      aws cloudfront create-invalidation --distribution-id ${var.cloudfront_distribution_id} --paths '/*'
+      aws cloudfront create-invalidation --distribution-id ${var.cloudfront_distribution_id} --paths /*
     EOT
   }
 }

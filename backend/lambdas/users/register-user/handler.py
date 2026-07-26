@@ -6,10 +6,6 @@ from botocore.exceptions import ClientError
 ssm_client = boto3.client('ssm')
 cognito_client = boto3.client('cognito-idp')
 
-# Import event emitter from utils
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'utils'))
 from event_emitter import emit_event
 
 PARAM_USER_POOL_ID = '/app/cognito/user-pool-id'
@@ -50,7 +46,7 @@ def is_valid_password(password):
         return False
     if not re.search(r'[0-9]', password):
         return False
-    if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
+    if not re.search(r'[^a-zA-Z0-9]', password):
         return False
     return True
 
@@ -145,8 +141,6 @@ def lambda_handler(event, context):
                 {'Name': 'email', 'Value': email},
                 {'Name': 'email_verified', 'Value': 'true'},
                 {'Name': 'name', 'Value': name},
-                {'Name': 'custom:role', 'Value': 'client'},
-                {'Name': 'custom:status', 'Value': 'active'}
             ],
             MessageAction='SUPPRESS'
         )
