@@ -6,6 +6,12 @@ from botocore.exceptions import ClientError
 ssm_client = boto3.client('ssm')
 cognito_client = boto3.client('cognito-idp')
 
+# Import event emitter from utils
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'utils'))
+from event_emitter import emit_event
+
 PARAM_USER_POOL_ID = '/app/cognito/user-pool-id'
 
 
@@ -70,6 +76,10 @@ def lambda_handler(event, context):
         email = body.get('email')
         password = body.get('password')
         name = body.get('name')
+        
+        # Get user_id from claims (authenticated operation)
+        claims = event.get("requestContext", {}).get("authorizer", {}).get("claims", {})
+        user_id = claims.get("sub", "SYSTEM")
         
         # Validate email presence and format
         if not email:
@@ -144,16 +154,28 @@ def lambda_handler(event, context):
             MessageAction='SUPPRESS_DETAIL_MESSAGE'
         )
         
-        user_id = response['User']['Username']
+        user_id_created = response['User']['Username']
         
-        print(f"User registered successfully: {user_id}")
+        print(f"User registered successfully: {user_id_created}")
+        
+        # Emit audit event
+        emit_event(
+            user_id=user_id,
+            action="REGISTER_USER",
+            result="SUCCESS",
+            details={
+                "RegisteredUserId": user_id_created,
+                "Email": email,
+                "Name": name
+            }
+        )
         
         return {
             'statusCode': 200,
             'body': {
                 'message': 'User registered successfully',
                 'data': {
-                    'user_id': user_id,
+                    'user_id': user_id_created,
                     'email': email,
                     'name': name
                 }

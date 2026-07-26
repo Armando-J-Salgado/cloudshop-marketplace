@@ -5,6 +5,12 @@ from botocore.exceptions import ClientError
 ssm_client = boto3.client('ssm')
 cognito_client = boto3.client('cognito-idp')
 
+# Import event emitter from utils
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'utils'))
+from event_emitter import emit_event
+
 PARAM_USER_POOL_ID = '/app/cognito/user-pool-id'
 
 
@@ -39,9 +45,9 @@ def lambda_handler(event, context):
         
         # Extract user_id from path parameters
         path_params = event.get('pathParameters') or {}
-        user_id = path_params.get('user_id')
+        target_user_id = path_params.get('user_id')
         
-        if not user_id:
+        if not target_user_id:
             return {
                 'statusCode': 400,
                 'body': {
@@ -50,12 +56,16 @@ def lambda_handler(event, context):
                 }
             }
         
+        # Get actor user_id from claims (authenticated operation)
+        claims = event.get("requestContext", {}).get("authorizer", {}).get("claims", {})
+        actor_user_id = claims.get("sub", "SYSTEM")
+        
         # Get User Pool ID
         user_pool_id = get_user_pool_id()
         
         # Check if user exists and get current status
         try:
-            current_status = get_user_status(user_pool_id, user_id)
+            current_status = get_user_status(user_pool_id, target_user_id)
         except ClientError as e:
             if e.response['Error']['Code'] == 'UserNotFoundException':
                 return {
@@ -80,20 +90,31 @@ def lambda_handler(event, context):
         # Perform soft delete by setting status to inactive
         cognito_client.admin_update_user_attributes(
             UserPoolId=user_pool_id,
-            Username=user_id,
+            Username=target_user_id,
             UserAttributes=[
                 {'Name': 'custom:status', 'Value': 'inactive'}
             ]
         )
         
-        print(f"User deactivated successfully: {user_id}")
+        print(f"User deactivated successfully: {target_user_id}")
+        
+        # Emit audit event
+        emit_event(
+            user_id=actor_user_id,
+            action="DELETE_USER",
+            result="SUCCESS",
+            details={
+                "TargetUserId": target_user_id,
+                "NewStatus": "inactive"
+            }
+        )
         
         return {
             'statusCode': 200,
             'body': {
                 'message': 'User successfully deactivated',
                 'data': {
-                    'user_id': user_id,
+                    'user_id': target_user_id,
                     'status': 'inactive'
                 }
             }
