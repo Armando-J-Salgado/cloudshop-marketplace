@@ -65,9 +65,23 @@ def _response(status_code, body):
     }
 
 
+def _is_admin(claims):
+    """Only admins may update other users' accounts."""
+    user_groups = claims.get("cognito:groups", "")
+    if isinstance(user_groups, list):
+        groups = {str(g).strip() for g in user_groups}
+    else:
+        groups = {g.strip() for g in str(user_groups).split(",") if g.strip()}
+    return "admin" in groups
+
+
 def lambda_handler(event, context):
     try:
         print("====== UPDATE USER REQUEST ======")
+
+        # Get actor user_id and claims from the authenticated request
+        claims = event.get("requestContext", {}).get("authorizer", {}).get("claims", {})
+        actor_user_id = claims.get("sub", "SYSTEM")
 
         # Extract user_id from path parameters
         path_params = event.get('pathParameters') or {}
@@ -79,9 +93,13 @@ def lambda_handler(event, context):
                 'error': 'MISSING_USER_ID'
             })
 
-        # Get actor user_id from claims (authenticated operation)
-        claims = event.get("requestContext", {}).get("authorizer", {}).get("claims", {})
-        actor_user_id = claims.get("sub", "SYSTEM")
+        # Only admins can update other users. Users updating their own
+        # profile are also allowed (self-service).
+        if not _is_admin(claims) and actor_user_id != target_user_id:
+            return _response(403, {
+                'message': 'No autorizado para actualizar este usuario',
+                'error': 'FORBIDDEN'
+            })
 
         # Parse request body
         body = json.loads(event.get('body', '{}'))

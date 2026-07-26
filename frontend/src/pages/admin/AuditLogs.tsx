@@ -13,7 +13,9 @@ interface AuditRecord {
 
 export function AuditLogs() {
   const [records, setRecords] = useState<AuditRecord[]>([])
+  const [nextToken, setNextToken] = useState<string | undefined>(undefined)
   const [isLoading, setIsLoading] = useState(true)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [searchTerm, setSearchTerm] = useState("")
 
@@ -21,12 +23,27 @@ export function AuditLogs() {
     setIsLoading(true)
     setError(null)
     try {
-      const data = await apiClient.audit.list()
+      const data = await apiClient.audit.list({ limit: 50 })
       setRecords(data.records)
+      setNextToken(data.next_token)
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Error al cargar los registros de auditoría")
     } finally {
       setIsLoading(false)
+    }
+  }
+
+  const handleLoadMore = async () => {
+    if (!nextToken) return
+    setIsLoadingMore(true)
+    try {
+      const data = await apiClient.audit.list({ limit: 50, nextToken })
+      setRecords((prev) => [...prev, ...data.records])
+      setNextToken(data.next_token)
+    } catch (err) {
+      setError(err instanceof ApiError ? err.message : "Error al cargar más registros")
+    } finally {
+      setIsLoadingMore(false)
     }
   }
 
@@ -145,6 +162,18 @@ export function AuditLogs() {
                 ))}
               </tbody>
             </table>
+          </div>
+        )}
+
+        {!isLoading && nextToken && (
+          <div className="flex justify-center pt-2">
+            <button
+              onClick={handleLoadMore}
+              disabled={isLoadingMore}
+              className="px-5 py-2.5 rounded-xl border border-border text-xs font-bold text-foreground hover:bg-muted transition-colors disabled:opacity-50"
+            >
+              {isLoadingMore ? "Cargando..." : "Cargar más registros"}
+            </button>
           </div>
         )}
       </div>

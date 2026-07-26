@@ -1,7 +1,7 @@
 import React from "react"
 import { PageHeader } from "@/components/common/PageHeader"
 import { useAuth } from "@/hooks/useAuth"
-import { Mail, Shield, Key, Calendar } from "lucide-react"
+import { Mail, Shield, Key } from "lucide-react"
 
 export function Profile() {
   const { user, roles } = useAuth()
@@ -54,18 +54,11 @@ export function Profile() {
             <p className="text-sm font-semibold text-foreground capitalize">{roles.join(", ")}</p>
           </div>
 
-          <div className="p-4 rounded-xl bg-muted/40 border border-border space-y-1">
+          <div className="p-4 rounded-xl bg-muted/40 border border-border space-y-1 md:col-span-2">
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <Key className="h-4 w-4" /> ID de Usuario (Cognito Sub)
             </div>
             <p className="text-xs font-mono font-semibold text-foreground">{userId}</p>
-          </div>
-
-          <div className="p-4 rounded-xl bg-muted/40 border border-border space-y-1">
-            <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
-              <Calendar className="h-4 w-4" /> Fecha de Registro
-            </div>
-            <p className="text-sm font-semibold text-foreground">25 de Julio, 2026</p>
           </div>
         </div>
       </div>

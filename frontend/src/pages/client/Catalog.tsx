@@ -11,7 +11,9 @@ export function Catalog() {
   const { addItem } = useCart()
   const [search, setSearch] = useState("")
   const [products, setProducts] = useState<Product[]>([])
+  const [nextToken, setNextToken] = useState<string | undefined>(undefined)
   const [isLoading, setIsLoading] = useState(true)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [addingId, setAddingId] = useState<string | null>(null)
 
@@ -19,9 +21,12 @@ export function Catalog() {
     let cancelled = false
     setIsLoading(true)
     apiClient.products
-      .list()
+      .list({ limit: 20 })
       .then((result) => {
-        if (!cancelled) setProducts(result.products)
+        if (!cancelled) {
+          setProducts(result.products)
+          setNextToken(result.next_token)
+        }
       })
       .catch((err) => {
         if (!cancelled) setError(err instanceof ApiError ? err.message : "Error al cargar el catálogo")
@@ -33,6 +38,20 @@ export function Catalog() {
       cancelled = true
     }
   }, [])
+
+  const handleLoadMore = async () => {
+    if (!nextToken) return
+    setIsLoadingMore(true)
+    try {
+      const result = await apiClient.products.list({ limit: 20, nextToken })
+      setProducts((prev) => [...prev, ...result.products])
+      setNextToken(result.next_token)
+    } catch (err) {
+      setError(err instanceof ApiError ? err.message : "Error al cargar más productos")
+    } finally {
+      setIsLoadingMore(false)
+    }
+  }
 
   const filtered = products.filter((p) =>
     p.Name?.toLowerCase().includes(search.toLowerCase())
@@ -128,6 +147,18 @@ export function Catalog() {
               </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {!isLoading && nextToken && (
+        <div className="flex justify-center pt-2">
+          <button
+            onClick={handleLoadMore}
+            disabled={isLoadingMore}
+            className="px-5 py-2.5 rounded-xl border border-border text-xs font-bold text-foreground hover:bg-muted transition-colors disabled:opacity-50"
+          >
+            {isLoadingMore ? "Cargando..." : "Cargar más productos"}
+          </button>
         </div>
       )}
     </div>

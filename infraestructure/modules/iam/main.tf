@@ -228,7 +228,8 @@ resource "aws_iam_role_policy" "users" {
   })
 }
 
-# --- audit: solo escritura en audit (consumidor de EventBridge) ---
+# --- audit: escritura (consumidor de EventBridge) + lectura (lambda de
+# consulta para el panel de auditoria del admin) ---
 resource "aws_iam_role_policy" "audit" {
   name = "${var.project_name}-audit-policy"
   role = aws_iam_role.audit.id
@@ -238,7 +239,7 @@ resource "aws_iam_role_policy" "audit" {
     Statement = [
       {
         Effect   = "Allow"
-        Action   = ["dynamodb:PutItem"]
+        Action   = ["dynamodb:PutItem", "dynamodb:Query", "dynamodb:Scan"]
         Resource = [var.table_arns["audit"]]
       },
     ]

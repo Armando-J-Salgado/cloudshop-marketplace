@@ -22,13 +22,18 @@ def lambda_handler(event, context):
         claims = event["requestContext"]["authorizer"]["claims"]
         customer_id = claims["sub"]
 
-        response = carts_table.get_item(Key={"CustomerId": customer_id})
+        path_params = event.get("pathParameters") or {}
+        cart_id = path_params.get("id")
+        if cart_id and cart_id != customer_id:
+            return _response(403, {"message": "No tienes acceso a este carrito"})
+
+        response = carts_table.get_item(Key={"ClientId": customer_id})
         cart = response.get("Item")
 
         if not cart:
             return _response(200, {
                 "cart": {
-                    "CustomerId": customer_id,
+                    "ClientId": customer_id,
                     "Items": []
                 }
             })

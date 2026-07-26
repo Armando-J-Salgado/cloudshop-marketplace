@@ -18,6 +18,8 @@ locals {
     stores_id            = aws_api_gateway_resource.stores_id
     orders               = aws_api_gateway_resource.orders
     orders_id            = aws_api_gateway_resource.orders_id
+    dashboard            = aws_api_gateway_resource.dashboard
+    audit                = aws_api_gateway_resource.audit
   }
 
   # Una entrada por ruta del diagrama. `auth = "NONE"` solo en el registro
@@ -171,14 +173,28 @@ locals {
       lambda_key   = "orders_cancel"
       auth         = "COGNITO_USER_POOLS"
     }
+
+    dashboard_get = {
+      resource_key = "dashboard"
+      method       = "GET"
+      lambda_key   = "dashboard_get"
+      auth         = "COGNITO_USER_POOLS"
+    }
+
+    audit_get = {
+      resource_key = "audit"
+      method       = "GET"
+      lambda_key   = "audit_get"
+      auth         = "COGNITO_USER_POOLS"
+    }
   }
 
   # Solo rutas cuya Lambda ya tiene código (var.lambda_invoke_arns viene del
-  # módulo lambdas y ya excluye stores/*, dashboard/* y carts_get mientras
-  # no exista su handler). Así el plan no falla por una clave ausente. Los
-  # valores usados para filtrar (route.lambda_key, las claves de
-  # var.lambda_invoke_arns) son literales/estructurales, conocidos en plan
-  # aunque los ARN todavía no lo estén.
+  # módulo lambdas, que filtra por fileexists() sobre el entry file real).
+  # Así el plan no falla por una clave ausente si algún handler todavía no
+  # existe. Los valores usados para filtrar (route.lambda_key, las claves
+  # de var.lambda_invoke_arns) son literales/estructurales, conocidos en
+  # plan aunque los ARN todavía no lo estén.
   active_routes = {
     for key, route in local.routes : key => route
     if contains(keys(var.lambda_invoke_arns), route.lambda_key)

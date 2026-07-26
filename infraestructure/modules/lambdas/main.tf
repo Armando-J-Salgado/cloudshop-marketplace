@@ -1,9 +1,9 @@
 locals {
-  # Mapa completo, incluidas las funciones que aún no tienen código
-  # (stores/*, dashboard/*). `enabled` decide si el recurso se crea; se
-  # calcula con fileexists() sobre el entry file real, así que la Lambda
-  # aparece sola en el siguiente `plan` en cuanto los compañeros hagan push
-  # sin que Terraform tenga que escribir una línea de Python.
+  # Mapa completo de funciones Lambda. `enabled_functions` decide si el
+  # recurso se crea; se calcula con fileexists() sobre el entry file real,
+  # así que cualquier Lambda futura sin código aún aparece sola en el
+  # siguiente `plan` en cuanto exista su handler, sin que Terraform tenga
+  # que escribir una línea de Python.
   functions = {
     # --- orders (5) ---
     orders_create = {
@@ -104,9 +104,6 @@ locals {
         CARTS_TABLE_NAME = var.table_names["carts"]
       }
     }
-    # GET /carts/{id} (diagrama: "Lambda Ver Detalles del carrito") no tiene
-    # código todavía — las otras 4 de carts/ sí. Mismo guard fileexists que
-    # stores/dashboard.
     carts_get = {
       source_dir = "${path.root}/backend/lambdas/carts/get_cart"
       entry_file = "lambda_function.py"
@@ -170,7 +167,7 @@ locals {
       }
     }
 
-    # --- stores (5, sin código aún: fileexists los deja en "count 0") ---
+    # --- stores (5) ---
     stores_create = {
       source_dir = "${path.root}/backend/lambdas/stores/create_store"
       entry_file = "lambda_function.py"
@@ -278,7 +275,7 @@ locals {
       env        = {}
     }
 
-    # --- dashboard (1, sin código aún) ---
+    # --- dashboard (1) ---
     dashboard_get = {
       source_dir = "${path.root}/backend/lambdas/dashboard/get_dashboard"
       entry_file = "lambda_function.py"
@@ -288,6 +285,18 @@ locals {
       env = {
         ORDERS_TABLE_NAME   = var.table_names["orders"]
         PRODUCTS_TABLE_NAME = var.table_names["products"]
+      }
+    }
+
+    # --- audit (1, lectura para el panel de auditoria del admin) ---
+    audit_get = {
+      source_dir = "${path.root}/backend/lambdas/audit/get_audit_logs"
+      entry_file = "lambda_function.py"
+      handler    = "lambda_function.lambda_handler"
+      name       = "audit-get"
+      role       = "audit"
+      env = {
+        AUDIT_TABLE_NAME = var.table_names["audit"]
       }
     }
   }
