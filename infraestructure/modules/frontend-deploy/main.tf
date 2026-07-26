@@ -56,7 +56,7 @@ resource "null_resource" "cloudfront_invalidation" {
 
   provisioner "local-exec" {
     command = <<-EOT
-      aws cloudfront create-invalidation --distribution-id ${var.cloudfront_distribution_id} --paths '/*'
+      aws cloudfront create-invalidation --distribution-id ${var.cloudfront_distribution_id} --paths /*
     EOT
   }
 }

@@ -9,7 +9,6 @@ cognito_client = boto3.client('cognito-idp')
 # Import event emitter from utils
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'utils'))
 from event_emitter import emit_event
 
 PARAM_USER_POOL_ID = '/app/cognito/user-pool-id'
