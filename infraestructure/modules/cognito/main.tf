@@ -14,7 +14,7 @@ resource "aws_cognito_user_pool" "users" {
   mfa_configuration = "OFF"
 
   auto_verified_attributes = ["email"]
-  
+
   schema {
     name                = "role"
     attribute_data_type = "String"
@@ -30,7 +30,7 @@ resource "aws_cognito_user_pool" "users" {
   }
 
   lifecycle {
-    ignore_changes = [ schema ]
+    ignore_changes = [schema]
   }
 }
 

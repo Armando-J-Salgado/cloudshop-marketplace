@@ -283,7 +283,7 @@ locals {
     for key, fn in local.functions : key => fn
     if fileexists("${fn.source_dir}/${fn.entry_file}")
   }
-  
+
   utils_source = "${path.root}/backend/utils"
 }
 
@@ -298,7 +298,7 @@ resource "null_resource" "copy_utils" {
 
   provisioner "local-exec" {
     interpreter = ["cmd", "/C"]
-    command = <<-EOT
+    command     = <<-EOT
       if exist "${local.utils_source}" (
         if exist "${each.value.source_dir}\\utils" (
           rmdir /s /q "${each.value.source_dir}\\utils"
@@ -315,7 +315,7 @@ data "archive_file" "this" {
   type        = "zip"
   source_dir  = each.value.source_dir
   output_path = "${path.root}/.terraform-build/${each.key}.zip"
-  
+
   depends_on = [null_resource.copy_utils]
 }
 
