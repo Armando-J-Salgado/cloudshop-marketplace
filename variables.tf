@@ -30,6 +30,7 @@ variable "ses_source_email" {
 variable "workload_boundary_arn" {
   description = "ARN del permissions boundary CloudShopWorkloadBoundary (output workload_boundary_arn de infraestructure/cicd/). Obligatorio en todo rol IAM de aplicación."
   type        = string
+  default     = null
 }
 
 variable "api_key" {

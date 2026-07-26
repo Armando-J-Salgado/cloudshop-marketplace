@@ -213,7 +213,7 @@ resource "aws_api_gateway_method" "route" {
   http_method      = each.value.method
   authorization    = each.value.auth
   authorizer_id    = each.value.auth == "COGNITO_USER_POOLS" ? aws_api_gateway_authorizer.cognito.id : null
-  api_key_required = each.value.auth == "COGNITO_USER_POOLS"
+  api_key_required = false
 }
 
 resource "aws_api_gateway_integration" "route" {

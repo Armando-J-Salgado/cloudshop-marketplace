@@ -10,6 +10,7 @@ variable "aws_region" {
 variable "workload_boundary_arn" {
   description = "ARN de CloudShopWorkloadBoundary (infraestructure/cicd/). Obligatorio en todo rol."
   type        = string
+  default     = null
 }
 
 variable "table_arns" {

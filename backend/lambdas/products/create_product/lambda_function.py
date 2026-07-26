@@ -7,9 +7,7 @@ from decimal import Decimal
 
 import boto3
 
-# Add utils directory to path for importing event_emitter
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'utils'))
-from event_emitter import emit_event
+from utils.event_emitter import emit_event
 
 dynamodb = boto3.resource("dynamodb")
 
@@ -40,7 +38,7 @@ def lambda_handler(event, context):
         if not store_id:
             return _response(400, {"message": "StoreId es requerido"})
             
-        required_fields = ["Code", "Name", "Description", "Category", "Price", "Stock"]
+        required_fields = ["ProductId", "Name", "Description", "Category", "Price", "Stock"]
         for field in required_fields:
             if field not in body:
                 return _response(400, {"message": f"El campo {field} es requerido"})
