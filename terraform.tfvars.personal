@@ -19,7 +19,9 @@ ses_source_email = "20245387+cloudshop@esen.edu.sv"
 # IMPORTANTE: Debes crear la política CloudShopWorkloadBoundary en TU cuenta primero
 # Sigue las instrucciones en infraestructure/cicd/README.md para crearla en tu cuenta
 # Luego reemplaza el número de cuenta (636017850255) con el TUYO
-workload_boundary_arn = "arn:aws:iam::TU_NUMERO_DE_CUENTA:policy/cicd/CloudShopWorkloadBoundary"
+# COMENTADO PARA DESPLIEGUE PERSONAL SIN RESTRICCIONES DE LÍMITES IAM
+# workload_boundary_arn = "arn:aws:iam::TU_NUMERO_DE_CUENTA:policy/cicd/CloudShopWorkloadBoundary"
+workload_boundary_arn = null
 
 # API Key opcional para el frontend
 api_key = ""
