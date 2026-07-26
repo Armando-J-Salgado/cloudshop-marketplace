@@ -1,7 +1,7 @@
 # Genera el archivo .env.production con las variables para Vite
 resource "local_file" "env_production" {
   filename = "${path.root}/${var.frontend_dir}/.env.production"
-  
+
   content = <<EOF
 VITE_API_URL=${var.api_url}
 VITE_COGNITO_USER_POOL_ID=${var.user_pool_id}
