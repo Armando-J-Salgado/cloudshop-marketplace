@@ -10,7 +10,7 @@ El proyecto integra almacenamiento en la nube, distribución de contenido, APIs 
 
 ## Enlace al sitio desplegado:
 
-[Cloudshop store](https://d2ox01s1fkgcgs.cloudfront.net)
+[Cloudshop store](https://d2ox01s1fkgcgs.cloudfront.net/login)
 
 > ⚠️ **AVISO IMPORTANTE:** Al abrir el enlace, asegúrate de dirigirte inmediatamente a la página de **Login / Registro** e iniciar sesión. Si intentas navegar por los módulos del sistema sin haber iniciado sesión previamente, la aplicación mostrará un error de "Unauthorized" (No autorizado).
 
@@ -83,8 +83,8 @@ Una vez que el backend y las bases de datos estén desplegados en AWS, puedes ca
    ```bash
    python seed_data.py
    ```
-2. El script te pedirá que ingreses tu `project_name` (ej. `cloudshop-tato`). Esto asegura que los datos se guarden en las tablas de DynamoDB correctas para tu entorno aislado.
-   _(Si no ingresas nada y presionas Enter, por defecto usará `cloudshop`)._
+2. El script te pedirá que ingreses tu `project_name` (ej. `cloudshop-user`). Esto asegura que los datos se guarden en las tablas de DynamoDB correctas para tu entorno aislado.
+   _(Si no ingresas nada y presionas Enter, por defecto usará `cloudshop`, si es que no personalizaste los nombres de los recursos)._
 
 ### Paso 4: Configuración y Ejecución del Frontend (Local)
 
