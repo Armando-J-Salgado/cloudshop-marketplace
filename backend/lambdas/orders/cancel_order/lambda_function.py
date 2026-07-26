@@ -41,11 +41,15 @@ def lambda_handler(event, context):
             return _response(400, {"message": "OrderId es requerido"})
 
         if is_admin:
-            response = orders_table.scan(
-                FilterExpression=Attr("OrderId").eq(order_id),
-                Limit=1
-            )
+            response = orders_table.scan(FilterExpression=Attr("OrderId").eq(order_id))
             items = response.get("Items", [])
+            while "LastEvaluatedKey" in response and not items:
+                response = orders_table.scan(
+                    FilterExpression=Attr("OrderId").eq(order_id),
+                    ExclusiveStartKey=response["LastEvaluatedKey"]
+                )
+                items.extend(response.get("Items", []))
+            
             if not items:
                 return _response(404, {"message": "Pedido no encontrado"})
             order = items[0]

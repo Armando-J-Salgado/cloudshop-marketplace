@@ -35,11 +35,15 @@ def lambda_handler(event, context):
             )
             product = response.get("Item")
         else:
-            response = products_table.scan(
-                FilterExpression=Attr("ProductId").eq(product_id),
-                Limit=1
-            )
+            response = products_table.scan(FilterExpression=Attr("ProductId").eq(product_id))
             items = response.get("Items", [])
+            while "LastEvaluatedKey" in response and not items:
+                response = products_table.scan(
+                    FilterExpression=Attr("ProductId").eq(product_id),
+                    ExclusiveStartKey=response["LastEvaluatedKey"]
+                )
+                items.extend(response.get("Items", []))
+            
             product = items[0] if items else None
 
         if not product:
