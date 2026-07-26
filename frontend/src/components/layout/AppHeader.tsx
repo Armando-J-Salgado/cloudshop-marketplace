@@ -2,11 +2,13 @@ import React, { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { UserMenu } from "./UserMenu"
 import { useAuth } from "@/hooks/useAuth"
+import { useCart } from "@/context/CartContext"
 import { ShoppingCart, Store, ShoppingBag, Shield, Menu, X } from "lucide-react"
 
 export function AppHeader() {
   const location = useLocation()
   const { roles } = useAuth()
+  const { items, subtotal } = useCart()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isCartSheetOpen, setIsCartSheetOpen] = useState(false)
 
@@ -76,9 +78,11 @@ export function AppHeader() {
             aria-label="Carrito de compras"
           >
             <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-accent text-accent-foreground text-[10px] font-bold flex items-center justify-center">
-              2
-            </span>
+            {items.length > 0 && (
+              <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-accent text-accent-foreground text-[10px] font-bold flex items-center justify-center">
+                {items.length}
+              </span>
+            )}
           </button>
 
           {/* User Menu */}
@@ -128,36 +132,31 @@ export function AppHeader() {
                 </button>
               </div>
 
-              {/* Sample Cart Items */}
+              {/* Cart Items from Context */}
               <div className="py-4 space-y-3">
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 border border-border">
-                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center font-bold text-primary text-xs">
-                    PROD
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xs font-semibold text-foreground truncate">Producto Ejemplo A</p>
-                    <p className="text-[11px] text-muted-foreground">Tienda Central • Cantidad: 1</p>
-                    <p className="text-xs font-bold text-primary mt-0.5">$24.99</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 border border-border">
-                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center font-bold text-primary text-xs">
-                    PROD
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xs font-semibold text-foreground truncate">Producto Ejemplo B</p>
-                    <p className="text-[11px] text-muted-foreground">Tienda Express • Cantidad: 2</p>
-                    <p className="text-xs font-bold text-primary mt-0.5">$15.00</p>
-                  </div>
-                </div>
+                {items.length === 0 ? (
+                  <p className="text-xs text-muted-foreground py-6 text-center">Tu carrito está vacío.</p>
+                ) : (
+                  items.map((item) => (
+                    <div key={item.productId} className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 border border-border">
+                      <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center font-bold text-primary text-xs">
+                        {item.name.slice(0, 4).toUpperCase()}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-semibold text-foreground truncate">{item.name}</p>
+                        <p className="text-[11px] text-muted-foreground">Cantidad: {item.quantity}</p>
+                        <p className="text-xs font-bold text-primary mt-0.5">${(item.price * item.quantity).toFixed(2)}</p>
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
 
             <div className="border-t border-border pt-4 space-y-3">
               <div className="flex items-center justify-between text-sm">
                 <span className="text-muted-foreground font-medium">Total Estimado:</span>
-                <span className="font-extrabold text-foreground text-base">$54.99</span>
+                <span className="font-extrabold text-foreground text-base">${subtotal.toFixed(2)}</span>
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <Link
