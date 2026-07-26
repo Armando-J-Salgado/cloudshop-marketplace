@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react"
-import { cognitoAuth as authAdapter } from "@/services/cognitoAuth"
+import { mockAuth as authAdapter } from "@/services/mockAuth"
 import type { AuthUser, UserRole } from "@/services/mockAuth"
 
 export type AuthStatus = "loading" | "authed" | "anon"
