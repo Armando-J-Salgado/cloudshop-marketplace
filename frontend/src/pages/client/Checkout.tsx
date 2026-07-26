@@ -1,14 +1,37 @@
-import React from "react"
+import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { PageHeader } from "@/components/common/PageHeader"
-import { CheckCircle2, CreditCard, MapPin } from "lucide-react"
+import { CheckCircle2, CreditCard, MapPin, AlertCircle } from "lucide-react"
+import { useCart } from "@/context/CartContext"
+import { apiClient, ApiError } from "@/services/apiClient"
 
 export function Checkout() {
   const navigate = useNavigate()
+  const { items, subtotal, clear } = useCart()
+  const [error, setError] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const storeId = items[0]?.storeId
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    navigate("/pedidos/ord-88392")
+    setError(null)
+
+    if (!storeId) {
+      setError("El carrito está vacío")
+      return
+    }
+
+    setIsSubmitting(true)
+    try {
+      const order = await apiClient.orders.create(storeId)
+      await clear()
+      navigate(`/pedidos/${order.OrderId}`)
+    } catch (err) {
+      setError(err instanceof ApiError ? err.message : "Error al procesar el pedido")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -18,9 +41,15 @@ export function Checkout() {
         description="Verifica tus datos de envío y confirma la creación del pedido"
       />
 
+      {error && (
+        <div className="p-3 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-xs font-semibold flex items-center gap-2">
+          <AlertCircle className="h-4 w-4 shrink-0" />
+          <span>{error}</span>
+        </div>
+      )}
+
       <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="md:col-span-2 space-y-6">
-          {/* Shipping Address */}
           <div className="bg-card border border-border rounded-2xl p-6 space-y-4 shadow-xs">
             <h3 className="text-base font-bold text-foreground flex items-center gap-2">
               <MapPin className="h-5 w-5 text-primary" /> Dirección de Envío
@@ -59,38 +88,29 @@ export function Checkout() {
             </div>
           </div>
 
-          {/* Payment Method */}
           <div className="bg-card border border-border rounded-2xl p-6 space-y-4 shadow-xs">
             <h3 className="text-base font-bold text-foreground flex items-center gap-2">
               <CreditCard className="h-5 w-5 text-primary" /> Método de Pago
             </h3>
             <p className="text-xs text-muted-foreground">
-              En este demo de Fase 1, el pedido se registrará directamente con estado <strong>CREADO</strong>.
+              El pedido se registrará directamente con estado <strong>PENDING</strong>.
             </p>
           </div>
         </div>
 
-        {/* Final Order Confirmation Card */}
         <div className="bg-card border border-border rounded-2xl p-6 shadow-sm space-y-4 h-fit">
           <h3 className="text-base font-bold text-foreground border-b border-border pb-3">Resumen de Pago</h3>
           <div className="space-y-2 text-xs">
-            <div className="flex justify-between text-muted-foreground">
-              <span>Total Productos:</span>
-              <span className="font-semibold text-foreground">$1,559.97</span>
-            </div>
-            <div className="flex justify-between text-muted-foreground">
-              <span>Envío:</span>
-              <span className="font-semibold text-foreground">$15.00</span>
-            </div>
             <div className="flex justify-between text-sm font-extrabold text-foreground pt-3 border-t border-border">
               <span>Total a pagar:</span>
-              <span className="text-primary text-lg">$1,574.97</span>
+              <span className="text-primary text-lg">${subtotal.toFixed(2)}</span>
             </div>
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 px-4 rounded-xl bg-primary text-primary-foreground font-bold text-xs shadow-md hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+            disabled={isSubmitting || items.length === 0}
+            className="w-full py-3 px-4 rounded-xl bg-primary text-primary-foreground font-bold text-xs shadow-md hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-50"
           >
             <CheckCircle2 className="h-4 w-4" /> Procesar Pedido
           </button>

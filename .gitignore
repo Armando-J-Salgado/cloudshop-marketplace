@@ -40,6 +40,8 @@ coverage.xml
 /.env
 /.env.local
 /.env.*
+!.env.example
+!**/.env.example
 /.python-version
 /pip-log.txt
 /pip-delete-this-directory.txt

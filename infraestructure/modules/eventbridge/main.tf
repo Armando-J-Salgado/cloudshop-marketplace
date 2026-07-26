@@ -63,10 +63,10 @@ resource "aws_lambda_permission" "audit" {
 # send-order-notification/handler.py tiene forma de integración HTTP
 # (json.loads(event["body"])), no de consumidor de evento nativo.
 #
-# GAP CONOCIDO (ver PENDIENTE.md): el Detail que emite create_order no
-# incluye "items", y el handler exige un array no vacío -> hoy siempre
-# devuelve 400. Se cablea igual para que quede listo en cuanto
-# create_order añada "Items" al Detail.
+# create_order incluye "Items" en el Detail (ver
+# backend/lambdas/orders/create_order/lambda_function.py); se mapea aquí a
+# "items" para que send-order-notification reciba el array no vacío que
+# valida en validate_order_data().
 resource "aws_cloudwatch_event_target" "notifications_order_created" {
   rule           = aws_cloudwatch_event_rule.order_created.name
   event_bus_name = aws_cloudwatch_event_bus.this.name
@@ -78,12 +78,13 @@ resource "aws_cloudwatch_event_target" "notifications_order_created" {
       order_id       = "$.detail.OrderId"
       customer_id    = "$.detail.CustomerId"
       customer_email = "$.detail.Email"
+      items          = "$.detail.Items"
       status         = "$.detail.Status"
       total          = "$.detail.Total"
     }
     input_template = <<-EOF
       {
-        "body": "{\"order_id\": \"<order_id>\", \"customer_id\": \"<customer_id>\", \"customer_email\": \"<customer_email>\", \"items\": [], \"status\": \"<status>\", \"total\": <total>}"
+        "body": "{\"order_id\": \"<order_id>\", \"customer_id\": \"<customer_id>\", \"customer_email\": \"<customer_email>\", \"items\": <items>, \"status\": \"<status>\", \"total\": <total>}"
       }
     EOF
   }

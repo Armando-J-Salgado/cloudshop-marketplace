@@ -1,10 +1,30 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { UserPlus, Mail, Lock, User, Phone, MapPin, ArrowRight, ShieldAlert } from "lucide-react"
+import React, { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { UserPlus, Mail, Lock, User, ArrowRight, AlertCircle } from "lucide-react"
+import { apiClient, ApiError } from "@/services/apiClient"
 
 export function Register() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const navigate = useNavigate()
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError(null)
+    setIsLoading(true)
+
+    try {
+      await apiClient.registrations.register(email, password, name)
+      navigate("/login")
+    } catch (err) {
+      const message = err instanceof ApiError ? err.message : "Error al registrar la cuenta"
+      setError(message)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -15,21 +35,15 @@ export function Register() {
             <UserPlus className="h-6 w-6" />
           </div>
           <h2 className="text-2xl font-bold text-foreground tracking-tight">Crear Cuenta</h2>
-          <p className="text-xs text-muted-foreground mt-1">
-            Módulo de Registro de Usuarios (POST /registrations)
-          </p>
+          <p className="text-xs text-muted-foreground mt-1">Registro de usuarios (POST /registrations)</p>
         </div>
 
-        {/* Backend Placeholder Notice */}
-        <div className="mb-4 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-800 dark:text-amber-300 text-xs font-medium space-y-1">
-          <div className="flex items-center gap-1.5 font-bold">
-            <ShieldAlert className="h-4 w-4 text-amber-600" /> Registro - Backend Pendiente (Fase 3)
+        {error && (
+          <div className="mb-4 p-3 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-xs font-semibold flex items-center gap-2">
+            <AlertCircle className="h-4 w-4 shrink-0" />
+            <span>{error}</span>
           </div>
-          <p className="text-[11px] leading-relaxed">
-            El registro se consume vía HTTP contra <code>POST /registrations</code> en la Fase 3.
-            Por el momento, puedes iniciar sesión directamente con las cuentas semilla.
-          </p>
-        </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-3">
           <div className="space-y-1">
@@ -38,9 +52,11 @@ export function Register() {
               <User className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
               <input
                 type="text"
-                disabled
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="Juan Pérez"
-                className="w-full pl-9 pr-3 py-2 text-xs bg-muted/50 border border-border rounded-xl text-foreground cursor-not-allowed"
+                className="w-full pl-9 pr-3 py-2 text-xs bg-background border border-border rounded-xl text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20"
               />
             </div>
           </div>
@@ -51,9 +67,11 @@ export function Register() {
               <Mail className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
               <input
                 type="email"
-                disabled
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="juan@ejemplo.com"
-                className="w-full pl-9 pr-3 py-2 text-xs bg-muted/50 border border-border rounded-xl text-foreground cursor-not-allowed"
+                className="w-full pl-9 pr-3 py-2 text-xs bg-background border border-border rounded-xl text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20"
               />
             </div>
           </div>
@@ -64,46 +82,30 @@ export function Register() {
               <Lock className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
               <input
                 type="password"
-                disabled
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-9 pr-3 py-2 text-xs bg-muted/50 border border-border rounded-xl text-foreground cursor-not-allowed"
+                className="w-full pl-9 pr-3 py-2 text-xs bg-background border border-border rounded-xl text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20"
               />
             </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-2">
-            <div className="space-y-1">
-              <label className="text-xs font-semibold text-foreground">Teléfono</label>
-              <div className="relative">
-                <Phone className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-                <input
-                  type="text"
-                  disabled
-                  placeholder="+503 7000-0000"
-                  className="w-full pl-9 pr-3 py-2 text-xs bg-muted/50 border border-border rounded-xl text-foreground cursor-not-allowed"
-                />
-              </div>
-            </div>
-            <div className="space-y-1">
-              <label className="text-xs font-semibold text-foreground">Ciudad</label>
-              <div className="relative">
-                <MapPin className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-                <input
-                  type="text"
-                  disabled
-                  placeholder="San Salvador"
-                  className="w-full pl-9 pr-3 py-2 text-xs bg-muted/50 border border-border rounded-xl text-foreground cursor-not-allowed"
-                />
-              </div>
-            </div>
+            <p className="text-[10px] text-muted-foreground pt-0.5">
+              Mínimo 8 caracteres, con mayúscula, minúscula, número y carácter especial.
+            </p>
           </div>
 
           <button
             type="submit"
-            disabled
-            className="w-full py-2.5 px-4 rounded-xl bg-primary/50 text-primary-foreground font-semibold text-xs cursor-not-allowed flex items-center justify-center gap-2 mt-4"
+            disabled={isLoading}
+            className="w-full py-2.5 px-4 rounded-xl bg-primary text-primary-foreground font-semibold text-xs shadow-md hover:opacity-90 transition-all flex items-center justify-center gap-2 mt-4 disabled:opacity-50"
           >
-            Registrarse (Disponible en Fase 3) <ArrowRight className="h-4 w-4" />
+            {isLoading ? (
+              <span className="inline-block animate-spin rounded-full h-4 w-4 border-b-2 border-primary-foreground"></span>
+            ) : (
+              <>
+                Registrarse <ArrowRight className="h-4 w-4" />
+              </>
+            )}
           </button>
         </form>
 

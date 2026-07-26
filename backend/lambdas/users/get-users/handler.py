@@ -33,26 +33,39 @@ def extract_user_attributes(user):
             attributes['role'] = value
         elif name == 'custom:status':
             attributes['status'] = value
-    
+
     return attributes
+
+
+def _response(status_code, body):
+    return {
+        'statusCode': status_code,
+        'headers': {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET,PATCH,DELETE'
+        },
+        'body': json.dumps(body)
+    }
 
 
 def lambda_handler(event, context):
     try:
         print("====== GET USERS REQUEST ======")
-        
+
         # Get query parameters
         query_params = event.get('queryStringParameters') or {}
         role_filter = query_params.get('role')
         status_filter = query_params.get('status')
-        
+
         # Get User Pool ID
         user_pool_id = get_user_pool_id()
-        
+
         # Fetch all users with pagination support
         all_users = []
         next_token = None
-        
+
         while True:
             if next_token:
                 response = cognito_client.list_users(
@@ -61,27 +74,27 @@ def lambda_handler(event, context):
                 )
             else:
                 response = cognito_client.list_users(UserPoolId=user_pool_id)
-            
+
             users = response.get('Users', [])
             all_users.extend(users)
-            
+
             next_token = response.get('PaginationToken')
             if not next_token:
                 break
-        
+
         # Process and filter users
         filtered_users = []
         for user in all_users:
             attrs = extract_user_attributes(user)
-            
+
             # Apply role filter if provided
             if role_filter and attrs.get('role') != role_filter:
                 continue
-            
+
             # Apply status filter if provided
             if status_filter and attrs.get('status') != status_filter:
                 continue
-            
+
             # Build user object
             user_obj = {
                 'id': user.get('Username'),
@@ -91,38 +104,29 @@ def lambda_handler(event, context):
                 'status': attrs.get('status', ''),
                 'created_at': user.get('UserCreateDate').isoformat() if user.get('UserCreateDate') else ''
             }
-            
+
             filtered_users.append(user_obj)
-        
+
         print(f"Retrieved {len(filtered_users)} users")
-        
-        return {
-            'statusCode': 200,
-            'body': {
-                'message': 'Users retrieved successfully',
-                'data': {
-                    'users': filtered_users,
-                    'count': len(filtered_users)
-                }
+
+        return _response(200, {
+            'message': 'Users retrieved successfully',
+            'data': {
+                'users': filtered_users,
+                'count': len(filtered_users)
             }
-        }
-        
+        })
+
     except ClientError as e:
         print(f'Cognito error: {str(e)}')
-        return {
-            'statusCode': 500,
-            'body': {
-                'message': 'Error retrieving users',
-                'error': 'COGNITO_SERVICE_ERROR'
-            }
-        }
-        
+        return _response(500, {
+            'message': 'Error retrieving users',
+            'error': 'COGNITO_SERVICE_ERROR'
+        })
+
     except Exception as e:
         print(f'Unexpected error: {str(e)}')
-        return {
-            'statusCode': 500,
-            'body': {
-                'message': 'Internal server error',
-                'error': 'INTERNAL_ERROR'
-            }
-        }
+        return _response(500, {
+            'message': 'Internal server error',
+            'error': 'INTERNAL_ERROR'
+        })

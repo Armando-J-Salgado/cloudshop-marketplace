@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "@/hooks/useAuth"
-import { Lock, Mail, ArrowRight, AlertCircle, KeyRound } from "lucide-react"
+import { Lock, Mail, ArrowRight, AlertCircle } from "lucide-react"
 
 export function Login() {
   const navigate = useNavigate()
@@ -26,11 +26,6 @@ export function Login() {
     }
   }
 
-  const setSeed = (seedEmail: string, seedPass: string) => {
-    setEmail(seedEmail)
-    setPassword(seedPass)
-  }
-
   return (
     <div className="w-full max-w-md mx-auto space-y-6">
       <div className="w-full bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-xl">
@@ -40,7 +35,7 @@ export function Login() {
           </div>
           <h2 className="text-2xl font-bold text-foreground tracking-tight">Iniciar Sesión</h2>
           <p className="text-xs text-muted-foreground mt-1">
-            Autenticación con Cognito SDK (Adaptador Mock Fase 1)
+            Autenticación con AWS Cognito
           </p>
         </div>
 
@@ -104,54 +99,6 @@ export function Login() {
           <Link to="/registro" className="font-bold text-primary hover:underline">
             Regístrate gratis
           </Link>
-        </div>
-      </div>
-
-      {/* Helper Box with Seed Credentials */}
-      <div className="bg-muted/60 border border-border rounded-2xl p-4 text-xs space-y-2">
-        <div className="flex items-center gap-1.5 font-bold text-foreground">
-          <KeyRound className="h-4 w-4 text-primary" /> Cuentas Semilla para Pruebas:
-        </div>
-        <div className="grid grid-cols-1 gap-1.5 pt-1">
-          <button
-            type="button"
-            onClick={() => setSeed("admin@cloudshop.test", "Admin123!")}
-            className="text-left p-2 rounded-xl bg-card border border-border hover:bg-muted transition-colors flex items-center justify-between"
-          >
-            <div>
-              <span className="font-bold text-indigo-600 dark:text-indigo-400">Administrador: </span>
-              <span className="text-muted-foreground">admin@cloudshop.test</span>
-            </div>
-            <span className="text-[10px] bg-indigo-500/10 text-indigo-700 px-1.5 py-0.5 rounded font-mono">
-              Admin123!
-            </span>
-          </button>
-          <button
-            type="button"
-            onClick={() => setSeed("operador@cloudshop.test", "Operador123!")}
-            className="text-left p-2 rounded-xl bg-card border border-border hover:bg-muted transition-colors flex items-center justify-between"
-          >
-            <div>
-              <span className="font-bold text-emerald-600 dark:text-emerald-400">Operador: </span>
-              <span className="text-muted-foreground">operador@cloudshop.test</span>
-            </div>
-            <span className="text-[10px] bg-emerald-500/10 text-emerald-700 px-1.5 py-0.5 rounded font-mono">
-              Operador123!
-            </span>
-          </button>
-          <button
-            type="button"
-            onClick={() => setSeed("cliente@cloudshop.test", "Cliente123!")}
-            className="text-left p-2 rounded-xl bg-card border border-border hover:bg-muted transition-colors flex items-center justify-between"
-          >
-            <div>
-              <span className="font-bold text-amber-600 dark:text-amber-400">Cliente: </span>
-              <span className="text-muted-foreground">cliente@cloudshop.test</span>
-            </div>
-            <span className="text-[10px] bg-amber-500/10 text-amber-700 px-1.5 py-0.5 rounded font-mono">
-              Cliente123!
-            </span>
-          </button>
         </div>
       </div>
     </div>

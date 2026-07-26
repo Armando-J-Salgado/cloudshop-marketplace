@@ -39,54 +39,58 @@ def get_user_status(user_pool_id, user_id):
     return None
 
 
+def _response(status_code, body):
+    return {
+        'statusCode': status_code,
+        'headers': {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET,PATCH,DELETE'
+        },
+        'body': json.dumps(body)
+    }
+
+
 def lambda_handler(event, context):
     try:
         print("====== DELETE USER REQUEST ======")
-        
+
         # Extract user_id from path parameters
         path_params = event.get('pathParameters') or {}
         target_user_id = path_params.get('user_id')
-        
+
         if not target_user_id:
-            return {
-                'statusCode': 400,
-                'body': {
-                    'message': 'User ID is required',
-                    'error': 'MISSING_USER_ID'
-                }
-            }
-        
+            return _response(400, {
+                'message': 'User ID is required',
+                'error': 'MISSING_USER_ID'
+            })
+
         # Get actor user_id from claims (authenticated operation)
         claims = event.get("requestContext", {}).get("authorizer", {}).get("claims", {})
         actor_user_id = claims.get("sub", "SYSTEM")
-        
+
         # Get User Pool ID
         user_pool_id = get_user_pool_id()
-        
+
         # Check if user exists and get current status
         try:
             current_status = get_user_status(user_pool_id, target_user_id)
         except ClientError as e:
             if e.response['Error']['Code'] == 'UserNotFoundException':
-                return {
-                    'statusCode': 404,
-                    'body': {
-                        'message': 'User not found',
-                        'error': 'USER_NOT_FOUND'
-                    }
-                }
+                return _response(404, {
+                    'message': 'User not found',
+                    'error': 'USER_NOT_FOUND'
+                })
             raise
-        
+
         # Check if user is already inactive
         if current_status == 'inactive':
-            return {
-                'statusCode': 409,
-                'body': {
-                    'message': 'User is already inactive',
-                    'error': 'USER_ALREADY_INACTIVE'
-                }
-            }
-        
+            return _response(409, {
+                'message': 'User is already inactive',
+                'error': 'USER_ALREADY_INACTIVE'
+            })
+
         # Perform soft delete by setting status to inactive
         cognito_client.admin_update_user_attributes(
             UserPoolId=user_pool_id,
@@ -95,9 +99,9 @@ def lambda_handler(event, context):
                 {'Name': 'custom:status', 'Value': 'inactive'}
             ]
         )
-        
+
         print(f"User deactivated successfully: {target_user_id}")
-        
+
         # Emit audit event
         emit_event(
             user_id=actor_user_id,
@@ -108,34 +112,25 @@ def lambda_handler(event, context):
                 "NewStatus": "inactive"
             }
         )
-        
-        return {
-            'statusCode': 200,
-            'body': {
-                'message': 'User successfully deactivated',
-                'data': {
-                    'user_id': target_user_id,
-                    'status': 'inactive'
-                }
+
+        return _response(200, {
+            'message': 'User successfully deactivated',
+            'data': {
+                'user_id': target_user_id,
+                'status': 'inactive'
             }
-        }
-        
+        })
+
     except ClientError as e:
         print(f'Cognito error: {str(e)}')
-        return {
-            'statusCode': 500,
-            'body': {
-                'message': 'Error deactivating user',
-                'error': 'COGNITO_SERVICE_ERROR'
-            }
-        }
-        
+        return _response(500, {
+            'message': 'Error deactivating user',
+            'error': 'COGNITO_SERVICE_ERROR'
+        })
+
     except Exception as e:
         print(f'Unexpected error: {str(e)}')
-        return {
-            'statusCode': 500,
-            'body': {
-                'message': 'Internal server error',
-                'error': 'INTERNAL_ERROR'
-            }
-        }
+        return _response(500, {
+            'message': 'Internal server error',
+            'error': 'INTERNAL_ERROR'
+        })

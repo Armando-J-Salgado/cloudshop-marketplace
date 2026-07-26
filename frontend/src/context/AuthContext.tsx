@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react"
-import { mockAuth } from "@/services/mockAuth"
+import { cognitoAuth as authAdapter } from "@/services/cognitoAuth"
 import type { AuthUser, UserRole } from "@/services/mockAuth"
 
 export type AuthStatus = "loading" | "authed" | "anon"
@@ -20,7 +20,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [status, setStatus] = useState<AuthStatus>("loading")
 
   useEffect(() => {
-    const session = mockAuth.getSession()
+    const session = authAdapter.getSession()
     if (session) {
       setUser(session.user)
       setRoles(session.roles)
@@ -33,14 +33,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   const login = async (email: string, pass: string) => {
-    const session = await mockAuth.login(email, pass)
+    const session = await authAdapter.login(email, pass)
     setUser(session.user)
     setRoles(session.roles)
     setStatus("authed")
   }
 
   const logout = async () => {
-    await mockAuth.logout()
+    await authAdapter.logout()
     setUser(null)
     setRoles([])
     setStatus("anon")
