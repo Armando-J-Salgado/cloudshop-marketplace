@@ -108,6 +108,11 @@ export const apiClient = {
         `/products/${encodeURIComponent(productId)}?store_id=${encodeURIComponent(storeId)}`,
         { method: "PATCH", body: JSON.stringify(data) }
       ),
+    create: (data: Record<string, unknown>) =>
+      request<{ message: string; product: Product }>(
+        `/products`,
+        { method: "POST", body: JSON.stringify(data) }
+      ),
   },
 
   stores: {
