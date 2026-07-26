@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Save, ArrowLeft } from "lucide-react"
+import { apiClient } from "@/services/apiClient"
 
 interface ProductoFormProps {
   mode: "create" | "edit"
@@ -27,9 +28,33 @@ export function ProductoForm({ mode, initialData }: ProductoFormProps) {
     storeId: initialData?.storeId || "store-001",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    navigate("/admin/productos")
+    try {
+      if (mode === "create") {
+        await apiClient.products.create({
+          ProductId: formData.code,
+          StoreId: formData.storeId,
+          Name: formData.name,
+          Price: formData.price,
+          Stock: formData.stock,
+          Category: formData.category,
+          Description: formData.description
+        })
+      } else {
+        await apiClient.products.update(formData.storeId, formData.code, {
+          Name: formData.name,
+          Price: formData.price,
+          Stock: formData.stock,
+          Category: formData.category,
+          Description: formData.description
+        })
+      }
+      navigate("/admin/productos")
+    } catch (error) {
+      console.error("Error saving product:", error)
+      alert("Hubo un error al guardar el producto.")
+    }
   }
 
   return (
