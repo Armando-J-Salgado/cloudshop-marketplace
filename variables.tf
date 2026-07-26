@@ -31,3 +31,10 @@ variable "workload_boundary_arn" {
   description = "ARN del permissions boundary CloudShopWorkloadBoundary (output workload_boundary_arn de infraestructure/cicd/). Obligatorio en todo rol IAM de aplicación."
   type        = string
 }
+
+variable "api_key" {
+  description = "API Key para el frontend (no usada actualmente, reservada para futuro)"
+  type        = string
+  sensitive   = true
+  default     = ""
+}
