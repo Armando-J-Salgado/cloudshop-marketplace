@@ -1,7 +1,28 @@
 ```
-# Terraform
+# Infrastructure and Terraform
 .terraform/
 *.tfstate
-*.tfstate.*
-*.lock.hcl
+*.tfvars
+*.auto.tfvars
+.terragrunt-cache/
+
+# General ignores
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+
+# Environment files
+.env
+.env.local
+*.env.*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swo
+*.swap
+
+# Dependencies and build artifacts would go here if present
 ```
