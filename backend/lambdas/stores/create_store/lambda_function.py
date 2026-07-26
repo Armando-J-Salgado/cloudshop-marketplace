@@ -1,10 +1,15 @@
 import json
 import os
+import sys
 from datetime import datetime
 from decimal import Decimal
 from uuid import uuid4
 
 import boto3
+
+# Add utils directory to path for importing event_emitter
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'utils'))
+from event_emitter import emit_event
 
 
 dynamodb = boto3.resource("dynamodb")
@@ -24,6 +29,7 @@ def lambda_handler(event, context):
     try:
         claims = event["requestContext"]["authorizer"]["claims"]
         user_groups = claims.get("cognito:groups", "")
+        user_id = claims.get("sub", "SYSTEM")
 
         if "admin" not in _normalize_groups(user_groups):
             return _response(403, {"message": "No autorizado"})
@@ -57,6 +63,18 @@ def lambda_handler(event, context):
         }
 
         stores_table.put_item(Item=item)
+
+        # Emit audit event
+        emit_event(
+            user_id=user_id,
+            action="CREATE_STORE",
+            result="SUCCESS",
+            details={
+                "StoreId": store_id,
+                "Name": name,
+                "OwnerId": owner_id
+            }
+        )
 
         return _response(201, {
             "message": "Tienda creada exitosamente",

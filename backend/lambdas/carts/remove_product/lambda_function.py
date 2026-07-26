@@ -1,9 +1,14 @@
 import json
 import os
+import sys
 from datetime import datetime
 from decimal import Decimal
 
 import boto3
+
+# Add utils directory to path for importing event_emitter
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'utils'))
+from event_emitter import emit_event
 
 dynamodb = boto3.resource("dynamodb")
 
@@ -50,6 +55,17 @@ def lambda_handler(event, context):
             UpdateExpression="SET #items = :items, UpdatedAt = :now",
             ExpressionAttributeNames={"#items": "Items"},
             ExpressionAttributeValues={":items": items, ":now": now}
+        )
+
+        # Emit audit event
+        emit_event(
+            user_id=customer_id,
+            action="REMOVE_PRODUCT_FROM_CART",
+            result="SUCCESS",
+            details={
+                "CustomerId": customer_id,
+                "ProductId": product_id
+            }
         )
 
         return _response(200, {
