@@ -6,6 +6,12 @@ from botocore.exceptions import ClientError
 ssm_client = boto3.client('ssm')
 cognito_client = boto3.client('cognito-idp')
 
+# Import event emitter from utils
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'utils'))
+from event_emitter import emit_event
+
 PARAM_USER_POOL_ID = '/app/cognito/user-pool-id'
 
 
@@ -52,9 +58,9 @@ def lambda_handler(event, context):
         
         # Extract user_id from path parameters
         path_params = event.get('pathParameters') or {}
-        user_id = path_params.get('user_id')
+        target_user_id = path_params.get('user_id')
         
-        if not user_id:
+        if not target_user_id:
             return {
                 'statusCode': 400,
                 'body': {
@@ -62,6 +68,10 @@ def lambda_handler(event, context):
                     'error': 'MISSING_USER_ID'
                 }
             }
+        
+        # Get actor user_id from claims (authenticated operation)
+        claims = event.get("requestContext", {}).get("authorizer", {}).get("claims", {})
+        actor_user_id = claims.get("sub", "SYSTEM")
         
         # Parse request body
         body = json.loads(event.get('body', '{}'))
@@ -109,7 +119,7 @@ def lambda_handler(event, context):
         try:
             cognito_client.admin_get_user(
                 UserPoolId=user_pool_id,
-                Username=user_id
+                Username=target_user_id
             )
         except ClientError as e:
             if e.response['Error']['Code'] == 'UserNotFoundException':
@@ -126,29 +136,43 @@ def lambda_handler(event, context):
         if new_name:
             cognito_client.admin_update_user_attributes(
                 UserPoolId=user_pool_id,
-                Username=user_id,
+                Username=target_user_id,
                 UserAttributes=[
                     {'Name': 'name', 'Value': new_name}
                 ]
             )
-            print(f"Updated name for user: {user_id}")
+            print(f"Updated name for user: {target_user_id}")
         
         # Update password if provided
         if new_password:
             cognito_client.admin_set_user_password(
                 UserPoolId=user_pool_id,
-                Username=user_id,
+                Username=target_user_id,
                 Password=new_password,
                 Permanent=True
             )
-            print(f"Updated password for user: {user_id}")
+            print(f"Updated password for user: {target_user_id}")
+        
+        # Emit audit event
+        emit_event(
+            user_id=actor_user_id,
+            action="UPDATE_USER",
+            result="SUCCESS",
+            details={
+                "TargetUserId": target_user_id,
+                "UpdatedFields": {
+                    "name": new_name is not None,
+                    "password": new_password is not None
+                }
+            }
+        )
         
         return {
             'statusCode': 200,
             'body': {
                 'message': 'User updated successfully',
                 'data': {
-                    'user_id': user_id,
+                    'user_id': target_user_id,
                     'updated_fields': {
                         'name': new_name is not None,
                         'password': new_password is not None

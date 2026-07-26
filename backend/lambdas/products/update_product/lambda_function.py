@@ -1,9 +1,14 @@
 import json
 import os
+import sys
 from datetime import datetime
 from decimal import Decimal
 
 import boto3
+
+# Add utils directory to path for importing event_emitter
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'utils'))
+from event_emitter import emit_event
 
 dynamodb = boto3.resource("dynamodb")
 
@@ -22,6 +27,7 @@ def lambda_handler(event, context):
     try:
         claims = event.get("requestContext", {}).get("authorizer", {}).get("claims", {})
         user_groups = claims.get("cognito:groups", "")
+        user_id = claims.get("sub", "SYSTEM")
 
         is_admin = "admin" in user_groups or "operator" in user_groups
         if not is_admin:
@@ -82,6 +88,19 @@ def lambda_handler(event, context):
                 ReturnValues="ALL_NEW"
             )
             updated_product = response.get("Attributes")
+            
+            # Emit audit event
+            emit_event(
+                user_id=user_id,
+                action="UPDATE_PRODUCT",
+                result="SUCCESS",
+                details={
+                    "ProductId": product_id,
+                    "StoreId": store_id,
+                    "UpdatedFields": list(body.keys())
+                }
+            )
+            
             return _response(200, updated_product)
         except dynamodb.meta.client.exceptions.ConditionalCheckFailedException:
             return _response(404, {"message": "Producto no encontrado"})
