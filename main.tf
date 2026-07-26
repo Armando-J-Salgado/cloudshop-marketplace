@@ -115,3 +115,24 @@ module "cloudwatch" {
   api_gateway_name       = local.api_gateway_name
   api_gateway_stage_name = var.api_stage_name
 }
+
+# Modulo para build y deploy del frontend
+module "frontend_deploy" {
+  source = "./infraestructure/modules/frontend-deploy"
+
+  project_name                 = var.project_name
+  api_url                      = module.api_gateway.invoke_url
+  user_pool_id                 = module.cognito.user_pool_id
+  client_id                    = module.cognito.client_id
+  region                       = var.aws_region
+  api_key                      = var.api_key
+  bucket_id                    = module.s3.bucket_id
+  cloudfront_distribution_id   = module.cloudfront.distribution_id
+
+  depends_on = [
+    module.s3,
+    module.cloudfront,
+    module.api_gateway,
+    module.cognito
+  ]
+}
