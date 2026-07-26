@@ -41,23 +41,27 @@ def lambda_handler(event, context):
             return _response(400, {"message": "OrderId es requerido"})
 
         if is_admin:
-            body = json.loads(event.get("body", "{}"))
-            customer_id = body.get("CustomerId", "").strip()
-            if not customer_id:
-                return _response(400, {"message": "CustomerId es requerido en el body para administradores"})
+            response = orders_table.scan(
+                FilterExpression=Attr("OrderId").eq(order_id),
+                Limit=1
+            )
+            items = response.get("Items", [])
+            if not items:
+                return _response(404, {"message": "Pedido no encontrado"})
+            order = items[0]
+            customer_id = order["CustomerId"]
         else:
             customer_id = caller_id
+            response = orders_table.get_item(
+                Key={"CustomerId": customer_id, "OrderId": order_id}
+            )
+            order = response.get("Item")
+            
+            if not order:
+                return _response(404, {"message": "Pedido no encontrado"})
 
-        response = orders_table.get_item(
-            Key={"CustomerId": customer_id, "OrderId": order_id}
-        )
-        order = response.get("Item")
-
-        if not order:
-            return _response(404, {"message": "Pedido no encontrado"})
-
-        if not is_admin and order["CustomerId"] != caller_id:
-            return _response(403, {"message": "No autorizado"})
+            if order["CustomerId"] != caller_id:
+                return _response(403, {"message": "No autorizado"})
 
         current_status = order.get("Status", "")
 
