@@ -52,69 +52,70 @@ def is_valid_name(name):
     return True
 
 
+def _response(status_code, body):
+    return {
+        'statusCode': status_code,
+        'headers': {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET,PATCH,DELETE'
+        },
+        'body': json.dumps(body)
+    }
+
+
 def lambda_handler(event, context):
     try:
         print("====== UPDATE USER REQUEST ======")
-        
+
         # Extract user_id from path parameters
         path_params = event.get('pathParameters') or {}
         target_user_id = path_params.get('user_id')
-        
+
         if not target_user_id:
-            return {
-                'statusCode': 400,
-                'body': {
-                    'message': 'User ID is required',
-                    'error': 'MISSING_USER_ID'
-                }
-            }
-        
+            return _response(400, {
+                'message': 'User ID is required',
+                'error': 'MISSING_USER_ID'
+            })
+
         # Get actor user_id from claims (authenticated operation)
         claims = event.get("requestContext", {}).get("authorizer", {}).get("claims", {})
         actor_user_id = claims.get("sub", "SYSTEM")
-        
+
         # Parse request body
         body = json.loads(event.get('body', '{}'))
-        
+
         # Extract optional fields
         new_password = body.get('password')
         new_name = body.get('name')
-        
+
         # Validate at least one field is provided
         if not new_password and not new_name:
-            return {
-                'statusCode': 400,
-                'body': {
-                    'message': 'At least one field (password or name) must be provided',
-                    'error': 'NO_FIELDS_PROVIDED'
-                }
-            }
-        
+            return _response(400, {
+                'message': 'At least one field (password or name) must be provided',
+                'error': 'NO_FIELDS_PROVIDED'
+            })
+
         # Validate password if provided
         if new_password:
             if not is_valid_password(new_password):
-                return {
-                    'statusCode': 400,
-                    'body': {
-                        'message': 'Password must be at least 8 characters and contain uppercase, lowercase, number, and special character',
-                        'error': 'INVALID_PASSWORD_FORMAT'
-                    }
-                }
-        
+                return _response(400, {
+                    'message': 'Password must be at least 8 characters and contain uppercase, lowercase, number, and special character',
+                    'error': 'INVALID_PASSWORD_FORMAT'
+                })
+
         # Validate name if provided
         if new_name:
             if not is_valid_name(new_name):
-                return {
-                    'statusCode': 400,
-                    'body': {
-                        'message': 'Name must be a non-empty string with maximum 100 characters',
-                        'error': 'INVALID_NAME_FORMAT'
-                    }
-                }
-        
+                return _response(400, {
+                    'message': 'Name must be a non-empty string with maximum 100 characters',
+                    'error': 'INVALID_NAME_FORMAT'
+                })
+
         # Get User Pool ID
         user_pool_id = get_user_pool_id()
-        
+
         # Verify user exists
         try:
             cognito_client.admin_get_user(
@@ -123,15 +124,12 @@ def lambda_handler(event, context):
             )
         except ClientError as e:
             if e.response['Error']['Code'] == 'UserNotFoundException':
-                return {
-                    'statusCode': 404,
-                    'body': {
-                        'message': 'User not found',
-                        'error': 'USER_NOT_FOUND'
-                    }
-                }
+                return _response(404, {
+                    'message': 'User not found',
+                    'error': 'USER_NOT_FOUND'
+                })
             raise
-        
+
         # Update name if provided
         if new_name:
             cognito_client.admin_update_user_attributes(
@@ -142,7 +140,7 @@ def lambda_handler(event, context):
                 ]
             )
             print(f"Updated name for user: {target_user_id}")
-        
+
         # Update password if provided
         if new_password:
             cognito_client.admin_set_user_password(
@@ -152,7 +150,7 @@ def lambda_handler(event, context):
                 Permanent=True
             )
             print(f"Updated password for user: {target_user_id}")
-        
+
         # Emit audit event
         emit_event(
             user_id=actor_user_id,
@@ -166,37 +164,28 @@ def lambda_handler(event, context):
                 }
             }
         )
-        
-        return {
-            'statusCode': 200,
-            'body': {
-                'message': 'User updated successfully',
-                'data': {
-                    'user_id': target_user_id,
-                    'updated_fields': {
-                        'name': new_name is not None,
-                        'password': new_password is not None
-                    }
+
+        return _response(200, {
+            'message': 'User updated successfully',
+            'data': {
+                'user_id': target_user_id,
+                'updated_fields': {
+                    'name': new_name is not None,
+                    'password': new_password is not None
                 }
             }
-        }
-        
+        })
+
     except ClientError as e:
         print(f'Cognito error: {str(e)}')
-        return {
-            'statusCode': 500,
-            'body': {
-                'message': 'Error updating user',
-                'error': 'COGNITO_SERVICE_ERROR'
-            }
-        }
-        
+        return _response(500, {
+            'message': 'Error updating user',
+            'error': 'COGNITO_SERVICE_ERROR'
+        })
+
     except Exception as e:
         print(f'Unexpected error: {str(e)}')
-        return {
-            'statusCode': 500,
-            'body': {
-                'message': 'Internal server error',
-                'error': 'INTERNAL_ERROR'
-            }
-        }
+        return _response(500, {
+            'message': 'Internal server error',
+            'error': 'INTERNAL_ERROR'
+        })

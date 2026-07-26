@@ -16,6 +16,14 @@ locals {
   api_gateway_name = "${var.project_name}-api"
 }
 
+# Parámetro SSM leído por utils/event_emitter.py (Products, Stores, Carts,
+# Users) para obtener el nombre del event bus sin hardcodearlo en el código.
+resource "aws_ssm_parameter" "cloudshop_eventbus_name" {
+  name  = "/cloudshop/eventbus/name"
+  type  = "String"
+  value = local.event_bus_name
+}
+
 module "dynamodb" {
   source = "./infraestructure/modules/dynamodb"
 

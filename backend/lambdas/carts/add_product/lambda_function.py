@@ -23,19 +23,25 @@ def lambda_handler(event, context):
         claims = event["requestContext"]["authorizer"]["claims"]
         customer_id = claims["sub"]
 
+        path_params = event.get("pathParameters") or {}
+        cart_id = path_params.get("id")
+        if cart_id and cart_id != customer_id:
+            return _response(403, {"message": "No tienes acceso a este carrito"})
+
+        product_id = (path_params.get("productId") or "").strip()
+
         body = json.loads(event.get("body", "{}"))
-        product_id = body.get("ProductId", "").strip()
         quantity = body.get("Quantity", 1)
 
         if not product_id:
-            return _response(400, {"message": "ProductId es requerido"})
+            return _response(400, {"message": "productId es requerido en la ruta"})
 
         if not isinstance(quantity, int) or quantity < 1:
             return _response(400, {"message": "Quantity debe ser un entero mayor a 0"})
 
         now = datetime.utcnow().isoformat()
 
-        response = carts_table.get_item(Key={"CustomerId": customer_id})
+        response = carts_table.get_item(Key={"ClientId": customer_id})
         cart = response.get("Item")
 
         if cart:
@@ -53,7 +59,7 @@ def lambda_handler(event, context):
                 items.append({"ProductId": product_id, "Quantity": quantity})
 
             carts_table.update_item(
-                Key={"CustomerId": customer_id},
+                Key={"ClientId": customer_id},
                 UpdateExpression="SET #items = :items, UpdatedAt = :now",
                 ExpressionAttributeNames={"#items": "Items"},
                 ExpressionAttributeValues={":items": items, ":now": now}
@@ -61,7 +67,7 @@ def lambda_handler(event, context):
         else:
             items = [{"ProductId": product_id, "Quantity": quantity}]
             carts_table.put_item(Item={
-                "CustomerId": customer_id,
+                "ClientId": customer_id,
                 "Items": items,
                 "CreatedAt": now,
                 "UpdatedAt": now
@@ -69,7 +75,7 @@ def lambda_handler(event, context):
 
         return _response(200, {
             "message": "Producto agregado al carrito",
-            "cart": {"CustomerId": customer_id, "Items": items}
+            "cart": {"ClientId": customer_id, "Items": items}
         })
 
     except json.JSONDecodeError:

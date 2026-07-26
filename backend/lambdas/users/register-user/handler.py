@@ -13,6 +13,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'utils'))
 from event_emitter import emit_event
 
 PARAM_USER_POOL_ID = '/app/cognito/user-pool-id'
+DEFAULT_GROUP_NAME = 'cliente'
 
 
 def get_parameter(param_name):
@@ -65,99 +66,110 @@ def is_valid_name(name):
     return True
 
 
+def _response(status_code, body):
+    return {
+        'statusCode': status_code,
+        'headers': {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET,PATCH,DELETE'
+        },
+        'body': json.dumps(body)
+    }
+
+
 def lambda_handler(event, context):
     try:
         print("====== REGISTER USER REQUEST ======")
-        
+
         # Parse request body
         body = json.loads(event.get('body', '{}'))
-        
+
         # Extract fields
         email = body.get('email')
         password = body.get('password')
         name = body.get('name')
-        
+
         # Get user_id from claims (authenticated operation)
         claims = event.get("requestContext", {}).get("authorizer", {}).get("claims", {})
         user_id = claims.get("sub", "SYSTEM")
-        
+
         # Validate email presence and format
         if not email:
-            return {
-                'statusCode': 400,
-                'body': {
-                    'message': 'Email is required',
-                    'error': 'MISSING_EMAIL'
-                }
-            }
-        
+            return _response(400, {
+                'message': 'Email is required',
+                'error': 'MISSING_EMAIL'
+            })
+
         if not is_valid_email(email):
-            return {
-                'statusCode': 400,
-                'body': {
-                    'message': 'Invalid email format',
-                    'error': 'INVALID_EMAIL_FORMAT'
-                }
-            }
-        
+            return _response(400, {
+                'message': 'Invalid email format',
+                'error': 'INVALID_EMAIL_FORMAT'
+            })
+
         # Validate password presence and format
         if not password:
-            return {
-                'statusCode': 400,
-                'body': {
-                    'message': 'Password is required',
-                    'error': 'MISSING_PASSWORD'
-                }
-            }
-        
+            return _response(400, {
+                'message': 'Password is required',
+                'error': 'MISSING_PASSWORD'
+            })
+
         if not is_valid_password(password):
-            return {
-                'statusCode': 400,
-                'body': {
-                    'message': 'Password must be at least 8 characters and contain uppercase, lowercase, number, and special character',
-                    'error': 'INVALID_PASSWORD_FORMAT'
-                }
-            }
-        
+            return _response(400, {
+                'message': 'Password must be at least 8 characters and contain uppercase, lowercase, number, and special character',
+                'error': 'INVALID_PASSWORD_FORMAT'
+            })
+
         # Validate name presence and format
         if not name:
-            return {
-                'statusCode': 400,
-                'body': {
-                    'message': 'Name is required',
-                    'error': 'MISSING_NAME'
-                }
-            }
-        
+            return _response(400, {
+                'message': 'Name is required',
+                'error': 'MISSING_NAME'
+            })
+
         if not is_valid_name(name):
-            return {
-                'statusCode': 400,
-                'body': {
-                    'message': 'Name must be a non-empty string with maximum 100 characters',
-                    'error': 'INVALID_NAME_FORMAT'
-                }
-            }
-        
+            return _response(400, {
+                'message': 'Name must be a non-empty string with maximum 100 characters',
+                'error': 'INVALID_NAME_FORMAT'
+            })
+
         # Get User Pool ID
         user_pool_id = get_user_pool_id()
-        
+
         # Create user in Cognito
         response = cognito_client.admin_create_user(
             UserPoolId=user_pool_id,
             Username=email,
             UserAttributes=[
                 {'Name': 'email', 'Value': email},
+                {'Name': 'email_verified', 'Value': 'true'},
                 {'Name': 'name', 'Value': name},
                 {'Name': 'custom:role', 'Value': 'client'},
                 {'Name': 'custom:status', 'Value': 'active'}
             ],
-            MessageAction='SUPPRESS_DETAIL_MESSAGE'
+            MessageAction='SUPPRESS'
         )
-        
+
         user_id_created = response['User']['Username']
-        
+
+        # Set the user's chosen password as permanent so they can log in immediately
+        cognito_client.admin_set_user_password(
+            UserPoolId=user_pool_id,
+            Username=user_id_created,
+            Password=password,
+            Permanent=True
+        )
+
+        # Assign the user to the default Cognito group so RBAC claims are populated
+        cognito_client.admin_add_user_to_group(
+            UserPoolId=user_pool_id,
+            Username=user_id_created,
+            GroupName=DEFAULT_GROUP_NAME
+        )
+
         print(f"User registered successfully: {user_id_created}")
-        
+
         # Emit audit event
         emit_event(
             user_id=user_id,
@@ -169,46 +181,34 @@ def lambda_handler(event, context):
                 "Name": name
             }
         )
-        
-        return {
-            'statusCode': 200,
-            'body': {
-                'message': 'User registered successfully',
-                'data': {
-                    'user_id': user_id_created,
-                    'email': email,
-                    'name': name
-                }
+
+        return _response(200, {
+            'message': 'User registered successfully',
+            'data': {
+                'user_id': user_id_created,
+                'email': email,
+                'name': name
             }
-        }
-        
+        })
+
     except ClientError as e:
         error_code = e.response['Error']['Code']
         print(f'Cognito error: {error_code} - {str(e)}')
-        
+
         if error_code == 'UsernameExistsException':
-            return {
-                'statusCode': 409,
-                'body': {
-                    'message': 'User with this email already exists',
-                    'error': 'USER_ALREADY_EXISTS'
-                }
-            }
-        
-        return {
-            'statusCode': 500,
-            'body': {
-                'message': 'Error registering user',
-                'error': 'COGNITO_SERVICE_ERROR'
-            }
-        }
-        
+            return _response(409, {
+                'message': 'User with this email already exists',
+                'error': 'USER_ALREADY_EXISTS'
+            })
+
+        return _response(500, {
+            'message': 'Error registering user',
+            'error': 'COGNITO_SERVICE_ERROR'
+        })
+
     except Exception as e:
         print(f'Unexpected error: {str(e)}')
-        return {
-            'statusCode': 500,
-            'body': {
-                'message': 'Internal server error',
-                'error': 'INTERNAL_ERROR'
-            }
-        }
+        return _response(500, {
+            'message': 'Internal server error',
+            'error': 'INTERNAL_ERROR'
+        })

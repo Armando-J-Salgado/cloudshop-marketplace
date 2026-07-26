@@ -122,7 +122,7 @@ resource "aws_iam_role_policy" "orders" {
   })
 }
 
-# --- carts: RW sobre carts ---
+# --- carts: RW sobre carts + SSM (eventbus name, para event_emitter.py) ---
 resource "aws_iam_role_policy" "carts" {
   name = "${var.project_name}-carts-policy"
   role = aws_iam_role.carts.id
@@ -137,11 +137,16 @@ resource "aws_iam_role_policy" "carts" {
         ]
         Resource = [var.table_arns["carts"]]
       },
+      {
+        Effect   = "Allow"
+        Action   = ["ssm:GetParameter"]
+        Resource = ["arn:aws:ssm:${var.aws_region}:*:parameter/cloudshop/eventbus/name"]
+      },
     ]
   })
 }
 
-# --- products: RW sobre products ---
+# --- products: RW sobre products + SSM (eventbus name, para event_emitter.py) ---
 resource "aws_iam_role_policy" "products" {
   name = "${var.project_name}-products-policy"
   role = aws_iam_role.products.id
@@ -157,11 +162,16 @@ resource "aws_iam_role_policy" "products" {
         ]
         Resource = [var.table_arns["products"]]
       },
+      {
+        Effect   = "Allow"
+        Action   = ["ssm:GetParameter"]
+        Resource = ["arn:aws:ssm:${var.aws_region}:*:parameter/cloudshop/eventbus/name"]
+      },
     ]
   })
 }
 
-# --- stores: RW sobre stores ---
+# --- stores: RW sobre stores + SSM (eventbus name, para event_emitter.py) ---
 resource "aws_iam_role_policy" "stores" {
   name = "${var.project_name}-stores-policy"
   role = aws_iam_role.stores.id
@@ -177,11 +187,16 @@ resource "aws_iam_role_policy" "stores" {
         ]
         Resource = [var.table_arns["stores"]]
       },
+      {
+        Effect   = "Allow"
+        Action   = ["ssm:GetParameter"]
+        Resource = ["arn:aws:ssm:${var.aws_region}:*:parameter/cloudshop/eventbus/name"]
+      },
     ]
   })
 }
 
-# --- users: SSM (user-pool-id) + administración Cognito ---
+# --- users: SSM (user-pool-id + eventbus name) + administración Cognito ---
 resource "aws_iam_role_policy" "users" {
   name = "${var.project_name}-users-policy"
   role = aws_iam_role.users.id
@@ -193,6 +208,11 @@ resource "aws_iam_role_policy" "users" {
         Effect   = "Allow"
         Action   = ["ssm:GetParameter", "ssm:GetParameters"]
         Resource = ["arn:aws:ssm:${var.aws_region}:*:parameter/app/cognito/*"]
+      },
+      {
+        Effect   = "Allow"
+        Action   = ["ssm:GetParameter"]
+        Resource = ["arn:aws:ssm:${var.aws_region}:*:parameter/cloudshop/eventbus/name"]
       },
       {
         Effect = "Allow"

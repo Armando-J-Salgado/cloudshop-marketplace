@@ -28,13 +28,17 @@ def lambda_handler(event, context):
         claims = event["requestContext"]["authorizer"]["claims"]
         customer_id = claims["sub"]
 
-        body = json.loads(event.get("body", "{}"))
-        product_id = body.get("ProductId", "").strip()
+        path_params = event.get("pathParameters") or {}
+        cart_id = path_params.get("id")
+        if cart_id and cart_id != customer_id:
+            return _response(403, {"message": "No tienes acceso a este carrito"})
+
+        product_id = (path_params.get("productId") or "").strip()
 
         if not product_id:
-            return _response(400, {"message": "ProductId es requerido"})
+            return _response(400, {"message": "productId es requerido en la ruta"})
 
-        response = carts_table.get_item(Key={"CustomerId": customer_id})
+        response = carts_table.get_item(Key={"ClientId": customer_id})
         cart = response.get("Item")
 
         if not cart or not cart.get("Items"):
@@ -51,7 +55,7 @@ def lambda_handler(event, context):
         now = datetime.utcnow().isoformat()
 
         carts_table.update_item(
-            Key={"CustomerId": customer_id},
+            Key={"ClientId": customer_id},
             UpdateExpression="SET #items = :items, UpdatedAt = :now",
             ExpressionAttributeNames={"#items": "Items"},
             ExpressionAttributeValues={":items": items, ":now": now}
@@ -63,14 +67,14 @@ def lambda_handler(event, context):
             action="REMOVE_PRODUCT_FROM_CART",
             result="SUCCESS",
             details={
-                "CustomerId": customer_id,
+                "ClientId": customer_id,
                 "ProductId": product_id
             }
         )
 
         return _response(200, {
             "message": "Producto eliminado del carrito",
-            "cart": {"CustomerId": customer_id, "Items": items}
+            "cart": {"ClientId": customer_id, "Items": items}
         })
 
     except json.JSONDecodeError:

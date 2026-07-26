@@ -28,7 +28,12 @@ def lambda_handler(event, context):
         claims = event["requestContext"]["authorizer"]["claims"]
         customer_id = claims["sub"]
 
-        response = carts_table.get_item(Key={"CustomerId": customer_id})
+        path_params = event.get("pathParameters") or {}
+        cart_id = path_params.get("id")
+        if cart_id and cart_id != customer_id:
+            return _response(403, {"message": "No tienes acceso a este carrito"})
+
+        response = carts_table.get_item(Key={"ClientId": customer_id})
         cart = response.get("Item")
 
         if not cart:
@@ -37,7 +42,7 @@ def lambda_handler(event, context):
         now = datetime.utcnow().isoformat()
 
         carts_table.update_item(
-            Key={"CustomerId": customer_id},
+            Key={"ClientId": customer_id},
             UpdateExpression="SET #items = :empty, UpdatedAt = :now",
             ExpressionAttributeNames={"#items": "Items"},
             ExpressionAttributeValues={":empty": [], ":now": now}
@@ -49,13 +54,13 @@ def lambda_handler(event, context):
             action="CLEAR_CART",
             result="SUCCESS",
             details={
-                "CustomerId": customer_id
+                "ClientId": customer_id
             }
         )
 
         return _response(200, {
             "message": "Carrito vaciado exitosamente",
-            "cart": {"CustomerId": customer_id, "Items": []}
+            "cart": {"ClientId": customer_id, "Items": []}
         })
 
     except Exception as e:
