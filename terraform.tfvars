@@ -3,10 +3,7 @@ project_name   = "cloudshop"
 environment    = "dev"
 api_stage_name = "dev"
 
-# TODO(PENDIENTE.md): reemplazar por un remitente real, verificado en SES,
-# antes del primer `terraform apply`. Placeholder para que `validate`/`plan`
-# corran sin credenciales de correo reales.
-ses_source_email = "notifications@cloudshop.example"
+ses_source_email = "20245387+cloudshop@esen.edu.sv"
 
 # Determinístico: policy "CloudShopWorkloadBoundary", path "/cicd/",
 # cuenta 636017850255 (infraestructure/cicd/, ya aplicado). Ver su
