@@ -10,7 +10,9 @@ El proyecto integra almacenamiento en la nube, distribución de contenido, APIs 
 
 ## Enlace al sitio desplegado:
 
-[Cloudshop store](https://d2ox01s1fkgcgs.cloudfront.net)
+[Cloudshop store](https://d2ox01s1fkgcgs.cloudfront.net/login)
+
+> ⚠️ **AVISO IMPORTANTE:** Al abrir el enlace, asegúrate de dirigirte inmediatamente a la página de **Login / Registro** e iniciar sesión. Si intentas navegar por los módulos del sistema sin haber iniciado sesión previamente, la aplicación mostrará un error de "Unauthorized" (No autorizado).
 
 Prueba la plataforma:
 
@@ -73,7 +75,18 @@ Dado que el backend es totalmente _serverless_, debe ser desplegado en AWS usand
    ```
    _(Nota: Asegúrate de tener los valores requeridos en `terraform.tfvars` si es necesario)._
 
-### Paso 3: Configuración y Ejecución del Frontend (Local)
+### Paso 3: Población de Datos Iniciales (Seed)
+
+Una vez que el backend y las bases de datos estén desplegados en AWS, puedes cargar datos de prueba (tiendas y productos) usando el script de _seed_:
+
+1. Ejecuta el script de seed:
+   ```bash
+   python seed_data.py
+   ```
+2. El script te pedirá que ingreses tu `project_name` (ej. `cloudshop-user`). Esto asegura que los datos se guarden en las tablas de DynamoDB correctas para tu entorno aislado.
+   _(Si no ingresas nada y presionas Enter, por defecto usará `cloudshop`, si es que no personalizaste los nombres de los recursos)._
+
+### Paso 4: Configuración y Ejecución del Frontend (Local)
 
 El frontend de la tienda está construido con Vite y React/TypeScript.
 

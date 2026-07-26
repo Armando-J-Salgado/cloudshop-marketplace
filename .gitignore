@@ -1,7 +1,7 @@
 ```
 # Infrastructure and Terraform
 .terraform/
-*.tfstate
+*.tfstate*
 *.tfvars
 *.auto.tfvars
 .terragrunt-cache/
@@ -26,3 +26,4 @@ Thumbs.db
 *.terraform/*
 # Dependencies and build artifacts would go here if present
 ```
+terraform.tfvars.personal
