@@ -12,12 +12,11 @@ import "./styles/index.css"
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <AuthProvider>
-      <CartProvider>
-        <RouterProvider router={router} />
-        <RoleProvider>
+      <RoleProvider>
+        <CartProvider>
           <RouterProvider router={router} />
-        </RoleProvider>
-      </CartProvider>
+        </CartProvider>
+      </RoleProvider>
     </AuthProvider>
   </React.StrictMode>
 )

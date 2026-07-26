@@ -33,6 +33,8 @@ import { EditStore } from "@/pages/admin/EditStore"
 import { StoreDetail as AdminStoreDetail } from "@/pages/admin/StoreDetail"
 import { AdminOrders } from "@/pages/admin/AdminOrders"
 import { AdminOrderDetail } from "@/pages/admin/AdminOrderDetail"
+import { AuditLogs } from "@/pages/admin/AuditLogs"
+import { CreateUser } from "@/pages/admin/CreateUser"
 
 /* Operator Pages */
 import { Inventory } from "@/pages/operator/Inventory"
@@ -128,10 +130,26 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/admin/usuarios/nuevo",
+        element: (
+          <ProtectedRoute allow={["admin"]}>
+            <CreateUser />
+          </ProtectedRoute>
+        ),
+      },
+      {
         path: "/admin/usuarios/:userId",
         element: (
           <ProtectedRoute allow={["admin"]}>
             <UserDetail />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/admin/auditoria",
+        element: (
+          <ProtectedRoute allow={["admin"]}>
+            <AuditLogs />
           </ProtectedRoute>
         ),
       },
