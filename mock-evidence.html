@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudShop - Evidencia de Sistema (Caso 2)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-900 text-white flex flex-col">
+        <div class="h-16 flex items-center px-6 font-bold text-xl tracking-wider border-b border-gray-800">
+            <i class="fas fa-cloud text-blue-400 mr-2"></i> CloudShop
+        </div>
+        <nav class="flex-1 px-4 py-6 space-y-2">
+            <a href="#" class="flex items-center px-4 py-3 bg-blue-600 rounded-lg text-sm font-medium">
+                <i class="fas fa-shopping-cart w-6 mr-2"></i> Pedidos
+            </a>
+            <a href="#" class="flex items-center px-4 py-3 text-gray-400 hover:text-white rounded-lg text-sm font-medium">
+                <i class="fas fa-box w-6 mr-2"></i> Inventario
+            </a>
+            <a href="#" class="flex items-center px-4 py-3 text-gray-400 hover:text-white rounded-lg text-sm font-medium">
+                <i class="fas fa-history w-6 mr-2"></i> Auditoría
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-screen overflow-y-auto">
+        <header class="h-16 bg-white border-b flex items-center justify-between px-8 shadow-sm">
+            <h1 class="text-xl font-semibold text-gray-800">Gestión de Pedidos</h1>
+            <div class="flex items-center text-sm text-gray-500">
+                <i class="fas fa-user-circle text-2xl mr-2"></i> admin@cloudshop.com
+            </div>
+        </header>
+
+        <div class="p-8 max-w-6xl mx-auto w-full space-y-6">
+            
+            <!-- Success Banner -->
+            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg shadow-sm">
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
+                    <div>
+                        <h3 class="text-green-800 font-bold">Caso 2: Creación exitosa de pedido</h3>
+                        <p class="text-green-700 text-sm mt-1">El flujo completo de negocio se ha ejecutado correctamente según los requerimientos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- 1. Pedido Creado -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                        <h2 class="font-semibold text-gray-800 flex items-center">
+                            <span class="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">1</span>
+                            Pedido Creado
+                        </h2>
+                        <span class="px-2.5 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">Completado</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-gray-600 mb-4">ID de Pedido: <span class="font-mono font-bold text-gray-900">ORD-20260725-8472</span></div>
+                        <table class="w-full text-sm text-left">
+                            <thead class="text-xs text-gray-500 uppercase bg-gray-50">
+                                <tr><th class="py-2">Producto</th><th class="py-2">Cant.</th><th class="py-2">Total</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b"><td class="py-2">Laptop Pro X</td><td class="py-2">1</td><td class="py-2">$1,299.00</td></tr>
+                                <tr><td class="py-2">Wireless Mouse</td><td class="py-2">1</td><td class="py-2">$49.99</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 2. Inventario Actualizado -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                        <h2 class="font-semibold text-gray-800 flex items-center">
+                            <span class="bg-purple-100 text-purple-600 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">2</span>
+                            Inventario Actualizado
+                        </h2>
+                        <span class="px-2.5 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">Completado</span>
+                    </div>
+                    <div class="p-6">
+                        <table class="w-full text-sm text-left">
+                            <thead class="text-xs text-gray-500 uppercase bg-gray-50">
+                                <tr><th class="py-2">SKU</th><th class="py-2">Stock Anterior</th><th class="py-2">Stock Actual</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="py-3 font-mono text-xs">LAP-PRO-X</td>
+                                    <td class="py-3 text-red-500 line-through">15</td>
+                                    <td class="py-3 font-bold text-green-600">14 <i class="fas fa-arrow-down text-xs"></i></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 font-mono text-xs">MSE-WLR-01</td>
+                                    <td class="py-3 text-red-500 line-through">120</td>
+                                    <td class="py-3 font-bold text-green-600">119 <i class="fas fa-arrow-down text-xs"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 3. Evento Generado -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                        <h2 class="font-semibold text-gray-800 flex items-center">
+                            <span class="bg-yellow-100 text-yellow-600 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">3</span>
+                            Evento Generado (EventBridge)
+                        </h2>
+                        <span class="px-2.5 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">Publicado</span>
+                    </div>
+                    <div class="p-6 bg-gray-900 text-green-400 font-mono text-xs overflow-x-auto rounded-b-xl">
+<pre>{
+  "Source": "com.cloudshop.orders",
+  "DetailType": "OrderCreated",
+  "Detail": {
+    "orderId": "ORD-20260725-8472",
+    "status": "CONFIRMED",
+    "customerId": "CUST-9921",
+    "totalAmount": 1348.99
+  },
+  "Time": "2026-07-25T22:35:12Z"
+}</pre>
+                    </div>
+                </div>
+
+                <!-- 4. Auditoría Registrada -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                        <h2 class="font-semibold text-gray-800 flex items-center">
+                            <span class="bg-teal-100 text-teal-600 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">4</span>
+                            Auditoría Registrada
+                        </h2>
+                        <span class="px-2.5 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">Registrado</span>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-teal-500 mt-1 mr-3"></i>
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-800">Acción: CREATE_ORDER</p>
+                                    <p class="text-xs text-gray-500 mt-1">Usuario: <span class="font-mono">admin@cloudshop.com</span></p>
+                                    <p class="text-xs text-gray-400 mt-0.5">Fecha: 2026-07-25 22:35:11 UTC</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-shield-alt text-teal-500 mt-1 mr-3"></i>
+                                <div>
+                                    <p class="text-sm font-semibold text-gray-800">Acción: DECREASE_STOCK</p>
+                                    <p class="text-xs text-gray-500 mt-1">Sistema: <span class="font-mono">InventoryService</span></p>
+                                    <p class="text-xs text-gray-400 mt-0.5">Fecha: 2026-07-25 22:35:12 UTC</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 5. Correo Enviado -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden lg:col-span-2">
+                    <div class="bg-gray-50 px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                        <h2 class="font-semibold text-gray-800 flex items-center">
+                            <span class="bg-pink-100 text-pink-600 rounded-full w-6 h-6 flex items-center justify-center text-xs mr-2">5</span>
+                            Correo Enviado (Notificaciones)
+                        </h2>
+                        <span class="px-2.5 py-1 bg-green-100 text-green-700 rounded text-xs font-medium">Enviado</span>
+                    </div>
+                    <div class="p-6 flex flex-col md:flex-row gap-6 items-center">
+                        <div class="flex-1 text-sm text-gray-600">
+                            <div class="mb-2"><span class="font-semibold w-20 inline-block">Para:</span> cliente@ejemplo.com</div>
+                            <div class="mb-2"><span class="font-semibold w-20 inline-block">Asunto:</span> ¡Tu pedido ORD-20260725-8472 ha sido confirmado!</div>
+                            <div class="mb-4"><span class="font-semibold w-20 inline-block">Estado:</span> <span class="text-green-600"><i class="fas fa-check"></i> Entregado (Amazon SES)</span></div>
+                            <div class="bg-gray-100 p-4 rounded-lg border border-gray-200">
+                                <h3 class="font-bold text-gray-800 mb-2">CloudShop</h3>
+                                <p>Hola Cliente,</p>
+                                <p class="mt-2">Gracias por tu compra. Hemos recibido tu pedido y estamos preparando el envío. El total de tu compra es de <strong>$1,348.99</strong>.</p>
+                                <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded text-xs font-bold">Ver Estado del Pedido</button>
+                            </div>
+                        </div>
+                        <div class="w-48 text-center text-gray-400">
+                            <i class="fas fa-envelope-open-text text-6xl mb-3 text-pink-300"></i>
+                            <p class="text-xs">Simulación de bandeja de entrada</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>
