@@ -71,6 +71,19 @@ export interface Order {
   UpdatedAt: string
 }
 
+export interface Store {
+  StoreId: string
+  Name: string
+  Description: string
+  OwnerId: string
+  Email: string
+  Phone: string
+  Address: string
+  Status: string
+  CreatedAt: string
+  UpdatedAt: string
+}
+
 export const apiClient = {
   products: {
     list: (params?: { storeId?: string; limit?: number; nextToken?: string }) => {
@@ -90,6 +103,39 @@ export const apiClient = {
         `/products/${encodeURIComponent(productId)}?store_id=${encodeURIComponent(storeId)}`,
         { method: "DELETE" }
       ),
+    update: (storeId: string, productId: string, data: Record<string, unknown>) =>
+      request<{ message: string; product: Product }>(
+        `/products/${encodeURIComponent(productId)}?store_id=${encodeURIComponent(storeId)}`,
+        { method: "PATCH", body: JSON.stringify(data) }
+      ),
+  },
+
+  stores: {
+    list: (params?: { limit?: number; nextToken?: string }) => {
+      const query = new URLSearchParams()
+      if (params?.limit) query.set("limit", String(params.limit))
+      if (params?.nextToken) query.set("next_token", params.nextToken)
+      const qs = query.toString()
+      return request<{ stores: Store[]; count: number; next_token?: string }>(
+        `/stores${qs ? `?${qs}` : ""}`
+      )
+    },
+    get: (storeId: string) =>
+      request<{ store: Store }>(`/stores/${encodeURIComponent(storeId)}`),
+    create: (data: { Name: string; Description: string; OwnerId: string; Email: string; Phone: string; Address: string }) =>
+      request<{ message: string; store: Store }>(`/stores`, {
+        method: "POST",
+        body: JSON.stringify(data),
+      }),
+    update: (storeId: string, data: Record<string, string>) =>
+      request<{ message: string; store: Store }>(
+        `/stores/${encodeURIComponent(storeId)}`,
+        { method: "PATCH", body: JSON.stringify(data) }
+      ),
+    delete: (storeId: string) =>
+      request<{ message: string }>(`/stores/${encodeURIComponent(storeId)}`, {
+        method: "DELETE",
+      }),
   },
 
   carts: {
@@ -129,6 +175,11 @@ export const apiClient = {
       request<{ message: string; order: Order }>(`/orders/${encodeURIComponent(orderId)}`, {
         method: "DELETE",
       }),
+    updateStatus: (orderId: string, customerId: string, status: string) =>
+      request<Order>(`/orders/${encodeURIComponent(orderId)}`, {
+        method: "PATCH",
+        body: JSON.stringify({ CustomerId: customerId, Status: status }),
+      }),
   },
 
   registrations: {
@@ -141,7 +192,7 @@ export const apiClient = {
 
   users: {
     list: () =>
-      request<{ users: Array<{ userId: string; email: string; name: string; role: string; status: string }> }>(
+      request<{ message: string; data: { users: Array<{ id: string; email: string; name: string; role: string; status: string; created_at: string }>; count: number } }>(
         `/users`
       ),
     create: (email: string, password: string, name: string, role: string) =>
@@ -149,6 +200,11 @@ export const apiClient = {
         `/registrations`,
         { method: "POST", body: JSON.stringify({ email, password, name, role }) }
       ),
+    update: (userId: string, data: { name?: string; password?: string }) =>
+      request<{ message: string }>(`/users/${encodeURIComponent(userId)}`, {
+        method: "PATCH",
+        body: JSON.stringify(data),
+      }),
     delete: (userId: string) =>
       request<{ message: string }>(`/users/${encodeURIComponent(userId)}`, { method: "DELETE" }),
   },
