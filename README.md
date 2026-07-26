@@ -12,6 +12,8 @@ El proyecto integra almacenamiento en la nube, distribución de contenido, APIs 
 
 [Cloudshop store](https://d2ox01s1fkgcgs.cloudfront.net)
 
+> ⚠️ **AVISO IMPORTANTE:** Al abrir el enlace, asegúrate de dirigirte inmediatamente a la página de **Login / Registro** e iniciar sesión. Si intentas navegar por los módulos del sistema sin haber iniciado sesión previamente, la aplicación mostrará un error de "Unauthorized" (No autorizado).
+
 Prueba la plataforma:
 
 - Admin: `20245138@esen.edu.sv`
