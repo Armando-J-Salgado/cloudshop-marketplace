@@ -6,7 +6,9 @@ import { apiClient, ApiError, type Store } from "@/services/apiClient"
 
 export function Stores() {
   const [stores, setStores] = useState<Store[]>([])
+  const [nextToken, setNextToken] = useState<string | undefined>(undefined)
   const [isLoading, setIsLoading] = useState(true)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const fetchStores = async () => {
@@ -15,10 +17,25 @@ export function Stores() {
     try {
       const result = await apiClient.stores.list({ limit: 50 })
       setStores(result.stores)
+      setNextToken(result.next_token)
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Error al cargar tiendas")
     } finally {
       setIsLoading(false)
+    }
+  }
+
+  const handleLoadMore = async () => {
+    if (!nextToken) return
+    setIsLoadingMore(true)
+    try {
+      const result = await apiClient.stores.list({ limit: 50, nextToken })
+      setStores((prev) => [...prev, ...result.stores])
+      setNextToken(result.next_token)
+    } catch (err) {
+      setError(err instanceof ApiError ? err.message : "Error al cargar más tiendas")
+    } finally {
+      setIsLoadingMore(false)
     }
   }
 
@@ -112,6 +129,18 @@ export function Stores() {
                 ))}
               </tbody>
             </table>
+          </div>
+        )}
+
+        {!isLoading && nextToken && (
+          <div className="flex justify-center pt-2">
+            <button
+              onClick={handleLoadMore}
+              disabled={isLoadingMore}
+              className="px-5 py-2.5 rounded-xl border border-border text-xs font-bold text-foreground hover:bg-muted transition-colors disabled:opacity-50"
+            >
+              {isLoadingMore ? "Cargando..." : "Cargar más tiendas"}
+            </button>
           </div>
         )}
       </div>

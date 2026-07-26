@@ -6,9 +6,7 @@ from decimal import Decimal
 
 import boto3
 
-# Add utils directory to path for importing event_emitter
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'utils'))
-from event_emitter import emit_event
+from utils.event_emitter import emit_event
 
 dynamodb = boto3.resource("dynamodb")
 

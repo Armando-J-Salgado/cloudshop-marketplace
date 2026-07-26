@@ -14,61 +14,62 @@ data "aws_iam_policy_document" "lambda_assume_role" {
 # obligatorio que exige infraestructure/cicd/policies.tf. La política
 # CrearRolesConBoundaryObligatorio del pipeline rechaza cualquier rol de
 # este path que no lleve exactamente ese boundary.
+# NOTA: En despliegues personales sin CI/CD, workload_boundary_arn puede ser null.
 
 resource "aws_iam_role" "orders" {
   name                 = "${var.project_name}-lambda-orders"
   path                 = "/cloudshop/"
   assume_role_policy   = data.aws_iam_policy_document.lambda_assume_role.json
-  permissions_boundary = var.workload_boundary_arn
+  permissions_boundary = var.workload_boundary_arn != null ? var.workload_boundary_arn : null
 }
 
 resource "aws_iam_role" "carts" {
   name                 = "${var.project_name}-lambda-carts"
   path                 = "/cloudshop/"
   assume_role_policy   = data.aws_iam_policy_document.lambda_assume_role.json
-  permissions_boundary = var.workload_boundary_arn
+  permissions_boundary = var.workload_boundary_arn != null ? var.workload_boundary_arn : null
 }
 
 resource "aws_iam_role" "products" {
   name                 = "${var.project_name}-lambda-products"
   path                 = "/cloudshop/"
   assume_role_policy   = data.aws_iam_policy_document.lambda_assume_role.json
-  permissions_boundary = var.workload_boundary_arn
+  permissions_boundary = var.workload_boundary_arn != null ? var.workload_boundary_arn : null
 }
 
 resource "aws_iam_role" "stores" {
   name                 = "${var.project_name}-lambda-stores"
   path                 = "/cloudshop/"
   assume_role_policy   = data.aws_iam_policy_document.lambda_assume_role.json
-  permissions_boundary = var.workload_boundary_arn
+  permissions_boundary = var.workload_boundary_arn != null ? var.workload_boundary_arn : null
 }
 
 resource "aws_iam_role" "users" {
   name                 = "${var.project_name}-lambda-users"
   path                 = "/cloudshop/"
   assume_role_policy   = data.aws_iam_policy_document.lambda_assume_role.json
-  permissions_boundary = var.workload_boundary_arn
+  permissions_boundary = var.workload_boundary_arn != null ? var.workload_boundary_arn : null
 }
 
 resource "aws_iam_role" "audit" {
   name                 = "${var.project_name}-lambda-audit"
   path                 = "/cloudshop/"
   assume_role_policy   = data.aws_iam_policy_document.lambda_assume_role.json
-  permissions_boundary = var.workload_boundary_arn
+  permissions_boundary = var.workload_boundary_arn != null ? var.workload_boundary_arn : null
 }
 
 resource "aws_iam_role" "notifications" {
   name                 = "${var.project_name}-lambda-notifications"
   path                 = "/cloudshop/"
   assume_role_policy   = data.aws_iam_policy_document.lambda_assume_role.json
-  permissions_boundary = var.workload_boundary_arn
+  permissions_boundary = var.workload_boundary_arn != null ? var.workload_boundary_arn : null
 }
 
 resource "aws_iam_role" "dashboard" {
   name                 = "${var.project_name}-lambda-dashboard"
   path                 = "/cloudshop/"
   assume_role_policy   = data.aws_iam_policy_document.lambda_assume_role.json
-  permissions_boundary = var.workload_boundary_arn
+  permissions_boundary = var.workload_boundary_arn != null ? var.workload_boundary_arn : null
 }
 
 # Logs, igual para las 8: CreateLogGroup/CreateLogStream/PutLogEvents ya
@@ -228,7 +229,8 @@ resource "aws_iam_role_policy" "users" {
   })
 }
 
-# --- audit: solo escritura en audit (consumidor de EventBridge) ---
+# --- audit: escritura (consumidor de EventBridge) + lectura (lambda de
+# consulta para el panel de auditoria del admin) ---
 resource "aws_iam_role_policy" "audit" {
   name = "${var.project_name}-audit-policy"
   role = aws_iam_role.audit.id
@@ -238,7 +240,7 @@ resource "aws_iam_role_policy" "audit" {
     Statement = [
       {
         Effect   = "Allow"
-        Action   = ["dynamodb:PutItem"]
+        Action   = ["dynamodb:PutItem", "dynamodb:Query", "dynamodb:Scan"]
         Resource = [var.table_arns["audit"]]
       },
     ]

@@ -14,6 +14,24 @@ resource "aws_cognito_user_pool" "users" {
   mfa_configuration = "OFF"
 
   auto_verified_attributes = ["email"]
+  
+  schema {
+    name                = "role"
+    attribute_data_type = "String"
+    required            = false
+    mutable             = true
+  }
+
+  schema {
+    name                = "status"
+    attribute_data_type = "String"
+    required            = false
+    mutable             = true
+  }
+
+  lifecycle {
+    ignore_changes = [ schema ]
+  }
 }
 
 resource "aws_cognito_user_pool_client" "web" {

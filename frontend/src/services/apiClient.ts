@@ -228,9 +228,17 @@ export const apiClient = {
   },
 
   audit: {
-    list: () =>
-      request<{ records: Array<{ UserId: string; Timestamp: string; Action: string; Result: string; Details: string }> }>(
-        `/audit`
-      ),
+    list: (params?: { limit?: number; nextToken?: string; userId?: string }) => {
+      const query = new URLSearchParams()
+      if (params?.limit) query.set("limit", String(params.limit))
+      if (params?.nextToken) query.set("next_token", params.nextToken)
+      if (params?.userId) query.set("user_id", params.userId)
+      const qs = query.toString()
+      return request<{
+        records: Array<{ UserId: string; Timestamp: string; Action: string; Result: string; Details: string }>
+        count: number
+        next_token?: string
+      }>(`/audit${qs ? `?${qs}` : ""}`)
+    },
   },
 }

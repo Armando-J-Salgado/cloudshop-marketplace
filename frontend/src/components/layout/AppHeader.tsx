@@ -3,12 +3,12 @@ import { Link, useLocation } from "react-router-dom"
 import { UserMenu } from "./UserMenu"
 import { useAuth } from "@/hooks/useAuth"
 import { useCart } from "@/context/CartContext"
-import { ShoppingCart, Store, ShoppingBag, Shield, Menu, X } from "lucide-react"
+import { ShoppingCart, Store, ShoppingBag, Shield, Menu, X, Trash2 } from "lucide-react"
 
 export function AppHeader() {
   const location = useLocation()
   const { roles } = useAuth()
-  const { items, subtotal } = useCart()
+  const { items, subtotal, updateQuantity, removeItem, clear } = useCart()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isCartSheetOpen, setIsCartSheetOpen] = useState(false)
 
@@ -133,20 +133,36 @@ export function AppHeader() {
               </div>
 
               {/* Cart Items from Context */}
-              <div className="py-4 space-y-3">
+              <div className="py-4 space-y-3 overflow-y-auto max-h-[60vh]">
                 {items.length === 0 ? (
                   <p className="text-xs text-muted-foreground py-6 text-center">Tu carrito está vacío.</p>
                 ) : (
                   items.map((item) => (
                     <div key={item.productId} className="flex items-center gap-3 p-3 rounded-xl bg-muted/50 border border-border">
-                      <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center font-bold text-primary text-xs">
+                      <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center font-bold text-primary text-xs shrink-0">
                         {item.name.slice(0, 4).toUpperCase()}
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-xs font-semibold text-foreground truncate">{item.name}</p>
-                        <p className="text-[11px] text-muted-foreground">Cantidad: {item.quantity}</p>
                         <p className="text-xs font-bold text-primary mt-0.5">${(item.price * item.quantity).toFixed(2)}</p>
                       </div>
+                      <div className="flex items-center gap-1">
+                        <button
+                          onClick={() => item.quantity > 1 && updateQuantity(item.productId, item.quantity - 1)}
+                          className="h-6 w-6 rounded-lg border border-border text-xs font-bold flex items-center justify-center hover:bg-muted"
+                        >−</button>
+                        <span className="text-xs font-bold w-5 text-center">{item.quantity}</span>
+                        <button
+                          onClick={() => updateQuantity(item.productId, item.quantity + 1)}
+                          className="h-6 w-6 rounded-lg border border-border text-xs font-bold flex items-center justify-center hover:bg-muted"
+                        >+</button>
+                      </div>
+                      <button
+                        onClick={() => removeItem(item.productId)}
+                        className="p-1 text-rose-500 hover:bg-rose-500/10 rounded-lg"
+                      >
+                        <X className="h-3.5 w-3.5" />
+                      </button>
                     </div>
                   ))
                 )}
@@ -158,6 +174,14 @@ export function AppHeader() {
                 <span className="text-muted-foreground font-medium">Total Estimado:</span>
                 <span className="font-extrabold text-foreground text-base">${subtotal.toFixed(2)}</span>
               </div>
+              {items.length > 0 && (
+                <button
+                  onClick={() => clear()}
+                  className="w-full py-2 rounded-xl bg-rose-500/10 text-rose-600 text-xs font-bold hover:bg-rose-500/20 transition-colors flex items-center justify-center gap-1.5"
+                >
+                  <Trash2 className="h-3.5 w-3.5" /> Vaciar Carrito
+                </button>
+              )}
               <div className="grid grid-cols-2 gap-2">
                 <Link
                   to="/carrito"

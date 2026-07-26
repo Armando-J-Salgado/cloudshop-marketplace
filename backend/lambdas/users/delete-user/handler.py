@@ -8,8 +8,7 @@ cognito_client = boto3.client('cognito-idp')
 # Import event emitter from utils
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'utils'))
-from event_emitter import emit_event
+from utils.event_emitter import emit_event
 
 PARAM_USER_POOL_ID = '/app/cognito/user-pool-id'
 
@@ -52,9 +51,29 @@ def _response(status_code, body):
     }
 
 
+def _is_admin(claims):
+    """Only admins may deactivate user accounts."""
+    user_groups = claims.get("cognito:groups", "")
+    if isinstance(user_groups, list):
+        groups = {str(g).strip() for g in user_groups}
+    else:
+        groups = {g.strip() for g in str(user_groups).split(",") if g.strip()}
+    return "admin" in groups
+
+
 def lambda_handler(event, context):
     try:
         print("====== DELETE USER REQUEST ======")
+
+        # Get actor user_id and claims from the authenticated request
+        claims = event.get("requestContext", {}).get("authorizer", {}).get("claims", {})
+        actor_user_id = claims.get("sub", "SYSTEM")
+
+        if not _is_admin(claims):
+            return _response(403, {
+                'message': 'No autorizado. Solo un administrador puede desactivar usuarios',
+                'error': 'FORBIDDEN'
+            })
 
         # Extract user_id from path parameters
         path_params = event.get('pathParameters') or {}
@@ -65,10 +84,6 @@ def lambda_handler(event, context):
                 'message': 'User ID is required',
                 'error': 'MISSING_USER_ID'
             })
-
-        # Get actor user_id from claims (authenticated operation)
-        claims = event.get("requestContext", {}).get("authorizer", {}).get("claims", {})
-        actor_user_id = claims.get("sub", "SYSTEM")
 
         # Get User Pool ID
         user_pool_id = get_user_pool_id()

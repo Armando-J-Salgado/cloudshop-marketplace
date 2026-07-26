@@ -10,13 +10,14 @@ resource "aws_api_gateway_authorizer" "cognito" {
   provider_arns = [var.user_pool_arn]
 }
 
-resource "aws_api_gateway_deployment" "this" {
+ resource "aws_api_gateway_deployment" "this" {
   rest_api_id = aws_api_gateway_rest_api.this.id
 
   triggers = {
     redeployment = sha1(jsonencode({
-      routes  = local.active_routes
-      options = local.cors_resource_keys
+      routes           = local.active_routes
+      options          = local.cors_resource_keys
+      gateway_response = "cors_v1"
     }))
   }
 
@@ -28,6 +29,8 @@ resource "aws_api_gateway_deployment" "this" {
     aws_api_gateway_integration.route,
     aws_api_gateway_integration.options,
     aws_api_gateway_integration_response.options,
+    aws_api_gateway_gateway_response.cors_4xx,
+    aws_api_gateway_gateway_response.cors_5xx,
   ]
 }
 
@@ -61,3 +64,24 @@ resource "aws_api_gateway_usage_plan_key" "this" {
   key_type      = "API_KEY"
   usage_plan_id = aws_api_gateway_usage_plan.this.id
 }
+
+resource "aws_api_gateway_gateway_response" "cors_4xx" {
+  rest_api_id   = aws_api_gateway_rest_api.this.id
+  response_type = "DEFAULT_4XX"
+
+  response_parameters = {
+    "gatewayresponse.header.Access-Control-Allow-Origin"  = "'*'"
+    "gatewayresponse.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+  }
+}
+
+resource "aws_api_gateway_gateway_response" "cors_5xx" {
+  rest_api_id   = aws_api_gateway_rest_api.this.id
+  response_type = "DEFAULT_5XX"
+
+  response_parameters = {
+    "gatewayresponse.header.Access-Control-Allow-Origin"  = "'*'"
+    "gatewayresponse.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+  }
+}
+

@@ -1,11 +1,5 @@
 locals {
-  # Mapa completo, incluidas las funciones que aún no tienen código
-  # (stores/*, dashboard/*). `enabled` decide si el recurso se crea; se
-  # calcula con fileexists() sobre el entry file real, así que la Lambda
-  # aparece sola en el siguiente `plan` en cuanto los compañeros hagan push
-  # sin que Terraform tenga que escribir una línea de Python.
   functions = {
-    # --- orders (5) ---
     orders_create = {
       source_dir = "${path.root}/backend/lambdas/orders/create_order"
       entry_file = "lambda_function.py"
@@ -62,8 +56,6 @@ locals {
         EVENT_BUS_NAME      = var.event_bus_name
       }
     }
-
-    # --- carts (4) ---
     carts_add_product = {
       source_dir = "${path.root}/backend/lambdas/carts/add_product"
       entry_file = "lambda_function.py"
@@ -104,9 +96,6 @@ locals {
         CARTS_TABLE_NAME = var.table_names["carts"]
       }
     }
-    # GET /carts/{id} (diagrama: "Lambda Ver Detalles del carrito") no tiene
-    # código todavía — las otras 4 de carts/ sí. Mismo guard fileexists que
-    # stores/dashboard.
     carts_get = {
       source_dir = "${path.root}/backend/lambdas/carts/get_cart"
       entry_file = "lambda_function.py"
@@ -117,8 +106,6 @@ locals {
         CARTS_TABLE_NAME = var.table_names["carts"]
       }
     }
-
-    # --- products (5) ---
     products_create = {
       source_dir = "${path.root}/backend/lambdas/products/create_product"
       entry_file = "lambda_function.py"
@@ -169,8 +156,6 @@ locals {
         PRODUCTS_TABLE_NAME = var.table_names["products"]
       }
     }
-
-    # --- stores (5, sin código aún: fileexists los deja en "count 0") ---
     stores_create = {
       source_dir = "${path.root}/backend/lambdas/stores/create_store"
       entry_file = "lambda_function.py"
@@ -221,8 +206,6 @@ locals {
         STORES_TABLE_NAME = var.table_names["stores"]
       }
     }
-
-    # --- users (4) ---
     users_register = {
       source_dir = "${path.root}/backend/lambdas/users/register-user"
       entry_file = "handler.py"
@@ -255,8 +238,6 @@ locals {
       role       = "users"
       env        = {}
     }
-
-    # --- events (1, consumidor de EventBridge) ---
     events_audit = {
       source_dir = "${path.root}/backend/lambdas/events/audit_handler"
       entry_file = "lambda_function.py"
@@ -267,8 +248,6 @@ locals {
         AUDIT_TABLE_NAME = var.table_names["audit"]
       }
     }
-
-    # --- notifications (1, consumidor de EventBridge + SES) ---
     notifications_send_order = {
       source_dir = "${path.root}/backend/lambdas/notifications/send-order-notification"
       entry_file = "handler.py"
@@ -277,8 +256,6 @@ locals {
       role       = "notifications"
       env        = {}
     }
-
-    # --- dashboard (1, sin código aún) ---
     dashboard_get = {
       source_dir = "${path.root}/backend/lambdas/dashboard/get_dashboard"
       entry_file = "lambda_function.py"
@@ -290,11 +267,45 @@ locals {
         PRODUCTS_TABLE_NAME = var.table_names["products"]
       }
     }
+    audit_get = {
+      source_dir = "${path.root}/backend/lambdas/audit/get_audit_logs"
+      entry_file = "lambda_function.py"
+      handler    = "lambda_function.lambda_handler"
+      name       = "audit-get"
+      role       = "audit"
+      env = {
+        AUDIT_TABLE_NAME = var.table_names["audit"]
+      }
+    }
   }
 
   enabled_functions = {
     for key, fn in local.functions : key => fn
     if fileexists("${fn.source_dir}/${fn.entry_file}")
+  }
+  
+  utils_source = "${path.root}/backend/utils"
+}
+
+resource "null_resource" "copy_utils" {
+  for_each = local.enabled_functions
+
+  triggers = {
+    source_dir = each.value.source_dir
+    utils_src  = local.utils_source
+    zip_path   = "${path.root}/.terraform-build/${each.key}.zip"
+  }
+
+  provisioner "local-exec" {
+    interpreter = ["cmd", "/C"]
+    command = <<-EOT
+      if exist "${local.utils_source}" (
+        if exist "${each.value.source_dir}\\utils" (
+          rmdir /s /q "${each.value.source_dir}\\utils"
+        )
+        xcopy /E /I /Y "${local.utils_source}" "${each.value.source_dir}\\utils"
+      )
+    EOT
   }
 }
 
@@ -304,6 +315,8 @@ data "archive_file" "this" {
   type        = "zip"
   source_dir  = each.value.source_dir
   output_path = "${path.root}/.terraform-build/${each.key}.zip"
+  
+  depends_on = [null_resource.copy_utils]
 }
 
 resource "aws_cloudwatch_log_group" "this" {
@@ -329,5 +342,5 @@ resource "aws_lambda_function" "this" {
     variables = each.value.env
   }
 
-  depends_on = [aws_cloudwatch_log_group.this]
+  depends_on = [aws_cloudwatch_log_group.this, null_resource.copy_utils]
 }

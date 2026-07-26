@@ -8,6 +8,19 @@ El proyecto integra almacenamiento en la nube, distribución de contenido, APIs 
 
 ---
 
+## Enlace al sitio desplegado:
+
+[Cloudshop store](https://d2ox01s1fkgcgs.cloudfront.net)
+
+Prueba la plataforma:
+
+- Admin: `20245138@esen.edu.sv`
+- Customer: `postresalgados@gmail.com`
+- Operador: `arjsalgado@gmail.com`
+- Password de prueba (General): `04072005Ar!`
+
+---
+
 ## Arquitectura y Servicios de AWS Utilizados
 
 El ecosistema se divide en múltiples módulos y utiliza los siguientes servicios:

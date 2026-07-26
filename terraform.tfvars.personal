@@ -1,0 +1,27 @@
+# ===========================================
+# CONFIGURACIÓN PERSONAL - NO COMPARTIR
+# ===========================================
+# Este archivo es para despliegues personales en tu propia cuenta de AWS.
+# No hacer merge a main. Los recursos creados quedarán bajo tu responsabilidad.
+# ===========================================
+
+aws_region     = "us-east-1"
+
+# IMPORTANTE: Cambia esto por un prefijo único (tu nombre, iniciales, etc.)
+# Esto asegura que TODOS los recursos tengan nombres únicos en tu cuenta
+project_name   = "cloudshop-armando"
+
+environment    = "dev-personal"
+api_stage_name = "dev-armando"
+
+ses_source_email = "20245387+cloudshop@esen.edu.sv"
+
+# IMPORTANTE: Debes crear la política CloudShopWorkloadBoundary en TU cuenta primero
+# Sigue las instrucciones en infraestructure/cicd/README.md para crearla en tu cuenta
+# Luego reemplaza el número de cuenta (636017850255) con el TUYO
+# COMENTADO PARA DESPLIEGUE PERSONAL SIN RESTRICCIONES DE LÍMITES IAM
+# workload_boundary_arn = "arn:aws:iam::TU_NUMERO_DE_CUENTA:policy/cicd/CloudShopWorkloadBoundary"
+workload_boundary_arn = null
+
+# API Key opcional para el frontend
+api_key = ""

@@ -50,9 +50,26 @@ def _response(status_code, body):
     }
 
 
+def _is_admin(claims):
+    """Only admins may list all users."""
+    user_groups = claims.get("cognito:groups", "")
+    if isinstance(user_groups, list):
+        groups = {str(g).strip() for g in user_groups}
+    else:
+        groups = {g.strip() for g in str(user_groups).split(",") if g.strip()}
+    return "admin" in groups
+
+
 def lambda_handler(event, context):
     try:
         print("====== GET USERS REQUEST ======")
+
+        claims = event.get("requestContext", {}).get("authorizer", {}).get("claims", {})
+        if not _is_admin(claims):
+            return _response(403, {
+                'message': 'No autorizado. Solo un administrador puede consultar usuarios',
+                'error': 'FORBIDDEN'
+            })
 
         # Get query parameters
         query_params = event.get('queryStringParameters') or {}
