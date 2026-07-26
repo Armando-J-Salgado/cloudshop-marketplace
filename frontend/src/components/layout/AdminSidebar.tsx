@@ -14,6 +14,7 @@ import {
   Menu,
   X,
   User,
+  ScrollText,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -43,6 +44,7 @@ export function AdminSidebar() {
     { to: "/admin/pedidos", label: "Pedidos Globales", icon: ShoppingBag },
     { to: "/admin/usuarios", label: "Usuarios", icon: Users },
     { to: "/admin/tiendas", label: "Tiendas", icon: Store },
+    { to: "/admin/auditoria", label: "Auditoría", icon: ScrollText },
   ]
 
   const operatorNav = [

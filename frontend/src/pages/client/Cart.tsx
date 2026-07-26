@@ -1,13 +1,14 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { PageHeader } from "@/components/common/PageHeader"
-import { Trash2, ArrowRight, AlertCircle } from "lucide-react"
+import { Trash2, ArrowRight, AlertCircle, XCircle } from "lucide-react"
 import { useCart } from "@/context/CartContext"
 import { ApiError } from "@/services/apiClient"
 
 export function Cart() {
-  const { items, updateQuantity, removeItem, subtotal } = useCart()
+  const { items, updateQuantity, removeItem, clear, subtotal } = useCart()
   const [error, setError] = useState<string | null>(null)
+  const [isClearing, setIsClearing] = useState(false)
 
   const handleQuantity = async (productId: string, quantity: number) => {
     if (quantity < 1) return
@@ -23,6 +24,17 @@ export function Cart() {
       await removeItem(productId)
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Error al eliminar el producto")
+    }
+  }
+
+  const handleClearCart = async () => {
+    setIsClearing(true)
+    try {
+      await clear()
+    } catch (err) {
+      setError(err instanceof ApiError ? err.message : "Error al vaciar el carrito")
+    } finally {
+      setIsClearing(false)
     }
   }
 
@@ -45,6 +57,15 @@ export function Cart() {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-4">
+            <div className="flex justify-end">
+              <button
+                onClick={handleClearCart}
+                disabled={isClearing}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-500/10 text-rose-600 font-semibold text-xs hover:bg-rose-500/20 transition-colors disabled:opacity-50"
+              >
+                <XCircle className="h-3.5 w-3.5" /> {isClearing ? "Vaciando..." : "Vaciar Carrito"}
+              </button>
+            </div>
             {items.map((item) => (
               <div
                 key={item.productId}

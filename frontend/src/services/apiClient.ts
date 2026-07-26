@@ -85,6 +85,11 @@ export const apiClient = {
     },
     get: (storeId: string, productId: string) =>
       request<Product>(`/products/${encodeURIComponent(productId)}?store_id=${encodeURIComponent(storeId)}`),
+    delete: (storeId: string, productId: string) =>
+      request<{ message: string }>(
+        `/products/${encodeURIComponent(productId)}?store_id=${encodeURIComponent(storeId)}`,
+        { method: "DELETE" }
+      ),
   },
 
   carts: {
@@ -131,6 +136,40 @@ export const apiClient = {
       request<{ message: string; data: { user_id: string; email: string; name: string } }>(
         `/registrations`,
         { method: "POST", body: JSON.stringify({ email, password, name }) }
+      ),
+  },
+
+  users: {
+    list: () =>
+      request<{ users: Array<{ userId: string; email: string; name: string; role: string; status: string }> }>(
+        `/users`
+      ),
+    create: (email: string, password: string, name: string, role: string) =>
+      request<{ message: string; data: { user_id: string; email: string; name: string } }>(
+        `/registrations`,
+        { method: "POST", body: JSON.stringify({ email, password, name, role }) }
+      ),
+    delete: (userId: string) =>
+      request<{ message: string }>(`/users/${encodeURIComponent(userId)}`, { method: "DELETE" }),
+  },
+
+  dashboard: {
+    get: () =>
+      request<{
+        TotalSales: number
+        TotalOrders: number
+        SalesByStore: Array<{ StoreId: string; TotalSales: number }>
+        TopProducts: Array<{ ProductId: string; Name: string; TotalSold: number }>
+        OutOfStockProducts: Array<{ ProductId: string; Name: string; StoreId: string }>
+        TopCustomers: Array<{ CustomerId: string; OrderCount: number }>
+        OrdersByStatus: Record<string, number>
+      }>(`/dashboard`),
+  },
+
+  audit: {
+    list: () =>
+      request<{ records: Array<{ UserId: string; Timestamp: string; Action: string; Result: string; Details: string }> }>(
+        `/audit`
       ),
   },
 }

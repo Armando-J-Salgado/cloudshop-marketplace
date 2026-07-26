@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { PageHeader } from "@/components/common/PageHeader"
-import { Search, Eye } from "lucide-react"
+import { Search, Eye, UserPlus } from "lucide-react"
 
 export function Users() {
   const usersList = [
@@ -16,6 +16,14 @@ export function Users() {
       <PageHeader
         title="Gestión de Usuarios"
         description="Consulta y modificación de roles de usuarios registrados"
+        action={
+          <Link
+            to="/admin/usuarios/nuevo"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground font-semibold text-xs shadow-md hover:opacity-90 transition-opacity"
+          >
+            <UserPlus className="h-4 w-4" /> Crear Usuario
+          </Link>
+        }
       />
 
       <div className="bento-cell space-y-4">
