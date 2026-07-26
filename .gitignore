@@ -23,6 +23,6 @@ Thumbs.db
 .idea/
 *.swo
 *.swap
-
+*.terraform/*
 # Dependencies and build artifacts would go here if present
 ```
