@@ -1,0 +1,704 @@
+{
+  "version": "31.0.2",
+  "data": "<mxfile host=\"app.diagrams.net\"><diagram name=\"Página-1\" id=\"NbZIwEy0tM0Lfl1E_hBh\"><mxGraphModel dx=\"2384\" dy=\"798\" grid=\"0\" gridSize=\"10\" guides=\"1\" tooltips=\"1\" connect=\"1\" arrows=\"1\" fold=\"1\" page=\"1\" pageScale=\"1\" pageWidth=\"827\" pageHeight=\"1169\" math=\"0\" shadow=\"0\"><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"lxyTNMm6ix6AUjXJJnue-67\" parent=\"1\" style=\"shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;whiteSpace=wrap;\" value=\"Carts\" vertex=\"1\"><mxGeometry height=\"150\" width=\"240\" x=\"281\" y=\"350\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-71\" parent=\"lxyTNMm6ix6AUjXJJnue-67\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"240\" y=\"30\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-72\" parent=\"lxyTNMm6ix6AUjXJJnue-71\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"PK\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-73\" parent=\"lxyTNMm6ix6AUjXJJnue-71\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"&lt;b&gt;&lt;u&gt;ClientId&lt;/u&gt;&lt;/b&gt;\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"180\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"4JoOq0QckH6rwObcdxsz-10\" parent=\"lxyTNMm6ix6AUjXJJnue-67\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"240\" y=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"4JoOq0QckH6rwObcdxsz-11\" parent=\"4JoOq0QckH6rwObcdxsz-10\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;rowspan=5;colspan=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"90\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"4JoOq0QckH6rwObcdxsz-12\" parent=\"4JoOq0QckH6rwObcdxsz-10\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Items[] (ProductId, Quantity)\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"180\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-77\" parent=\"lxyTNMm6ix6AUjXJJnue-67\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"240\" y=\"90\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-78\" parent=\"lxyTNMm6ix6AUjXJJnue-77\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-79\" parent=\"lxyTNMm6ix6AUjXJJnue-77\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"CreatedAt\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"180\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-89\" parent=\"lxyTNMm6ix6AUjXJJnue-67\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"240\" y=\"120\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-90\" parent=\"lxyTNMm6ix6AUjXJJnue-89\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-91\" parent=\"lxyTNMm6ix6AUjXJJnue-89\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"UpdatedAt\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"180\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"4JoOq0QckH6rwObcdxsz-26\" edge=\"1\" parent=\"1\" source=\"lxyTNMm6ix6AUjXJJnue-92\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"lxyTNMm6ix6AUjXJJnue-195\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"4JoOq0QckH6rwObcdxsz-27\" edge=\"1\" parent=\"1\" source=\"lxyTNMm6ix6AUjXJJnue-92\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"lxyTNMm6ix6AUjXJJnue-154\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-92\" parent=\"1\" style=\"shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;whiteSpace=wrap;\" value=\"Stores\" vertex=\"1\"><mxGeometry height=\"330\" width=\"221.7826086956522\" x=\"-228\" y=\"350\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-96\" parent=\"lxyTNMm6ix6AUjXJJnue-92\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"221.7826086956522\" y=\"30\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-97\" parent=\"lxyTNMm6ix6AUjXJJnue-96\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"PK\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-98\" parent=\"lxyTNMm6ix6AUjXJJnue-96\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"StoreId\" vertex=\"1\"><mxGeometry height=\"30\" width=\"161.7826086956522\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"161.7826086956522\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-99\" parent=\"lxyTNMm6ix6AUjXJJnue-92\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"221.7826086956522\" y=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-100\" parent=\"lxyTNMm6ix6AUjXJJnue-99\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;rowspan=5;colspan=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"150\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-101\" parent=\"lxyTNMm6ix6AUjXJJnue-99\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"OwnerId (Cognito UserID)\" vertex=\"1\"><mxGeometry height=\"30\" width=\"161.7826086956522\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"161.7826086956522\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-7\" parent=\"lxyTNMm6ix6AUjXJJnue-92\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"221.7826086956522\" y=\"90\" as=\"geometry\"/></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-8\" parent=\"AfJGKPdR5it0plpi9SXT-7\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-9\" parent=\"AfJGKPdR5it0plpi9SXT-7\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Name\" vertex=\"1\"><mxGeometry height=\"30\" width=\"161.7826086956522\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"161.7826086956522\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-102\" parent=\"lxyTNMm6ix6AUjXJJnue-92\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"221.7826086956522\" y=\"120\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-103\" parent=\"lxyTNMm6ix6AUjXJJnue-102\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-104\" parent=\"lxyTNMm6ix6AUjXJJnue-102\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Description\" vertex=\"1\"><mxGeometry height=\"30\" width=\"161.7826086956522\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"161.7826086956522\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-105\" parent=\"lxyTNMm6ix6AUjXJJnue-92\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"221.7826086956522\" y=\"150\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-106\" parent=\"lxyTNMm6ix6AUjXJJnue-105\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-107\" parent=\"lxyTNMm6ix6AUjXJJnue-105\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Email\" vertex=\"1\"><mxGeometry height=\"30\" width=\"161.7826086956522\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"161.7826086956522\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-114\" parent=\"lxyTNMm6ix6AUjXJJnue-92\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"221.7826086956522\" y=\"180\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-115\" parent=\"lxyTNMm6ix6AUjXJJnue-114\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-116\" parent=\"lxyTNMm6ix6AUjXJJnue-114\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Phone\" vertex=\"1\"><mxGeometry height=\"30\" width=\"161.7826086956522\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"161.7826086956522\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-117\" parent=\"lxyTNMm6ix6AUjXJJnue-92\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"221.7826086956522\" y=\"210\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-118\" parent=\"lxyTNMm6ix6AUjXJJnue-117\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-119\" parent=\"lxyTNMm6ix6AUjXJJnue-117\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Address\" vertex=\"1\"><mxGeometry height=\"30\" width=\"161.7826086956522\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"161.7826086956522\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-148\" parent=\"lxyTNMm6ix6AUjXJJnue-92\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"221.7826086956522\" y=\"240\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-149\" parent=\"lxyTNMm6ix6AUjXJJnue-148\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-150\" parent=\"lxyTNMm6ix6AUjXJJnue-148\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Status\" vertex=\"1\"><mxGeometry height=\"30\" width=\"161.7826086956522\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"161.7826086956522\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-108\" parent=\"lxyTNMm6ix6AUjXJJnue-92\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"221.7826086956522\" y=\"270\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-109\" parent=\"lxyTNMm6ix6AUjXJJnue-108\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-110\" parent=\"lxyTNMm6ix6AUjXJJnue-108\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"CreatedAt\" vertex=\"1\"><mxGeometry height=\"30\" width=\"161.7826086956522\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"161.7826086956522\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-111\" parent=\"lxyTNMm6ix6AUjXJJnue-92\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"221.7826086956522\" y=\"300\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-112\" parent=\"lxyTNMm6ix6AUjXJJnue-111\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-113\" parent=\"lxyTNMm6ix6AUjXJJnue-111\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"UpdatedAt\" vertex=\"1\"><mxGeometry height=\"30\" width=\"161.7826086956522\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"161.7826086956522\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-154\" parent=\"1\" style=\"shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;whiteSpace=wrap;strokeColor=default;\" value=\"Products\" vertex=\"1\"><mxGeometry height=\"330\" width=\"180\" x=\"-207.11\" y=\"705\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-155\" parent=\"lxyTNMm6ix6AUjXJJnue-154\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"30\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-156\" parent=\"lxyTNMm6ix6AUjXJJnue-155\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"PK\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-157\" parent=\"lxyTNMm6ix6AUjXJJnue-155\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"StoreId\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-158\" parent=\"lxyTNMm6ix6AUjXJJnue-154\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-159\" parent=\"lxyTNMm6ix6AUjXJJnue-158\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"SK\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-160\" parent=\"lxyTNMm6ix6AUjXJJnue-158\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"ProductId\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-161\" parent=\"lxyTNMm6ix6AUjXJJnue-154\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"90\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-162\" parent=\"lxyTNMm6ix6AUjXJJnue-161\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;rowspan=5;colspan=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"150\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-163\" parent=\"lxyTNMm6ix6AUjXJJnue-161\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Code\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-164\" parent=\"lxyTNMm6ix6AUjXJJnue-154\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"120\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-165\" parent=\"lxyTNMm6ix6AUjXJJnue-164\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-166\" parent=\"lxyTNMm6ix6AUjXJJnue-164\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Name\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-167\" parent=\"lxyTNMm6ix6AUjXJJnue-154\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"150\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-168\" parent=\"lxyTNMm6ix6AUjXJJnue-167\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-169\" parent=\"lxyTNMm6ix6AUjXJJnue-167\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Description\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-170\" parent=\"lxyTNMm6ix6AUjXJJnue-154\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"180\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-171\" parent=\"lxyTNMm6ix6AUjXJJnue-170\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-172\" parent=\"lxyTNMm6ix6AUjXJJnue-170\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Category\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-173\" parent=\"lxyTNMm6ix6AUjXJJnue-154\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"210\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-174\" parent=\"lxyTNMm6ix6AUjXJJnue-173\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-175\" parent=\"lxyTNMm6ix6AUjXJJnue-173\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Price\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-176\" parent=\"lxyTNMm6ix6AUjXJJnue-154\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"240\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-177\" parent=\"lxyTNMm6ix6AUjXJJnue-176\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-178\" parent=\"lxyTNMm6ix6AUjXJJnue-176\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Stock\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-179\" parent=\"lxyTNMm6ix6AUjXJJnue-154\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"270\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-180\" parent=\"lxyTNMm6ix6AUjXJJnue-179\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-181\" parent=\"lxyTNMm6ix6AUjXJJnue-179\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"CreatedAt\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-182\" parent=\"lxyTNMm6ix6AUjXJJnue-154\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"300\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-183\" parent=\"lxyTNMm6ix6AUjXJJnue-182\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-184\" parent=\"lxyTNMm6ix6AUjXJJnue-182\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"UpdatedAt\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"4JoOq0QckH6rwObcdxsz-29\" edge=\"1\" parent=\"1\" source=\"lxyTNMm6ix6AUjXJJnue-188\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;\" target=\"lxyTNMm6ix6AUjXJJnue-164\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-188\" parent=\"1\" style=\"shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;whiteSpace=wrap;\" value=\"Orders\" vertex=\"1\"><mxGeometry height=\"270\" width=\"229.83333333333331\" x=\"33\" y=\"350\" as=\"geometry\"/></mxCell><mxCell id=\"4JoOq0QckH6rwObcdxsz-7\" parent=\"lxyTNMm6ix6AUjXJJnue-188\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"229.83333333333331\" y=\"30\" as=\"geometry\"/></mxCell><mxCell id=\"4JoOq0QckH6rwObcdxsz-8\" parent=\"4JoOq0QckH6rwObcdxsz-7\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"&lt;span style=&quot;font-weight: 700;&quot;&gt;PK&lt;/span&gt;\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"4JoOq0QckH6rwObcdxsz-9\" parent=\"4JoOq0QckH6rwObcdxsz-7\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"&lt;span style=&quot;font-weight: 700; text-decoration: underline;&quot;&gt;StoreId&lt;/span&gt;\" vertex=\"1\"><mxGeometry height=\"30\" width=\"169.83333333333331\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"169.83333333333331\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-192\" parent=\"lxyTNMm6ix6AUjXJJnue-188\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"229.83333333333331\" y=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-193\" parent=\"lxyTNMm6ix6AUjXJJnue-192\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"SK\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-194\" parent=\"lxyTNMm6ix6AUjXJJnue-192\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"OrderId\" vertex=\"1\"><mxGeometry height=\"30\" width=\"169.83333333333331\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"169.83333333333331\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-195\" parent=\"lxyTNMm6ix6AUjXJJnue-188\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"229.83333333333331\" y=\"90\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-196\" parent=\"lxyTNMm6ix6AUjXJJnue-195\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;rowspan=5;colspan=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"150\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-197\" parent=\"lxyTNMm6ix6AUjXJJnue-195\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"CustomerId (Cognito UserId)\" vertex=\"1\"><mxGeometry height=\"30\" width=\"169.83333333333331\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"169.83333333333331\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-201\" parent=\"lxyTNMm6ix6AUjXJJnue-188\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"229.83333333333331\" y=\"120\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-202\" parent=\"lxyTNMm6ix6AUjXJJnue-201\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-203\" parent=\"lxyTNMm6ix6AUjXJJnue-201\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Items []\" vertex=\"1\"><mxGeometry height=\"30\" width=\"169.83333333333331\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"169.83333333333331\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-10\" parent=\"lxyTNMm6ix6AUjXJJnue-188\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"229.83333333333331\" y=\"150\" as=\"geometry\"/></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-11\" parent=\"AfJGKPdR5it0plpi9SXT-10\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-12\" parent=\"AfJGKPdR5it0plpi9SXT-10\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Total\" vertex=\"1\"><mxGeometry height=\"30\" width=\"169.83333333333331\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"169.83333333333331\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-204\" parent=\"lxyTNMm6ix6AUjXJJnue-188\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"229.83333333333331\" y=\"180\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-205\" parent=\"lxyTNMm6ix6AUjXJJnue-204\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-206\" parent=\"lxyTNMm6ix6AUjXJJnue-204\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Status&amp;nbsp; &amp;nbsp;&amp;nbsp;\" vertex=\"1\"><mxGeometry height=\"30\" width=\"169.83333333333331\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"169.83333333333331\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-216\" parent=\"lxyTNMm6ix6AUjXJJnue-188\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"229.83333333333331\" y=\"210\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-217\" parent=\"lxyTNMm6ix6AUjXJJnue-216\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\" visible=\"0\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-218\" parent=\"lxyTNMm6ix6AUjXJJnue-216\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"CreatedAt\" vertex=\"1\"><mxGeometry height=\"30\" width=\"169.83333333333331\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"169.83333333333331\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-219\" parent=\"lxyTNMm6ix6AUjXJJnue-188\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"229.83333333333331\" y=\"240\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-220\" parent=\"lxyTNMm6ix6AUjXJJnue-219\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-221\" parent=\"lxyTNMm6ix6AUjXJJnue-219\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"UpdatedAt\" vertex=\"1\"><mxGeometry height=\"30\" width=\"169.83333333333331\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"169.83333333333331\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-222\" parent=\"1\" style=\"shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;whiteSpace=wrap;\" value=\"Audit\" vertex=\"1\"><mxGeometry height=\"180\" width=\"180\" x=\"565\" y=\"350\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-223\" parent=\"lxyTNMm6ix6AUjXJJnue-222\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"30\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-224\" parent=\"lxyTNMm6ix6AUjXJJnue-223\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"PK\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-225\" parent=\"lxyTNMm6ix6AUjXJJnue-223\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"EntityId\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-226\" parent=\"lxyTNMm6ix6AUjXJJnue-222\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-227\" parent=\"lxyTNMm6ix6AUjXJJnue-226\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"SK\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-228\" parent=\"lxyTNMm6ix6AUjXJJnue-226\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Timestamp\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-232\" parent=\"lxyTNMm6ix6AUjXJJnue-222\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"90\" as=\"geometry\"/></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-233\" parent=\"lxyTNMm6ix6AUjXJJnue-232\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"lxyTNMm6ix6AUjXJJnue-234\" parent=\"lxyTNMm6ix6AUjXJJnue-232\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Action\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-16\" parent=\"lxyTNMm6ix6AUjXJJnue-222\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"120\" as=\"geometry\"/></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-17\" parent=\"AfJGKPdR5it0plpi9SXT-16\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-18\" parent=\"AfJGKPdR5it0plpi9SXT-16\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Result\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-19\" parent=\"lxyTNMm6ix6AUjXJJnue-222\" style=\"shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"180\" y=\"150\" as=\"geometry\"/></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-20\" parent=\"AfJGKPdR5it0plpi9SXT-19\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"60\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-21\" parent=\"AfJGKPdR5it0plpi9SXT-19\" style=\"shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;html=1;whiteSpace=wrap;\" value=\"Details\" vertex=\"1\"><mxGeometry height=\"30\" width=\"120\" x=\"60\" as=\"geometry\"><mxRectangle height=\"30\" width=\"120\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-23\" edge=\"1\" parent=\"1\" source=\"AfJGKPdR5it0plpi9SXT-22\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;\" target=\"lxyTNMm6ix6AUjXJJnue-92\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-24\" edge=\"1\" parent=\"1\" source=\"AfJGKPdR5it0plpi9SXT-22\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;\" target=\"lxyTNMm6ix6AUjXJJnue-67\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-25\" edge=\"1\" parent=\"1\" source=\"AfJGKPdR5it0plpi9SXT-22\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;\" target=\"lxyTNMm6ix6AUjXJJnue-188\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"AfJGKPdR5it0plpi9SXT-22\" parent=\"1\" style=\"rounded=0;whiteSpace=wrap;html=1;\" value=\"AWS Cognito\" vertex=\"1\"><mxGeometry height=\"60\" width=\"120\" x=\"87.92\" y=\"221\" as=\"geometry\"/></mxCell><mxCell id=\"4JoOq0QckH6rwObcdxsz-30\" edge=\"1\" parent=\"1\" source=\"lxyTNMm6ix6AUjXJJnue-67\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.009;entryY=0.092;entryDx=0;entryDy=0;entryPerimeter=0;\" target=\"lxyTNMm6ix6AUjXJJnue-173\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>",
+  "pages": [
+    {
+      "id": "NbZIwEy0tM0Lfl1E_hBh",
+      "name": "Página-1",
+      "cells": [
+        {
+          "id": "1",
+          "type": "layer"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-67",
+          "type": "node",
+          "parent": "1",
+          "label": "Carts"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-71",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-67"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-72",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-71",
+          "label": "PK"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-73",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-71",
+          "label": "ClientId",
+          "html": "<b><u>ClientId</u></b>"
+        },
+        {
+          "id": "4JoOq0QckH6rwObcdxsz-10",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-67"
+        },
+        {
+          "id": "4JoOq0QckH6rwObcdxsz-11",
+          "type": "node",
+          "parent": "4JoOq0QckH6rwObcdxsz-10"
+        },
+        {
+          "id": "4JoOq0QckH6rwObcdxsz-12",
+          "type": "node",
+          "parent": "4JoOq0QckH6rwObcdxsz-10",
+          "label": "Items[] (ProductId, Quantity)"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-77",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-67"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-78",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-77"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-79",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-77",
+          "label": "CreatedAt"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-89",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-67"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-90",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-89"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-91",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-89",
+          "label": "UpdatedAt"
+        },
+        {
+          "id": "4JoOq0QckH6rwObcdxsz-26",
+          "type": "edge",
+          "parent": "1",
+          "source": "lxyTNMm6ix6AUjXJJnue-92",
+          "target": "lxyTNMm6ix6AUjXJJnue-195"
+        },
+        {
+          "id": "4JoOq0QckH6rwObcdxsz-27",
+          "type": "edge",
+          "parent": "1",
+          "source": "lxyTNMm6ix6AUjXJJnue-92",
+          "target": "lxyTNMm6ix6AUjXJJnue-154"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-92",
+          "type": "node",
+          "parent": "1",
+          "label": "Stores"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-96",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-92"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-97",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-96",
+          "label": "PK"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-98",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-96",
+          "label": "StoreId"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-99",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-92"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-100",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-99"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-101",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-99",
+          "label": "OwnerId (Cognito UserID)"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-7",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-92"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-8",
+          "type": "node",
+          "parent": "AfJGKPdR5it0plpi9SXT-7"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-9",
+          "type": "node",
+          "parent": "AfJGKPdR5it0plpi9SXT-7",
+          "label": "Name"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-102",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-92"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-103",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-102"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-104",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-102",
+          "label": "Description"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-105",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-92"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-106",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-105"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-107",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-105",
+          "label": "Email"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-114",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-92"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-115",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-114"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-116",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-114",
+          "label": "Phone"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-117",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-92"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-118",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-117"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-119",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-117",
+          "label": "Address"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-148",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-92"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-149",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-148"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-150",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-148",
+          "label": "Status"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-108",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-92"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-109",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-108"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-110",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-108",
+          "label": "CreatedAt"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-111",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-92"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-112",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-111"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-113",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-111",
+          "label": "UpdatedAt"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-154",
+          "type": "node",
+          "parent": "1",
+          "label": "Products"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-155",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-154"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-156",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-155",
+          "label": "PK"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-157",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-155",
+          "label": "StoreId"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-158",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-154"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-159",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-158",
+          "label": "SK"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-160",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-158",
+          "label": "ProductId"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-161",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-154"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-162",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-161"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-163",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-161",
+          "label": "Code"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-164",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-154"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-165",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-164"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-166",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-164",
+          "label": "Name"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-167",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-154"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-168",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-167"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-169",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-167",
+          "label": "Description"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-170",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-154"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-171",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-170"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-172",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-170",
+          "label": "Category"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-173",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-154"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-174",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-173"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-175",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-173",
+          "label": "Price"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-176",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-154"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-177",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-176"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-178",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-176",
+          "label": "Stock"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-179",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-154"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-180",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-179"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-181",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-179",
+          "label": "CreatedAt"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-182",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-154"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-183",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-182"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-184",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-182",
+          "label": "UpdatedAt"
+        },
+        {
+          "id": "4JoOq0QckH6rwObcdxsz-29",
+          "type": "edge",
+          "parent": "1",
+          "source": "lxyTNMm6ix6AUjXJJnue-188",
+          "target": "lxyTNMm6ix6AUjXJJnue-164"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-188",
+          "type": "node",
+          "parent": "1",
+          "label": "Orders"
+        },
+        {
+          "id": "4JoOq0QckH6rwObcdxsz-7",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-188"
+        },
+        {
+          "id": "4JoOq0QckH6rwObcdxsz-8",
+          "type": "node",
+          "parent": "4JoOq0QckH6rwObcdxsz-7",
+          "label": "PK",
+          "html": "<span style=\"font-weight: 700;\">PK</span>"
+        },
+        {
+          "id": "4JoOq0QckH6rwObcdxsz-9",
+          "type": "node",
+          "parent": "4JoOq0QckH6rwObcdxsz-7",
+          "label": "StoreId",
+          "html": "<span style=\"font-weight: 700; text-decoration: underline;\">StoreId</span>"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-192",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-188"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-193",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-192",
+          "label": "SK"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-194",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-192",
+          "label": "OrderId"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-195",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-188"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-196",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-195"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-197",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-195",
+          "label": "CustomerId (Cognito UserId)"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-201",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-188"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-202",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-201"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-203",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-201",
+          "label": "Items []"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-10",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-188"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-11",
+          "type": "node",
+          "parent": "AfJGKPdR5it0plpi9SXT-10"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-12",
+          "type": "node",
+          "parent": "AfJGKPdR5it0plpi9SXT-10",
+          "label": "Total"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-204",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-188"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-205",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-204"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-206",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-204",
+          "label": "Status&nbsp; &nbsp;&nbsp;"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-216",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-188"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-217",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-216"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-218",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-216",
+          "label": "CreatedAt"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-219",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-188"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-220",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-219"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-221",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-219",
+          "label": "UpdatedAt"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-222",
+          "type": "node",
+          "parent": "1",
+          "label": "Audit"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-223",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-222"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-224",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-223",
+          "label": "PK"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-225",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-223",
+          "label": "EntityId"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-226",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-222"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-227",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-226",
+          "label": "SK"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-228",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-226",
+          "label": "Timestamp"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-232",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-222"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-233",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-232"
+        },
+        {
+          "id": "lxyTNMm6ix6AUjXJJnue-234",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-232",
+          "label": "Action"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-16",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-222"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-17",
+          "type": "node",
+          "parent": "AfJGKPdR5it0plpi9SXT-16"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-18",
+          "type": "node",
+          "parent": "AfJGKPdR5it0plpi9SXT-16",
+          "label": "Result"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-19",
+          "type": "node",
+          "parent": "lxyTNMm6ix6AUjXJJnue-222"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-20",
+          "type": "node",
+          "parent": "AfJGKPdR5it0plpi9SXT-19"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-21",
+          "type": "node",
+          "parent": "AfJGKPdR5it0plpi9SXT-19",
+          "label": "Details"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-23",
+          "type": "edge",
+          "parent": "1",
+          "source": "AfJGKPdR5it0plpi9SXT-22",
+          "target": "lxyTNMm6ix6AUjXJJnue-92"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-24",
+          "type": "edge",
+          "parent": "1",
+          "source": "AfJGKPdR5it0plpi9SXT-22",
+          "target": "lxyTNMm6ix6AUjXJJnue-67"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-25",
+          "type": "edge",
+          "parent": "1",
+          "source": "AfJGKPdR5it0plpi9SXT-22",
+          "target": "lxyTNMm6ix6AUjXJJnue-188"
+        },
+        {
+          "id": "AfJGKPdR5it0plpi9SXT-22",
+          "type": "node",
+          "parent": "1",
+          "label": "AWS Cognito"
+        },
+        {
+          "id": "4JoOq0QckH6rwObcdxsz-30",
+          "type": "edge",
+          "parent": "1",
+          "source": "lxyTNMm6ix6AUjXJJnue-67",
+          "target": "lxyTNMm6ix6AUjXJJnue-173"
+        }
+      ]
+    }
+  ]
+}

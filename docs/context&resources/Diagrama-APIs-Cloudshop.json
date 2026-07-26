@@ -1,0 +1,744 @@
+{
+  "version": "30.4.0",
+  "data": "<mxfile host=\"app.diagrams.net\"><diagram id=\"NtsyUJ9v3hxQbXS3IepL\" name=\"Página-2\"><mxGraphModel dx=\"3593\" dy=\"2260\" grid=\"1\" gridSize=\"10\" guides=\"1\" tooltips=\"1\" connect=\"1\" arrows=\"1\" fold=\"1\" page=\"1\" pageScale=\"1\" pageWidth=\"1100\" pageHeight=\"850\" math=\"0\" shadow=\"0\"><root><mxCell id=\"0\"/><mxCell id=\"1\" parent=\"0\"/><mxCell id=\"ePTt8hNo-sxGmscUa3q9-7\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-1\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-6\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-1\" parent=\"1\" style=\"shape=actor;whiteSpace=wrap;html=1;\" value=\"\" vertex=\"1\"><mxGeometry height=\"60\" width=\"40\" x=\"1815\" y=\"-220\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-9\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-6\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-8\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-6\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png;arcSize=18;\" value=\"CloudFront\" vertex=\"1\"><mxGeometry height=\"80\" width=\"120\" x=\"1775\" y=\"-110\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-12\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-8\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-11\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-8\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Frontend / S3\" vertex=\"1\"><mxGeometry height=\"80\" width=\"120\" x=\"1775\" y=\"10\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-10\" parent=\"1\" style=\"text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;fontStyle=1\" value=\"Usuario\" vertex=\"1\"><mxGeometry height=\"30\" width=\"60\" x=\"1805\" y=\"-260\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-14\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-11\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;\" target=\"ePTt8hNo-sxGmscUa3q9-13\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-11\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"WAF\" vertex=\"1\"><mxGeometry height=\"80\" width=\"120\" x=\"1775\" y=\"130\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-17\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-15\" value=\"POST /registrations\"><mxGeometry relative=\"1\" x=\"0.1613\" as=\"geometry\"><mxPoint as=\"offset\"/><Array as=\"points\"><mxPoint x=\"-30\" y=\"290\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-27\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"rounded=0;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-24\" value=\"GET /users\"><mxGeometry relative=\"1\" x=\"0.2219\" as=\"geometry\"><mxPoint as=\"offset\"/></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-28\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-26\" value=\"PATCH /users/:id\"><mxGeometry relative=\"1\" x=\"-0.4235\" as=\"geometry\"><mxPoint y=\"-1\" as=\"offset\"/><Array as=\"points\"><mxPoint x=\"330\" y=\"330\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-31\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-30\" value=\"DELETE /users/:id\"><mxGeometry relative=\"1\" x=\"0.023\" as=\"geometry\"><mxPoint as=\"offset\"/><Array as=\"points\"><mxPoint x=\"480\" y=\"510\"/><mxPoint x=\"480\" y=\"510\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-44\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=19;\" target=\"ePTt8hNo-sxGmscUa3q9-43\" value=\"POST /carts/:id/products/:productId\"><mxGeometry relative=\"1\" x=\"-0.3846\" as=\"geometry\"><mxPoint as=\"offset\"/><Array as=\"points\"><mxPoint x=\"680\" y=\"490\"/><mxPoint x=\"680\" y=\"490\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-49\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"rounded=0;orthogonalLoop=1;jettySize=auto;html=1;edgeStyle=orthogonalEdgeStyle;fontSize=18;\" target=\"ePTt8hNo-sxGmscUa3q9-45\" value=\"PATCH /carts/:id/products/:productId\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"840\" y=\"420\"/><mxPoint x=\"840\" y=\"420\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-52\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=18;\" target=\"ePTt8hNo-sxGmscUa3q9-50\" value=\"DELETE /carts/:id/products/:productId\"><mxGeometry relative=\"1\" x=\"-0.6923\" as=\"geometry\"><mxPoint as=\"offset\"/><Array as=\"points\"><mxPoint x=\"1000\" y=\"570\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-56\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-51\" value=\"DELETE carts/:id\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"1160\" y=\"550\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-58\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-57\" value=\"GET carts/:id\"><mxGeometry relative=\"1\" x=\"-0.3478\" as=\"geometry\"><mxPoint y=\"-1\" as=\"offset\"/><Array as=\"points\"><mxPoint x=\"1320.07\" y=\"440\"/><mxPoint x=\"1320.07\" y=\"440\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-68\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-62\" value=\"POST /products\"><mxGeometry relative=\"1\" x=\"-0.2308\" as=\"geometry\"><mxPoint y=\"1\" as=\"offset\"/><Array as=\"points\"><mxPoint x=\"1540\" y=\"450\"/><mxPoint x=\"1540\" y=\"450\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-69\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-63\" value=\"PATCH /products/:id\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"1700.05\" y=\"470\"/><mxPoint x=\"1700.05\" y=\"470\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-70\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-64\" value=\"GET /products/:id\"><mxGeometry relative=\"1\" x=\"-0.2308\" as=\"geometry\"><mxPoint y=\"1\" as=\"offset\"/><Array as=\"points\"><mxPoint x=\"1860\" y=\"470\"/><mxPoint x=\"1860\" y=\"470\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-109\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-94\" value=\"PATCH /stores/:id\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"3220\" y=\"510\"/><mxPoint x=\"3450\" y=\"510\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-110\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-96\" value=\"GET /stores/:id\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"3260\" y=\"460\"/><mxPoint x=\"3610\" y=\"460\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-111\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-98\" value=\"GET /stores\"><mxGeometry relative=\"1\" x=\"-0.1146\" as=\"geometry\"><mxPoint as=\"offset\"/><Array as=\"points\"><mxPoint x=\"3770\" y=\"330\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-112\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-13\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-100\" value=\"DELETE /stores/:id\"><mxGeometry relative=\"1\" x=\"0.4393\" as=\"geometry\"><mxPoint y=\"-1\" as=\"offset\"/><Array as=\"points\"><mxPoint x=\"3930\" y=\"300\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-13\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"API GATEWAY\" vertex=\"1\"><mxGeometry height=\"80\" width=\"2930\" x=\"370\" y=\"270\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-16\" parent=\"1\" style=\"swimlane;fontSize=16;\" value=\"AUTH MODULE\" vertex=\"1\"><mxGeometry height=\"170\" width=\"360\" x=\"-290\" y=\"690\" as=\"geometry\"><mxRectangle height=\"30\" width=\"130\" x=\"-290\" y=\"690\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-21\" edge=\"1\" parent=\"ePTt8hNo-sxGmscUa3q9-16\" source=\"ePTt8hNo-sxGmscUa3q9-15\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-20\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-15\" parent=\"ePTt8hNo-sxGmscUa3q9-16\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Register\" vertex=\"1\"><mxGeometry height=\"80\" width=\"120\" x=\"200\" y=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-20\" parent=\"ePTt8hNo-sxGmscUa3q9-16\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Amazon Cognito\" vertex=\"1\"><mxGeometry height=\"80\" width=\"120\" x=\"30\" y=\"60\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-22\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-8\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-20\" value=\"POST&amp;nbsp; /login\"><mxGeometry relative=\"1\" x=\"0.843\" as=\"geometry\"><mxPoint as=\"offset\"/><Array as=\"points\"><mxPoint x=\"-200\" y=\"70\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-25\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-24\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-20\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"180\" y=\"910\"/><mxPoint x=\"-200\" y=\"910\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-24\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Obtener Usuarios\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"120\" y=\"741\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-29\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-26\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-20\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"330\" y=\"910\"/><mxPoint x=\"-200\" y=\"910\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-26\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Actualizar Usuarios\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"270\" y=\"741\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-32\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-30\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-20\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"480\" y=\"910\"/><mxPoint x=\"-200\" y=\"910\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-30\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Desactivar Usuarios\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"420\" y=\"741\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-37\" parent=\"1\" style=\"swimlane;fontSize=16;\" value=\"USERS MODULE\" vertex=\"1\"><mxGeometry height=\"170\" width=\"440\" x=\"110\" y=\"690\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-47\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-43\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-48\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"680\" y=\"870\"/><mxPoint x=\"1000\" y=\"870\"/></Array><mxPoint x=\"679.9999999999995\" y=\"900\" as=\"targetPoint\"/></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-43\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Agregar al Carrito\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"620\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-53\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-45\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;\" target=\"ePTt8hNo-sxGmscUa3q9-48\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"840\" y=\"870\"/><mxPoint x=\"1000\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-45\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Modificar Cantidades\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"780\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-48\" parent=\"1\" style=\"shape=datastore;whiteSpace=wrap;html=1;\" value=\"DynamoDB Carritos\" vertex=\"1\"><mxGeometry height=\"80\" width=\"80\" x=\"960\" y=\"930\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-54\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-50\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;\" target=\"ePTt8hNo-sxGmscUa3q9-48\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"1000\" y=\"900\"/><mxPoint x=\"1000\" y=\"900\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-50\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Eliminar Producto del Carrito\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"940\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-51\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Vaciar Carrito\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"1100\" y=\"741\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-55\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-51\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-48\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"1160\" y=\"870\"/><mxPoint x=\"1000\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-59\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-57\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-48\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"1320\" y=\"870\"/><mxPoint x=\"1000\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-57\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Ver Detalles del carrito\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"1260\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-60\" parent=\"1\" style=\"swimlane;\" value=\"CARTS MODULE\" vertex=\"1\"><mxGeometry height=\"200\" width=\"820\" x=\"590\" y=\"690\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-74\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-62\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-67\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"1540.07\" y=\"870\"/><mxPoint x=\"1860.07\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-62\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Crear Producto\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"1480\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-75\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-63\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;\" target=\"ePTt8hNo-sxGmscUa3q9-67\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"1700.07\" y=\"870\"/><mxPoint x=\"1860.07\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-63\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Actualizar Producto\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"1640\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-76\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-64\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-67\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-64\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Ver Detalle de Producto\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"1800\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-71\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-65\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-13\" value=\"GET /products\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"2020.07\" y=\"450\"/><mxPoint x=\"2020.07\" y=\"450\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-77\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-65\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-67\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"2020.07\" y=\"870\"/><mxPoint x=\"1860.07\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-65\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Ver Productos\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"1960\" y=\"741\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-72\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-66\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-13\" value=\"DELETE /products/:id\"><mxGeometry relative=\"1\" x=\"0.1795\" as=\"geometry\"><mxPoint y=\"1\" as=\"offset\"/><Array as=\"points\"><mxPoint x=\"2180.07\" y=\"450\"/><mxPoint x=\"2180.07\" y=\"450\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-78\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-66\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-67\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"2180.07\" y=\"870\"/><mxPoint x=\"1860.07\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-66\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Desactivar Producto\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"2120\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-67\" parent=\"1\" style=\"shape=datastore;whiteSpace=wrap;html=1;\" value=\"DynamoDB Productos\" vertex=\"1\"><mxGeometry height=\"80\" width=\"80\" x=\"1820\" y=\"930\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-73\" parent=\"1\" style=\"swimlane;\" value=\"PRODUCTS MODULE\" vertex=\"1\"><mxGeometry height=\"200\" width=\"820\" x=\"1450\" y=\"690\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-79\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-80\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-89\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"2410.06\" y=\"870\"/><mxPoint x=\"2860.06\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-103\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-80\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=classic;startFill=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-13\" value=\"POST /orders\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"2410\" y=\"470\"/><mxPoint x=\"2410\" y=\"470\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-80\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Crear Pedido\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"2350\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-81\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-82\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;\" target=\"ePTt8hNo-sxGmscUa3q9-89\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"2570.06\" y=\"870\"/><mxPoint x=\"2860.06\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-104\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-82\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=classic;startFill=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-13\" value=\"PATCH /orders/:id\"><mxGeometry relative=\"1\" x=\"0.3333\" as=\"geometry\"><mxPoint as=\"offset\"/><Array as=\"points\"><mxPoint x=\"2570\" y=\"430\"/><mxPoint x=\"2570\" y=\"430\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-82\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Actualizar Pedido\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"2510\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-83\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-84\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-89\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"2730.06\" y=\"870\"/><mxPoint x=\"2860.06\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-105\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-84\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-13\" value=\"GET /orders/:id\"><mxGeometry relative=\"1\" x=\"-0.2308\" as=\"geometry\"><mxPoint y=\"-1\" as=\"offset\"/><Array as=\"points\"><mxPoint x=\"2730\" y=\"450\"/><mxPoint x=\"2730\" y=\"450\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-84\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Ver Detalle de Pedido\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"2670\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-85\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-86\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-89\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"2890.06\" y=\"870\"/><mxPoint x=\"2860.06\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-106\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-86\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=classic;startFill=1;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-13\" value=\"GET /orders\"><mxGeometry relative=\"1\" x=\"0.2839\" as=\"geometry\"><mxPoint as=\"offset\"/><Array as=\"points\"><mxPoint x=\"2890\" y=\"450\"/><mxPoint x=\"2890\" y=\"450\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-86\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Ver Pedidos\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"2830\" y=\"741\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-87\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-88\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-89\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"3050.06\" y=\"870\"/><mxPoint x=\"2860.06\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-107\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-88\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-13\" value=\"DELETE /orders/:id\"><mxGeometry relative=\"1\" x=\"-0.4359\" as=\"geometry\"><mxPoint y=\"-1\" as=\"offset\"/><Array as=\"points\"><mxPoint x=\"3050\" y=\"470\"/><mxPoint x=\"3050\" y=\"470\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-88\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Cancelar Pedido\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"2990\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-89\" parent=\"1\" style=\"shape=datastore;whiteSpace=wrap;html=1;\" value=\"DynamoDB Pedidos\" vertex=\"1\"><mxGeometry height=\"80\" width=\"80\" x=\"2820\" y=\"930\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-90\" parent=\"1\" style=\"swimlane;\" value=\"ORDERS MODULE\" vertex=\"1\"><mxGeometry height=\"200\" width=\"820\" x=\"2320\" y=\"690\" as=\"geometry\"><mxRectangle height=\"30\" width=\"150\" x=\"2320\" y=\"690\" as=\"alternateBounds\"/></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-91\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-92\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-101\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"3290.0699999999997\" y=\"870\"/><mxPoint x=\"3610.0699999999997\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-108\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-92\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;fontSize=25;\" target=\"ePTt8hNo-sxGmscUa3q9-13\" value=\"POST /stores\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"3290\" y=\"545\"/><mxPoint x=\"3140\" y=\"545\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-92\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Crear Tienda\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"3230\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-93\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-94\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;\" target=\"ePTt8hNo-sxGmscUa3q9-101\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"3450.0699999999997\" y=\"870\"/><mxPoint x=\"3610.0699999999997\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-94\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Actualizar Tienda\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"3390\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-95\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-96\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-101\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-96\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Ver Detalle de Tienda\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"3550\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-97\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-98\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-101\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"3770.0699999999997\" y=\"870\"/><mxPoint x=\"3610.0699999999997\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-98\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Ver&amp;nbsp; Tiendas\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"3710\" y=\"741\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-99\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-100\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-101\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"3930.07\" y=\"870\"/><mxPoint x=\"3610.0699999999997\" y=\"870\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-100\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Eliminar Tienda\" vertex=\"1\"><mxGeometry height=\"95\" width=\"120\" x=\"3870\" y=\"740\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-101\" parent=\"1\" style=\"shape=datastore;whiteSpace=wrap;html=1;\" value=\"DynamoDB Tiendas\" vertex=\"1\"><mxGeometry height=\"80\" width=\"80\" x=\"3570\" y=\"930\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-102\" parent=\"1\" style=\"swimlane;\" value=\"STORES MODULE\" vertex=\"1\"><mxGeometry height=\"200\" width=\"820\" x=\"3200\" y=\"690\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-114\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-113\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"2640\" y=\"900\"/><mxPoint x=\"2640\" y=\"900\"/></Array><mxPoint x=\"2640\" y=\"870\" as=\"targetPoint\"/></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-116\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-113\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;\" target=\"ePTt8hNo-sxGmscUa3q9-115\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"2540\" y=\"970\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-118\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-113\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\" target=\"ePTt8hNo-sxGmscUa3q9-117\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"2740\" y=\"970\"/></Array></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-113\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"EventBridge\" vertex=\"1\"><mxGeometry height=\"80\" width=\"120\" x=\"2580\" y=\"930\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-120\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-115\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;\" target=\"ePTt8hNo-sxGmscUa3q9-119\"><mxGeometry relative=\"1\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-115\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"Lambda Enviar Notificación\" vertex=\"1\"><mxGeometry height=\"100\" width=\"120\" x=\"2480\" y=\"1060\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-117\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"CloudWatch\" vertex=\"1\"><mxGeometry height=\"100\" width=\"120\" x=\"2680\" y=\"1060\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-119\" parent=\"1\" style=\"label;whiteSpace=wrap;html=1;align=center;verticalAlign=bottom;spacingLeft=0;spacingBottom=4;imageAlign=center;imageVerticalAlign=top;image=img/clipart/Gear_128x128.png\" value=\"SES\" vertex=\"1\"><mxGeometry height=\"90\" width=\"120\" x=\"2480\" y=\"1210\" as=\"geometry\"/></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-122\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-121\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"1860.09\" y=\"1330.09\"/><mxPoint x=\"110.09\" y=\"1330.09\"/></Array><mxPoint x=\"110\" y=\"910\" as=\"targetPoint\"/></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-123\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-121\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"1860.09\" y=\"1330.09\"/><mxPoint x=\"1090.09\" y=\"1330.09\"/></Array><mxPoint x=\"1090\" y=\"870\" as=\"targetPoint\"/></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-124\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-121\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"1860.09\" y=\"1330.09\"/><mxPoint x=\"1770.09\" y=\"1330.09\"/></Array><mxPoint x=\"1770\" y=\"870\" as=\"targetPoint\"/></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-125\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-121\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"1860.09\" y=\"1330.09\"/><mxPoint x=\"2450.09\" y=\"1330.09\"/></Array><mxPoint x=\"2450\" y=\"870\" as=\"targetPoint\"/></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-126\" edge=\"1\" parent=\"1\" source=\"ePTt8hNo-sxGmscUa3q9-121\" style=\"edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;\"><mxGeometry relative=\"1\" as=\"geometry\"><Array as=\"points\"><mxPoint x=\"1860.09\" y=\"1330.09\"/><mxPoint x=\"3340.09\" y=\"1330.09\"/></Array><mxPoint x=\"3340\" y=\"870\" as=\"targetPoint\"/></mxGeometry></mxCell><mxCell id=\"ePTt8hNo-sxGmscUa3q9-121\" parent=\"1\" style=\"shape=datastore;whiteSpace=wrap;html=1;\" value=\"Auditoría\" vertex=\"1\"><mxGeometry height=\"80\" width=\"80\" x=\"1820\" y=\"1350\" as=\"geometry\"/></mxCell></root></mxGraphModel></diagram></mxfile>",
+  "pages": [
+    {
+      "id": "NtsyUJ9v3hxQbXS3IepL",
+      "name": "Página-2",
+      "cells": [
+        {
+          "id": "1",
+          "type": "layer"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-7",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-1",
+          "target": "ePTt8hNo-sxGmscUa3q9-6"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-1",
+          "type": "node",
+          "parent": "1"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-9",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-6",
+          "target": "ePTt8hNo-sxGmscUa3q9-8"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-6",
+          "type": "node",
+          "parent": "1",
+          "label": "CloudFront"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-12",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-8",
+          "target": "ePTt8hNo-sxGmscUa3q9-11"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-8",
+          "type": "node",
+          "parent": "1",
+          "label": "Frontend / S3"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-10",
+          "type": "node",
+          "parent": "1",
+          "label": "Usuario"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-14",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-11",
+          "target": "ePTt8hNo-sxGmscUa3q9-13"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-11",
+          "type": "node",
+          "parent": "1",
+          "label": "WAF"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-17",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-15",
+          "label": "POST /registrations"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-27",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-24",
+          "label": "GET /users"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-28",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-26",
+          "label": "PATCH /users/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-31",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-30",
+          "label": "DELETE /users/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-44",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-43",
+          "label": "POST /carts/:id/products/:productId"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-49",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-45",
+          "label": "PATCH /carts/:id/products/:productId"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-52",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-50",
+          "label": "DELETE /carts/:id/products/:productId"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-56",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-51",
+          "label": "DELETE carts/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-58",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-57",
+          "label": "GET carts/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-68",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-62",
+          "label": "POST /products"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-69",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-63",
+          "label": "PATCH /products/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-70",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-64",
+          "label": "GET /products/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-109",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-94",
+          "label": "PATCH /stores/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-110",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-96",
+          "label": "GET /stores/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-111",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-98",
+          "label": "GET /stores"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-112",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-13",
+          "target": "ePTt8hNo-sxGmscUa3q9-100",
+          "label": "DELETE /stores/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-13",
+          "type": "node",
+          "parent": "1",
+          "label": "API GATEWAY"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-16",
+          "type": "node",
+          "parent": "1",
+          "label": "AUTH MODULE"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-21",
+          "type": "edge",
+          "parent": "ePTt8hNo-sxGmscUa3q9-16",
+          "source": "ePTt8hNo-sxGmscUa3q9-15",
+          "target": "ePTt8hNo-sxGmscUa3q9-20"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-15",
+          "type": "node",
+          "parent": "ePTt8hNo-sxGmscUa3q9-16",
+          "label": "Lambda Register"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-20",
+          "type": "node",
+          "parent": "ePTt8hNo-sxGmscUa3q9-16",
+          "label": "Amazon Cognito"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-22",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-8",
+          "target": "ePTt8hNo-sxGmscUa3q9-20",
+          "label": "POST&nbsp; /login"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-25",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-24",
+          "target": "ePTt8hNo-sxGmscUa3q9-20"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-24",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Obtener Usuarios"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-29",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-26",
+          "target": "ePTt8hNo-sxGmscUa3q9-20"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-26",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Actualizar Usuarios"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-32",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-30",
+          "target": "ePTt8hNo-sxGmscUa3q9-20"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-30",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Desactivar Usuarios"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-37",
+          "type": "node",
+          "parent": "1",
+          "label": "USERS MODULE"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-47",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-43",
+          "target": "ePTt8hNo-sxGmscUa3q9-48"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-43",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Agregar al Carrito"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-53",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-45",
+          "target": "ePTt8hNo-sxGmscUa3q9-48"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-45",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Modificar Cantidades"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-48",
+          "type": "node",
+          "parent": "1",
+          "label": "DynamoDB Carritos"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-54",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-50",
+          "target": "ePTt8hNo-sxGmscUa3q9-48"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-50",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Eliminar Producto del Carrito"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-51",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Vaciar Carrito"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-55",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-51",
+          "target": "ePTt8hNo-sxGmscUa3q9-48"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-59",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-57",
+          "target": "ePTt8hNo-sxGmscUa3q9-48"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-57",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver Detalles del carrito"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-60",
+          "type": "node",
+          "parent": "1",
+          "label": "CARTS MODULE"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-74",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-62",
+          "target": "ePTt8hNo-sxGmscUa3q9-67"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-62",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Crear Producto"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-75",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-63",
+          "target": "ePTt8hNo-sxGmscUa3q9-67"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-63",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Actualizar Producto"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-76",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-64",
+          "target": "ePTt8hNo-sxGmscUa3q9-67"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-64",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver Detalle de Producto"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-71",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-65",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "GET /products"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-77",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-65",
+          "target": "ePTt8hNo-sxGmscUa3q9-67"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-65",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver Productos"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-72",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-66",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "DELETE /products/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-78",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-66",
+          "target": "ePTt8hNo-sxGmscUa3q9-67"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-66",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Desactivar Producto"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-67",
+          "type": "node",
+          "parent": "1",
+          "label": "DynamoDB Productos"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-73",
+          "type": "node",
+          "parent": "1",
+          "label": "PRODUCTS MODULE"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-79",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-80",
+          "target": "ePTt8hNo-sxGmscUa3q9-89"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-103",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-80",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "POST /orders"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-80",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Crear Pedido"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-81",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-82",
+          "target": "ePTt8hNo-sxGmscUa3q9-89"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-104",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-82",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "PATCH /orders/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-82",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Actualizar Pedido"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-83",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-84",
+          "target": "ePTt8hNo-sxGmscUa3q9-89"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-105",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-84",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "GET /orders/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-84",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver Detalle de Pedido"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-85",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-86",
+          "target": "ePTt8hNo-sxGmscUa3q9-89"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-106",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-86",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "GET /orders"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-86",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver Pedidos"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-87",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-88",
+          "target": "ePTt8hNo-sxGmscUa3q9-89"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-107",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-88",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "DELETE /orders/:id"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-88",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Cancelar Pedido"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-89",
+          "type": "node",
+          "parent": "1",
+          "label": "DynamoDB Pedidos"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-90",
+          "type": "node",
+          "parent": "1",
+          "label": "ORDERS MODULE"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-91",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-92",
+          "target": "ePTt8hNo-sxGmscUa3q9-101"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-108",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-92",
+          "target": "ePTt8hNo-sxGmscUa3q9-13",
+          "label": "POST /stores"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-92",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Crear Tienda"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-93",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-94",
+          "target": "ePTt8hNo-sxGmscUa3q9-101"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-94",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Actualizar Tienda"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-95",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-96",
+          "target": "ePTt8hNo-sxGmscUa3q9-101"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-96",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver Detalle de Tienda"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-97",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-98",
+          "target": "ePTt8hNo-sxGmscUa3q9-101"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-98",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Ver&nbsp; Tiendas"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-99",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-100",
+          "target": "ePTt8hNo-sxGmscUa3q9-101"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-100",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Eliminar Tienda"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-101",
+          "type": "node",
+          "parent": "1",
+          "label": "DynamoDB Tiendas"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-102",
+          "type": "node",
+          "parent": "1",
+          "label": "STORES MODULE"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-114",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-113"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-116",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-113",
+          "target": "ePTt8hNo-sxGmscUa3q9-115"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-118",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-113",
+          "target": "ePTt8hNo-sxGmscUa3q9-117"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-113",
+          "type": "node",
+          "parent": "1",
+          "label": "EventBridge"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-120",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-115",
+          "target": "ePTt8hNo-sxGmscUa3q9-119"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-115",
+          "type": "node",
+          "parent": "1",
+          "label": "Lambda Enviar Notificación"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-117",
+          "type": "node",
+          "parent": "1",
+          "label": "CloudWatch"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-119",
+          "type": "node",
+          "parent": "1",
+          "label": "SES"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-122",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-121"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-123",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-121"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-124",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-121"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-125",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-121"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-126",
+          "type": "edge",
+          "parent": "1",
+          "source": "ePTt8hNo-sxGmscUa3q9-121"
+        },
+        {
+          "id": "ePTt8hNo-sxGmscUa3q9-121",
+          "type": "node",
+          "parent": "1",
+          "label": "Auditoría"
+        }
+      ]
+    }
+  ]
+}
